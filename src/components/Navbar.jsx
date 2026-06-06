@@ -301,18 +301,42 @@ const Navbar = ({ language, onLanguageChange }) => {
 
   return (
     <>
-      <div className="text-sm" style={{ backgroundColor: "#0E4B33", color: "#FFFFFF" }}>
+      {/* 1. DEDICATED GOVERNANCE & TRUST STRIP (Very Top) */}
+      <div className="w-full" style={{ backgroundColor: "#C89B3C", color: "#0E4B33" }}>
+        <div className="container mx-auto px-2 sm:px-6 py-1.5 sm:py-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
+          <div className="flex items-center justify-center sm:justify-between gap-4 sm:gap-6 font-extrabold text-[11px] sm:text-sm">
+            <Link to="/about" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <FaCertificate size={14} className="sm:w-4 sm:h-4" /> 
+              <span>{language === 'ar' ? 'الترخيص: 1000827300' : 'License: 1000827300'}</span>
+            </Link>
+            <Link to="/board-members" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <FaUserCircle size={14} className="sm:w-4 sm:h-4" /> 
+              <span>{t.board_members}</span>
+            </Link>
+            <Link to="/annual-reports" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <FaChartBar size={14} className="sm:w-4 sm:h-4" /> 
+              <span>{t.financial_statements}</span>
+            </Link>
+            <Link to="/annual-reports" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <FaBookOpen size={14} className="sm:w-4 sm:h-4" /> 
+              <span>{t.gov_reports}</span>
+            </Link>
+            <Link to="/complaints" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <FaEnvelope size={14} className="sm:w-4 sm:h-4" /> 
+              <span>{t.complaints_reports}</span>
+            </Link>
+            <Link to="/membership" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <FaUserFriends size={14} className="sm:w-4 sm:h-4" /> 
+              <span>{t.membership_menu}</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. CONTACT & UTILITIES BAR */}
+      <div className="text-sm border-b border-[#C89B3C]/20" style={{ backgroundColor: "#0E4B33", color: "#FFFFFF" }}>
         <div className="container mx-auto px-6 py-2 flex flex-wrap justify-between items-center gap-3">
           <div className="flex items-center gap-4 md:gap-6 flex-wrap">
-            {/* Institutional Trust Links */}
-            <div className="hidden lg:flex items-center gap-4 text-xs font-bold border-white/30 border-l pl-4" style={{ color: "#C89B3C" }}>
-              <Link to="/organization-certificate" className="hover:text-white transition-colors">{t.organization_certificate}</Link>
-              <Link to="/board-members" className="hover:text-white transition-colors">{t.board_members}</Link>
-              <Link to="/annual-reports" className="hover:text-white transition-colors">{t.financial_statements}</Link>
-              <Link to="/annual-reports" className="hover:text-white transition-colors">{t.gov_reports}</Link>
-              <Link to="/complaints" className="hover:text-white transition-colors">{t.complaints_reports}</Link>
-              <Link to="/membership" className="hover:text-white transition-colors">{t.membership_menu}</Link>
-            </div>
             
             {/* Email Contact */}
             <a 
