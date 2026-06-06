@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { HeroSection, Container, Card, Section, Button } from '../components/Common'
-import { Send } from 'lucide-react'
+import { FaPaperPlane } from 'react-icons/fa'
 
 const VolunteerApplication = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ const VolunteerApplication = () => {
                 <input type="email" placeholder="Email" onChange={(e) => setFormData({...formData, email: e.target.value})} required className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary" />
                 <textarea placeholder="Why do you want to volunteer?" onChange={(e) => setFormData({...formData, motivation: e.target.value})} rows="6" required className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary resize-none"></textarea>
                 <Button type="submit" size="lg" className="w-full gap-2">
-                  <Send size={20} /> Submit Application
+                  <FaPaperPlane size={20} /> Submit Application
                 </Button>
               </form>
             </Card>

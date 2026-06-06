@@ -1,10 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { HeroSection, Section, Container } from '../components/Common'
 import { Link } from 'react-router-dom'
-import { Send, User, Phone, Home, Heart, UserPlus, FileText } from 'lucide-react'
+import { FaPaperPlane, FaUser, FaPhone, FaHome, FaHeart, FaUserPlus, FaFileAlt } from 'react-icons/fa'
 
 const BeneficiaryRegistration = () => {
   const lang = localStorage.getItem('language') || 'en'
+  const [formData, setFormData] = useState({
+    full_name_ar: '',
+    full_name_en: '',
+    national_id: '',
+    date_of_birth: '',
+    gender: '',
+    marital_status: '',
+    mobile: '',
+    email: '',
+    city: '',
+    address: '',
+    family_members: '',
+    monthly_income: '',
+    employment_status: '',
+    has_social_security: '',
+    health_status: '',
+    special_needs: '',
+    emergency_contact_name: '',
+    emergency_contact_mobile: '',
+    emergency_contact_relationship: '',
+    additional_notes: ''
+  })
+  const [loading, setLoading] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState({ type: '', text: '' })
   const t = {
     en: {
       title: 'Beneficiary Registration',
@@ -96,6 +120,71 @@ const BeneficiaryRegistration = () => {
     },
   }[lang]
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    if (!formData.full_name_ar.trim() || !formData.mobile.trim()) {
+      setSubmitMessage({ type: 'error', text: lang === 'ar' ? 'الرجاء ملء الحقول المطلوبة' : 'Please fill required fields' })
+      return
+    }
+
+    setLoading(true)
+    setSubmitMessage({ type: '', text: '' })
+
+    try {
+      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://mathwaa.org.sa/Backend'
+      
+      const response = await fetch(`${BACKEND_URL}/api/submit-beneficiary-registration.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSubmitMessage({ type: 'success', text: data.message || (lang === 'ar' ? 'تم استقبال طلبك بنجاح' : 'Registration submitted successfully') })
+        setFormData({
+          full_name_ar: '',
+          full_name_en: '',
+          national_id: '',
+          date_of_birth: '',
+          gender: '',
+          marital_status: '',
+          mobile: '',
+          email: '',
+          city: '',
+          address: '',
+          family_members: '',
+          monthly_income: '',
+          employment_status: '',
+          has_social_security: '',
+          health_status: '',
+          special_needs: '',
+          emergency_contact_name: '',
+          emergency_contact_mobile: '',
+          emergency_contact_relationship: '',
+          additional_notes: ''
+        })
+      } else {
+        setSubmitMessage({ type: 'error', text: data.message || (lang === 'ar' ? 'حدث خطأ' : 'Error occurred') })
+      }
+    } catch (error) {
+      setSubmitMessage({ type: 'error', text: lang === 'ar' ? 'خطأ في الاتصال' : 'Connection error' })
+      console.error('Error:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <>
       <HeroSection title={t.title} subtitle={t.subtitle} />
@@ -115,73 +204,79 @@ const BeneficiaryRegistration = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'rgba(59,130,246,0.15)' }}>
-                <User size={24} style={{ color: '#2563eb' }} />
+                <FaUser size={24} style={{ color: '#2563eb' }} />
               </div>
               <h2 className="text-2xl font-bold" style={{ color: '#0E4B33' }}>{t.form_title}</h2>
             </div>
             <p className="text-gray-600 mb-8">{t.form_note}</p>
 
-            <form className="space-y-10">
+            {submitMessage.text && (
+              <div className={`p-4 rounded-lg mb-6 ${submitMessage.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                {submitMessage.text}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-10">
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <div className="flex items-center gap-2 mb-6">
-                  <User size={22} style={{ color: '#2563eb' }} />
+                  <FaUser size={22} style={{ color: '#2563eb' }} />
                   <h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.personal}</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="md:col-span-2"><label className="block text-sm font-medium text-gray-700 mb-1">{t.full_name_ar}</label><input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" required /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.national_id}</label><input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.full_name_en}</label><input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.dob}</label><input type="date" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-2">{t.gender}</label><div className="flex gap-4"><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="gender" value="male" className="text-[#0E4B33]" /> {t.male}</label><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="gender" value="female" className="text-[#0E4B33]" /> {t.female}</label></div></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.marital}</label><select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]"><option>Single</option><option>Married</option><option>Widowed</option><option>Divorced</option></select></div>
+                  <div className="md:col-span-2"><label className="block text-sm font-medium text-gray-700 mb-1">{t.full_name_ar}</label><input type="text" name="full_name_ar" value={formData.full_name_ar} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" required /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.national_id}</label><input type="text" name="national_id" value={formData.national_id} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.full_name_en}</label><input type="text" name="full_name_en" value={formData.full_name_en} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.dob}</label><input type="date" name="date_of_birth" value={formData.date_of_birth} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-2">{t.gender}</label><div className="flex gap-4"><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="gender" value="male" checked={formData.gender === 'male'} onChange={handleInputChange} className="text-[#C89B3C]" /> {t.male}</label><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="gender" value="female" checked={formData.gender === 'female'} onChange={handleInputChange} className="text-[#C89B3C]" /> {t.female}</label></div></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.marital}</label><select name="marital_status" value={formData.marital_status} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]"><option value="">Select Status</option><option value="single">Single</option><option value="married">Married</option><option value="widowed">Widowed</option><option value="divorced">Divorced</option></select></div>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <div className="flex items-center gap-2 mb-6"><Phone size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.contact}</h3></div>
+                <div className="flex items-center gap-2 mb-6"><FaPhone size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.contact}</h3></div>
                 <div className="space-y-4">
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.mobile}</label><input type="tel" placeholder={t.mobile_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.email}</label><input type="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.city}</label><input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.address}</label><textarea rows={3} placeholder={t.address_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.mobile}</label><input type="tel" name="mobile" value={formData.mobile} onChange={handleInputChange} placeholder={t.mobile_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" required /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.email}</label><input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.city}</label><input type="text" name="city" value={formData.city} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.address}</label><textarea rows={3} name="address" value={formData.address} onChange={handleInputChange} placeholder={t.address_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <div className="flex items-center gap-2 mb-6"><Home size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.family}</h3></div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.family_members}</label><input type="number" min={0} defaultValue={0} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.monthly_income}</label><input type="number" min={0} defaultValue={0} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.employment}</label><select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]"><option>Employed</option><option>Unemployed</option><option>Retired</option><option>Student</option></select></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-2">{t.social_security}</label><div className="flex gap-4"><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="social" value="yes" className="text-[#0E4B33]" /> {t.yes}</label><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="social" value="no" className="text-[#0E4B33]" /> {t.no}</label></div></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.family_members}</label><input type="number" name="family_members" value={formData.family_members} onChange={handleInputChange} min={0} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.monthly_income}</label><input type="number" name="monthly_income" value={formData.monthly_income} onChange={handleInputChange} min={0} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.employment}</label><select name="employment_status" value={formData.employment_status} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]"><option value="">Select Status</option><option value="employed">Employed</option><option value="unemployed">Unemployed</option><option value="retired">Retired</option><option value="student">Student</option></select></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-2">{t.social_security}</label><div className="flex gap-4"><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="has_social_security" value="yes" checked={formData.has_social_security === 'yes'} onChange={handleInputChange} className="text-[#C89B3C]" /> {t.yes}</label><label className="flex items-center gap-2 cursor-pointer"><input type="radio" name="has_social_security" value="no" checked={formData.has_social_security === 'no'} onChange={handleInputChange} className="text-[#C89B3C]" /> {t.no}</label></div></div>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <div className="flex items-center gap-2 mb-6"><Heart size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.health}</h3></div>
+                <div className="flex items-center gap-2 mb-6"><FaHeart size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.health}</h3></div>
                 <div className="space-y-4">
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.health_status}</label><textarea rows={3} placeholder={t.health_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.special_needs}</label><textarea rows={3} placeholder={t.special_needs_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.health_status}</label><textarea rows={3} name="health_status" value={formData.health_status} onChange={handleInputChange} placeholder={t.health_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.special_needs}</label><textarea rows={3} name="special_needs" value={formData.special_needs} onChange={handleInputChange} placeholder={t.special_needs_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <div className="flex items-center gap-2 mb-6"><UserPlus size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.emergency}</h3></div>
+                <div className="flex items-center gap-2 mb-6"><FaUserPlus size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.emergency}</h3></div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.emergency_name}</label><input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.emergency_mobile}</label><input type="tel" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
-                  <div className="md:col-span-2"><label className="block text-sm font-medium text-gray-700 mb-1">{t.relationship}</label><input type="text" placeholder={t.relationship_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.emergency_name}</label><input type="text" name="emergency_contact_name" value={formData.emergency_contact_name} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div><label className="block text-sm font-medium text-gray-700 mb-1">{t.emergency_mobile}</label><input type="tel" name="emergency_contact_mobile" value={formData.emergency_contact_mobile} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
+                  <div className="md:col-span-2"><label className="block text-sm font-medium text-gray-700 mb-1">{t.relationship}</label><input type="text" name="emergency_contact_relationship" value={formData.emergency_contact_relationship} onChange={handleInputChange} placeholder={t.relationship_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" /></div>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <div className="flex items-center gap-2 mb-4"><FileText size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.notes}</h3></div>
-                <textarea rows={4} placeholder={t.notes_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33]" />
+                <div className="flex items-center gap-2 mb-4"><FaFileAlt size={22} style={{ color: '#2563eb' }} /><h3 className="text-lg font-bold" style={{ color: '#0E4B33' }}>{t.notes}</h3></div>
+                <textarea rows={4} name="additional_notes" value={formData.additional_notes} onChange={handleInputChange} placeholder={t.notes_placeholder} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C89B3C]" />
               </div>
 
-              <button type="submit" className="w-full py-3 rounded-lg font-semibold text-white flex items-center justify-center gap-2 transition-opacity hover:opacity-90" style={{ backgroundColor: '#0E4B33' }}>
-                <Send size={20} />
-                {t.submit}
+              <button type="submit" disabled={loading} className="w-full py-3 rounded-lg font-semibold text-white flex items-center justify-center gap-2 transition-opacity hover:opacity-90 disabled:opacity-50" style={{ backgroundColor: '#C89B3C' }}>
+                <FaPaperPlane size={20} />
+                {loading ? (lang === 'ar' ? 'جاري...' : 'Submitting...') : t.submit}
               </button>
             </form>
           </div>

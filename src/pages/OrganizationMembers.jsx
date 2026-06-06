@@ -1,6 +1,6 @@
 import React from 'react'
 import { HeroSection, Container, Card, Grid, Section } from '../components/Common'
-import { User } from 'lucide-react'
+import { FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const OrganizationMembers = () => {
@@ -67,7 +67,7 @@ const OrganizationMembers = () => {
             {members.map((m, idx) => (
               <Card key={idx} className="text-center border border-gray-200 overflow-hidden">
                 <div className="w-28 h-28 mx-auto rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: 'rgba(14,75,51,0.08)' }}>
-                  <User size={48} style={{ color: '#0E4B33' }} />
+                  <FaUser size={48} style={{ color: '#0E4B33' }} />
                 </div>
                 <h3 className="text-lg font-bold mb-1" style={{ color: '#0E4B33' }}>{isAr ? m.nameAr : m.nameEn}</h3>
                 <p className="text-sm font-semibold text-gray-600">{m.role === 'board' ? t.board_member : t.assembly_member}</p>

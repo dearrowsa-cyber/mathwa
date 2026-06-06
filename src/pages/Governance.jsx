@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeroSection, Section, Container, Card, Grid, SectionTitle } from '../components/Common'
 import { Link } from 'react-router-dom'
-import { Users, Gavel, Building2, FileText, BarChart3, Globe, Download } from 'lucide-react'
+import { FaUsers, FaGavel, FaUniversity, FaFileAlt, FaChartBar, FaGlobe, FaDownload } from 'react-icons/fa'
 
 const Governance = () => {
   const lang = localStorage.getItem('language') || 'en'
@@ -119,13 +119,13 @@ const Governance = () => {
           </div>
           <Grid cols={4}>
             {[
-              { icon: Users, title: t.general_assembly, desc: t.general_assembly_desc },
-              { icon: Users, title: t.board, desc: t.board_desc },
-              { icon: Users, title: t.committees, desc: t.committees_desc },
-              { icon: Building2, title: t.executive, desc: t.executive_desc },
+              { icon: FaUsers, title: t.general_assembly, desc: t.general_assembly_desc },
+              { icon: FaUsers, title: t.board, desc: t.board_desc },
+              { icon: FaUsers, title: t.committees, desc: t.committees_desc },
+              { icon: FaUniversity, title: t.executive, desc: t.executive_desc },
             ].map((item, idx) => (
               <Card key={idx} className="text-center">
-                <item.icon size={40} className="mx-auto mb-3" style={{ color: '#0E4B33' }} />
+                <item.icon size={40} className="mx-auto mb-3" style={{ color: '#C89B3C' }} />
                 <h3 className="font-bold mb-2" style={{ color: '#0E4B33' }}>{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.desc}</p>
               </Card>
@@ -137,12 +137,12 @@ const Governance = () => {
             <p className="text-gray-600 mb-6">{t.powers_sub}</p>
             <Grid cols={3}>
               {[
-                { icon: FileText, title: t.policies },
-                { icon: Gavel, title: t.governance_oversight },
-                { icon: BarChart3, title: t.financial },
+                { icon: FaFileAlt, title: t.policies },
+                { icon: FaGavel, title: t.governance_oversight },
+                { icon: FaChartBar, title: t.financial },
               ].map((item, idx) => (
                 <Card key={idx} className="text-center">
-                  <item.icon size={36} className="mx-auto mb-2" style={{ color: '#0E4B33' }} />
+                  <item.icon size={36} className="mx-auto mb-2" style={{ color: '#C89B3C' }} />
                   <h3 className="font-bold" style={{ color: '#0E4B33' }}>{item.title}</h3>
                 </Card>
               ))}
@@ -155,7 +155,7 @@ const Governance = () => {
             <Grid cols={3}>
               {[t.audit, t.nominations, t.elections].map((title, idx) => (
                 <Card key={idx} className="text-center">
-                  <FileText size={36} className="mx-auto mb-2" style={{ color: '#0E4B33' }} />
+                  <FaFileAlt size={36} className="mx-auto mb-2" style={{ color: '#C89B3C' }} />
                   <h3 className="font-bold" style={{ color: '#0E4B33' }}>{title}</h3>
                 </Card>
               ))}
@@ -168,7 +168,7 @@ const Governance = () => {
             <Grid cols={4}>
               {[t.annual_report, t.financial_reports, t.periodic_reports, t.e_disclosure].map((title, idx) => (
                 <Card key={idx} className="text-center">
-                  <FileText size={32} className="mx-auto mb-2" style={{ color: '#0E4B33' }} />
+                  <FaFileAlt size={32} className="mx-auto mb-2" style={{ color: '#C89B3C' }} />
                   <h3 className="font-bold text-sm" style={{ color: '#0E4B33' }}>{title}</h3>
                 </Card>
               ))}
@@ -182,11 +182,11 @@ const Governance = () => {
               {[t.basic_regulations, t.internal_regulations, t.governance_rules].map((title, idx) => (
                 <Card key={idx} className="flex items-center justify-between flex-wrap gap-4">
                   <div className="flex items-center gap-3">
-                    <FileText size={28} style={{ color: '#0E4B33' }} />
+                    <FaFileAlt size={28} style={{ color: '#C89B3C' }} />
                     <span className="font-semibold" style={{ color: '#0E4B33' }}>{title}</span>
                   </div>
-                  <a href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: '#0E4B33' }}>
-                    <Download size={18} />
+                  <a href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: '#C89B3C' }}>
+                    <FaDownload size={18} />
                     {t.download}
                   </a>
                 </Card>

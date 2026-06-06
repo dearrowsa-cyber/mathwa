@@ -1,11 +1,24 @@
 import React, { useState } from 'react'
 import { HeroSection, Section, Container } from '../components/Common'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { FaArrowRight } from 'react-icons/fa'
 
 const SponsorRegistration = () => {
   const lang = localStorage.getItem('language') || 'en'
-  const [type, setType] = useState('individual') // individual | company
+  const [type, setType] = useState('individual')
+  const [formData, setFormData] = useState({
+    name_ar: '',
+    name_en: '',
+    email: '',
+    id_number: '',
+    phone: '',
+    city: '',
+    donation_type: 'one_time',
+    expected_donation_amount: '',
+    notes: ''
+  })
+  const [loading, setLoading] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState({ type: '', text: '' })
 
   const t = {
     en: {
@@ -52,103 +65,259 @@ const SponsorRegistration = () => {
     },
   }[lang]
 
-  return (
-    <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <Link to="/donate" className="hover:text-[#0E4B33]">{t.contribute}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.title}</span>
-          </nav>
-        </Container>
-      </div>
-      <Section>
-        <Container>
-          <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
-            <h2 className="text-xl font-bold mb-6" style={{ color: '#0E4B33' }}>{t.form_title}</h2>
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
 
-            <div className="flex gap-4 mb-6">
-              <button
-                type="button"
-                onClick={() => setType('individual')}
-                className={`flex-1 py-3 px-4 rounded-lg font-semibold border-2 transition-colors ${type === 'individual' ? 'border-[#0E4B33] text-white' : 'border-gray-300 text-gray-700'}`}
-                style={type === 'individual' ? { backgroundColor: '#0E4B33' } : {}}
-              >
-                {t.individual}
-              </button>
-              <button
-                type="button"
-                onClick={() => setType('company')}
-                className={`flex-1 py-3 px-4 rounded-lg font-semibold border-2 transition-colors ${type === 'company' ? 'border-[#0E4B33] text-white' : 'border-gray-300 text-gray-700'}`}
-                style={type === 'company' ? { backgroundColor: '#0E4B33' } : {}}
-              >
-                {t.company}
-              </button>
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    if (!formData.name_ar.trim()) {
+      setSubmitMessage({ type: 'error', text: lang === 'ar' ? 'الرجاء إدخال الاسم' : 'Please enter name' })
+      return
+    }
+    if (!formData.email.trim()) {
+      setSubmitMessage({ type: 'error', text: lang === 'ar' ? 'الرجاء إدخال البريد الإلكتروني' : 'Please enter email' })
+      return
+    }
+    if (!formData.id_number.trim()) {
+      setSubmitMessage({ type: 'error', text: lang === 'ar' ? 'الرجاء إدخال رقم الهوية' : 'Please enter ID number' })
+      return
+    }
+    if (!formData.phone.trim()) {
+      setSubmitMessage({ type: 'error', text: lang === 'ar' ? 'الرجاء إدخال رقم الجوال' : 'Please enter phone' })
+      return
+    }
+
+    setLoading(true)
+    setSubmitMessage({ type: '', text: '' })
+
+    try {
+      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://mathwaa.org.sa/Backend'
+      
+      const response = await fetch(`${BACKEND_URL}/api/submit-sponsor-registration.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          sponsor_type: type
+        })
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSubmitMessage({ type: 'success', text: data.message || (lang === 'ar' ? 'تم تسجيلك بنجاح' : 'Registration successful') })
+        setFormData({
+          name_ar: '',
+          name_en: '',
+          email: '',
+          id_number: '',
+          phone: '',
+          city: '',
+          donation_type: 'one_time',
+          expected_donation_amount: '',
+          notes: ''
+        })
+      } else {
+        setSubmitMessage({ type: 'error', text: data.message || (lang === 'ar' ? 'حدث خطأ' : 'Error occurred') })
+      }
+    } catch (error) {
+      setSubmitMessage({ type: 'error', text: lang === 'ar' ? 'خطأ في الاتصال' : 'Connection error' })
+      console.error('Error:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+ return (
+  <>
+    <HeroSection title={t.title} subtitle={t.subtitle} />
+
+    <Section>
+      <Container>
+        <div className="relative max-w-4xl mx-auto">
+
+          {/* Decorative Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0E4B33]/20 to-[#C89B3C]/20 blur-3xl rounded-3xl"></div>
+
+          <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 p-10">
+
+            <h2 className="text-2xl font-bold text-center text-[#0E4B33] mb-2">
+              {t.form_title}
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-[#0E4B33] to-[#C89B3C] mx-auto mb-8 rounded-full"></div>
+
+            {submitMessage.text && (
+              <div className={`p-4 rounded-xl mb-6 text-center font-medium ${
+                submitMessage.type === 'success'
+                  ? 'bg-green-50 text-green-700 border border-green-200'
+                  : 'bg-red-50 text-red-700 border border-red-200'
+              }`}>
+                {submitMessage.text}
+              </div>
+            )}
+
+            {/* Sponsor Type Toggle */}
+            <div className="flex bg-gray-100 p-1 rounded-xl mb-8">
+              {['individual', 'company'].map(option => (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => setType(option)}
+                  className={`flex-1 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                    type === option
+                      ? 'bg-gradient-to-r from-[#0E4B33] to-[#C89B3C] text-white shadow-md'
+                      : 'text-gray-600 hover:text-[#0E4B33]'
+                  }`}
+                >
+                  {option === 'individual' ? t.individual : t.company}
+                </button>
+              ))}
             </div>
 
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+
+              {/* Name Arabic */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.name_ar}</label>
-                <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent" />
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.name_ar}</label>
+                <input
+                  type="text"
+                  name="name_ar"
+                  value={formData.name_ar}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                />
               </div>
+
+              {/* Name English */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.name_en}</label>
-                <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent" />
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.name_en}</label>
+                <input
+                  type="text"
+                  name="name_en"
+                  value={formData.name_en}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                />
               </div>
+
+              {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.email}</label>
-                <input type="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent" />
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.email}</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                />
               </div>
+
+              {/* ID */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.id_number}</label>
-                <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent" />
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.id_number}</label>
+                <input
+                  type="text"
+                  name="id_number"
+                  value={formData.id_number}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                />
               </div>
+
+              {/* Phone */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.mobile}</label>
-                <input type="tel" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent" />
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.mobile}</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                />
               </div>
+
+              {/* City */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.city}</label>
-                <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent" />
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.city}</label>
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                />
               </div>
+
+              {/* Donation Type */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.donation_type}</label>
-                <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent">
-                  <option>{t.monthly}</option>
-                  <option>{t.one_time}</option>
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.donation_type}</label>
+                <select
+                  name="donation_type"
+                  value={formData.donation_type}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                >
+                  <option value="one_time">{t.one_time}</option>
+                  <option value="monthly">{t.monthly}</option>
                 </select>
               </div>
+
+              {/* Donation Amount */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.donation_amount}</label>
-                <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent">
-                  <option>100 SAR</option>
-                  <option>250 SAR</option>
-                  <option>500 SAR</option>
-                  <option>1000 SAR</option>
-                </select>
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.donation_amount}</label>
+                <input
+                  type="number"
+                  name="expected_donation_amount"
+                  value={formData.expected_donation_amount}
+                  onChange={handleInputChange}
+                  placeholder="100"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">{t.notes}</label>
-                <textarea rows={3} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0E4B33] focus:border-transparent" />
+
+              {/* Notes */}
+              <div className="md:col-span-2">
+                <label className="text-sm font-medium text-gray-600 mb-1 block">{t.notes}</label>
+                <textarea
+                  name="notes"
+                  value={formData.notes}
+                  onChange={handleInputChange}
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none transition"
+                />
               </div>
-              <button
-                type="submit"
-                className="w-full py-3 rounded-lg font-semibold text-white flex items-center justify-center gap-2 transition-opacity hover:opacity-90"
-                style={{ backgroundColor: '#0E4B33' }}
-              >
-                {t.submit}
-                <ArrowRight size={20} />
-              </button>
+
+              {/* Submit */}
+              <div className="md:col-span-2 mt-4">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-4 rounded-xl font-semibold text-white text-lg bg-gradient-to-r from-[#0E4B33] to-[#C89B3C] shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {loading ? (lang === 'ar' ? 'جاري...' : 'Submitting...') : t.submit}
+                  {!loading && <FaArrowRight size={20} />}
+                </button>
+              </div>
+
             </form>
+
           </div>
-        </Container>
-      </Section>
-    </>
-  )
+        </div>
+      </Container>
+    </Section>
+  </>
+)
+
 }
 
 export default SponsorRegistration

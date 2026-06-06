@@ -82,7 +82,7 @@ npm run dev
 
 4. **Open in browser:**
 ```
-http://localhost:3000 (or next available port)
+https://mathwaa.org.sa (or next available port)
 ```
 
 ## Shared Hosting Deployment
@@ -155,7 +155,7 @@ Update API endpoints in your service files to connect with the backend:
 
 ```javascript
 // Example API call
-const response = await axios.get('http://localhost:8000/api/...')
+const response = await axios.get('https://mathwaa.org.sa:8000/api/...')
 ```
 
 ## Browser Support

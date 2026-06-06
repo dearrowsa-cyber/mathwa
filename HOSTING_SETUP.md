@@ -72,10 +72,10 @@ Steps:
 
 **WinSCP Setup:**
 ```
-1. Download from: https://winscp.net
+1. Download from: http://winscp.net
 2. Launch → New Session
 3. Enter:
-   - Host: ftp.yourdomain.com
+   - Host: ftp.localhost
    - Username: Your cPanel username
    - Password: Your cPanel password
 4. Click Login
@@ -84,7 +84,7 @@ Steps:
 
 **FileZilla Setup:**
 ```
-1. Download from: https://filezilla-project.org
+1. Download from: http://filezilla-project.org
 2. File → Site Manager → New Site
 3. Protocol: SFTP (if available) or FTP
 4. Host: Your hosting provider's FTP address
@@ -100,8 +100,8 @@ Steps:
 
 After uploading to hosting:
 
-- [ ] Can access domain without www (yourdomain.com)
-- [ ] Can access with www (www.yourdomain.com)
+- [ ] Can access domain without www (localhost)
+- [ ] Can access with www (www.localhost)
 - [ ] Styles load correctly (colors appear)
 - [ ] Navigation works (click links)
 - [ ] Images are visible
@@ -150,7 +150,7 @@ Already included in this build:
 
 **cpanel-like:**
 ```
-Hostname: ftp.yourdomain.com or IP
+Hostname: ftp.localhost or IP
 Port: 21 (FTP) or 22 (SFTP)
 Username: yourname or domain
 Password: Check welcome email
@@ -199,9 +199,9 @@ Password: Check welcome email
 ## 📚 Additional Resources
 
 - **Hosting Help:** Contact your hosting provider's support
-- **React:** https://react.dev
-- **Tailwind CSS:** https://tailwindcss.com
-- **Vite:** https://vitejs.dev
+- **React:** http://react.dev
+- **Tailwind CSS:** http://tailwindcss.com
+- **Vite:** http://vitejs.dev
 
 ---
 

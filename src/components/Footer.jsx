@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaInstagram, FaSnapchatGhost } from 'react-icons/fa'
+import Logo from "../assets/images/MATHWA LOGO [Recovered].png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -12,9 +13,9 @@ const Footer = () => {
       quick_links: 'Quick Links',
       contact_info: 'Contact Info',
       follow_us: 'Follow Us',
-      phone: '+966 XX-XXXX-XXXX',
-      email: 'info@mathwa.org',
-      address: 'Riyadh, Saudi Arabia',
+      phone: '+966 53 962 6662',
+      email: 'info@mathwaa.org',
+      address: 'Al Ahsa, Saudi Arabia',
       rights: 'All rights reserved.',
       developed: 'Developed with',
     },
@@ -24,9 +25,9 @@ const Footer = () => {
       quick_links: 'روابط سريعة',
       contact_info: 'معلومات الاتصال',
       follow_us: 'تابعنا',
-      phone: '+966 XX-XXXX-XXXX',
-      email: 'info@mathwa.org',
-      address: 'الرياض، المملكة العربية السعودية',
+      phone: '+966 53 962 6662',
+      email: 'info@mathwaa.org',
+      address:' الأحساء, المملكة العربية السعودية',
       rights: 'جميع الحقوق محفوظة.',
       developed: 'تم التطوير بـ',
     }
@@ -42,10 +43,14 @@ const Footer = () => {
           {/* About Section */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
-              </div>
-              <span className="font-bold text-xl">MATHWA</span>
+             <Link to="/" className="flex items-center gap-2 flex-shrink-0 bg-white rounded px-2 py-1">
+                           <img
+                             src={Logo}
+                             alt="Mathwaa Logo"
+                             className="h-16 md:h-20 w-auto object-contain"
+                               />
+                         </Link>
+             
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               {t.description}
@@ -69,15 +74,15 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4 text-secondary">{t.contact_info}</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-3">
-                <Phone size={18} className="text-accent mt-1 flex-shrink-0" />
-                <span className="text-gray-400">{t.phone}</span>
+                <span className="p-1 rounded bg-[#0E4B33]"><FaPhoneAlt size={14} className="text-[#C89B3C] flex-shrink-0" /></span>
+                <a href="tel:+966539626662" className="text-gray-400 hover:text-white transition-all">{t.phone}</a>
               </div>
               <div className="flex items-start space-x-3">
-                <Mail size={18} className="text-accent mt-1 flex-shrink-0" />
-                <a href="mailto:info@mathwa.org" className="text-gray-400 hover:text-white transition-all">{t.email}</a>
+                <span className="p-1 rounded bg-[#0E4B33]"><FaEnvelope size={14} className="text-[#C89B3C] flex-shrink-0" /></span>
+                <a href="mailto:info@mathwaa.org" className="text-gray-400 hover:text-white transition-all">{t.email}</a>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin size={18} className="text-accent mt-1 flex-shrink-0" />
+                <span className="p-1 rounded bg-[#0E4B33]"><FaMapMarkerAlt size={14} className="text-[#C89B3C] flex-shrink-0" /></span>
                 <span className="text-gray-400">{t.address}</span>
               </div>
             </div>
@@ -85,19 +90,19 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-secondary">{t.follow_us}</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-primary hover:bg-secondary transition-all flex items-center justify-center">
-                <Facebook size={18} />
+            <h3 className="font-bold text-lg mb-4 text-[#C89B3C]">{t.follow_us}</h3>
+            <div className="flex space-x-3">
+              <a href="#" className="w-10 h-10 rounded-full bg-[#0E4B33] hover:bg-[#C89B3C]/20 transition-all flex items-center justify-center border border-[#C89B3C]/10">
+                <FaFacebookF size={18} className="text-[#C89B3C]" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary hover:bg-secondary transition-all flex items-center justify-center">
-                <Twitter size={18} />
+              <a href="https://x.com/mathwaah?s=21" className="w-10 h-10 rounded-full bg-[#0E4B33] hover:bg-[#C89B3C]/20 transition-all flex items-center justify-center border border-[#C89B3C]/10">
+                <FaTwitter size={18} className="text-[#C89B3C]" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary hover:bg-secondary transition-all flex items-center justify-center">
-                <Instagram size={18} />
+              <a href="https://www.instagram.com/mathwaah?igsh=MWU2c2t4N3hiMjVleQ==" className="w-10 h-10 rounded-full bg-[#0E4B33] hover:bg-[#C89B3C]/20 transition-all flex items-center justify-center border border-[#C89B3C]/10">
+                <FaInstagram size={18} className="text-[#C89B3C]" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-primary hover:bg-secondary transition-all flex items-center justify-center">
-                <Linkedin size={18} />
+              <a href="https://www.snapchat.com/add/mathwaah?share_id=QezIcEMU5aM&locale=en-US" className="w-10 h-10 rounded-full bg-[#0E4B33] hover:bg-[#C89B3C]/20 transition-all flex items-center justify-center border border-[#C89B3C]/10">
+                <FaSnapchatGhost size={18} className="text-[#C89B3C]" />
               </a>
             </div>
           </div>
@@ -107,7 +112,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <p>© {currentYear} MATHWA. {t.rights}</p>
-            <p>{t.developed} ❤️ by MATHWA Team</p>
+            <p className="mt-2 font-bold md:mt-0"><a href="http://www.d-arrow.com/" target="_blank" rel="noopener noreferrer">{t.developed} ❤️ by D-Arrow Team</a></p>
           </div>
         </div>
       </div>

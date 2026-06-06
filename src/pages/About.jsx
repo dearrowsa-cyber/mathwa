@@ -1,121 +1,319 @@
 import React from 'react'
 import { HeroSection, SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
-import { Users, Target, Heart, Award } from 'lucide-react'
+import { FaMosque, FaStarAndCrescent, FaHandHoldingHeart, FaQuran, FaBalanceScale, FaEye, FaUsers, FaBullseye, FaHandshake, FaUserShield, FaGavel, FaChartLine, FaCheckCircle } from 'react-icons/fa'
 
 const About = () => {
   const translations = {
     en: {
-      title: 'About MATHWA',
-      subtitle: 'Learn more about our organization and mission',
-      our_story: 'Our Story',
-      story_desc: 'MATHWA was founded with a simple yet powerful vision: to make a meaningful difference in the lives of those in need. Over the years, we have grown into one of the leading charity organizations in the region.',
+      title: 'About Mathwaa Association',
+      subtitle: 'Mathwaa Charitable Association - Honoring the Deceased with Dignity',
+      our_story: 'Who We Are',
+      story_desc: 'Mathwaa Charitable Association is a trusted civic organization that operates with calmness and respect, providing its services with fairness and professionalism, treating people with dignity in the most delicate moments of their lives. It is the first association specialized in supporting the affairs of the deceased in the northern sector of Al-Ahsa, headquartered in Al-Mubarraz city, Al-Ahsa Governorate.',
+      license_info: 'Licensed under No. 1000827300 dated 6/1447H',
       vision: 'Our Vision',
-      vision_desc: 'To create a compassionate society where everyone has access to dignity, support, and opportunities for a better life.',
+      vision_desc: 'Institutional leadership in honoring the deceased and serving their families, through an integrated and fair system that achieves a sustainable humanitarian impact in Al-Ahsa Governorate.',
       mission: 'Our Mission',
-      mission_desc: 'To provide comprehensive charitable services and support to those in need, with a focus on dignity, respect, and sustainable development.',
-      values: 'Our Core Values',
-      value1_title: 'Compassion',
-      value1_desc: 'We lead with empathy and understanding in everything we do',
-      value2_title: 'Integrity',
-      value2_desc: 'We maintain the highest standards of transparency and honesty',
-      value3_title: 'Excellence',
-      value3_desc: 'We strive for excellence in all our programs and services',
-      value4_title: 'Community',
-      value4_desc: 'We believe in the power of community and collective action',
+      mission_desc: 'Providing services for honoring the deceased and supporting and logistical services professionally with Sharia commitment, and supporting the governmental sector represented in the management of deceased affairs services, and integrating with non-profit sector associations, ensuring service coverage for all segments of society in Al-Ahsa Governorate according to the principles of moderation and justice.',
+      values: 'Our Institutional Values',
+      goals: 'Our Goals',
+      goal1: 'Raising awareness about funeral rulings according to Islamic Sharia',
+      goal2: 'Qualifying competencies to work in centers for honoring the deceased',
+      goal3: 'Providing necessary care for the deceased until burial',
+      goal4: 'Helping families of the deceased in transporting, preparing, and burying their dead',
+      stats1: 'Board Members',
+      stats2: 'Year of Establishment',
+      stats3: 'First in Northern Al-Ahsa',
+      cta: 'Join Our Mission',
+      quran_verse: '"Indeed, my Lord has made good my place of settlement."',
+      quran_ref: 'Surah Yusuf, Verse 23',
     },
     ar: {
-      title: 'عن مثوى',
-      subtitle: 'تعرف أكثر على منظمتنا ورسالتنا',
-      our_story: 'قصتنا',
-      story_desc: 'تأسست مثوى برؤية بسيطة لكن قوية: إحداث فرق حقيقي في حياة المحتاجين. على مر السنين، أصبحنا واحدة من الجمعيات الخيرية الرائدة في المنطقة.',
+      title: 'عن جمعية مثوى',
+      subtitle: 'جمعية مثوى الأهلية - إكرام الموتى بكرامة واحترافية',
+      our_story: 'من نحن',
+      story_desc: 'جمعية مثوى الأهلية هي جهة أهلية موثوقة، تعمل بهدوء واحترام، وتقدّم خدماتها بعدالة واحتراف، وتُعامل الإنسان بكرامة في أدق لحظات حياته. وهي أول جمعية متخصصة في خدمة مساندة شؤون الموتى في القطاع الشمالي من الأحساء، مقرها مدينة المبرز - محافظة الأحساء.',
+      license_info: 'برقم ترخيص 1000827300 بتاريخ 6-1447هـ',
       vision: 'رؤيتنا',
-      vision_desc: 'خلق مجتمع متعاطف حيث يتمتع الجميع بالوصول إلى الكرامة والدعم والفرص لحياة أفضل.',
+      vision_desc: 'الريادة المؤسسية في إكرام الموتى وخدمة ذويهم، بمنظومة تكاملية عادلة تحقق أثراً إنسانياً مستداماً في محافظة الأحساء.',
       mission: 'رسالتنا',
-      mission_desc: 'تقديم خدمات وحمات خيرية شاملة للمحتاجين، مع التركيز على الكرامة والاحترام والتنمية المستدامة.',
-      values: 'قيمنا الأساسية',
-      value1_title: 'التعاطف',
-      value1_desc: 'نقود كل ما نفعله بالتعاطف والفهم',
-      value2_title: 'النزاهة',
-      value2_desc: 'نحافظ على أعلى معايير الشفافية والصدق',
-      value3_title: 'التميز',
-      value3_desc: 'نسعى للتميز في جميع برامجنا وخدماتنا',
-      value4_title: 'المجتمع',
-      value4_desc: 'نؤمن بقوة المجتمع والعمل الجماعي',
+      mission_desc: 'تقديم خدمات إكرام الموتى والخدمات المساندة واللوجستية باحترافية والتزام شرعي، ودعم القطاع الحكومي ممثلاً في إدارة خدمات إكرام الموتى، والتكامل مع جمعيات القطاع غير الربحي، بما يضمن شمول الخدمة لكافة فئات المجتمع في محافظة الأحساء وفق مبادئ الوسطية والعدالة.',
+      values: 'قيمنا المؤسسية',
+      goals: 'أهدافنا',
+      goal1: 'التوعية بأحكام الجنائز وفق الشريعة الإسلامية',
+      goal2: 'تأهيل كفاءات للعمل في مراكز إكرام الموتى',
+      goal3: 'تقديم العناية اللازمة بالموتى إلى دفنهم',
+      goal4: 'مساعدة أهالي الموتى في نقل وتجهيز ودفن موتاهم',
+      stats1: 'أعضاء مجلس الإدارة',
+      stats2: 'سنة التأسيس',
+      stats3: 'الأولى في شمال الأحساء',
+      cta: 'انضم إلى رسالتنا',
+      quran_verse: '﴿ إِنَّهُ رَبِّي أَحْسَنَ مَثْوَايَ ﴾',
+      quran_ref: 'سورة يوسف، الآية 23',
     }
   }
 
-  const [language] = React.useState(() => localStorage.getItem('language') || 'en')
+  const [language] = React.useState(() => localStorage.getItem('language') || 'ar')
   const t = translations[language]
+
+  const valuesData = [
+    { title_ar: 'الوسطية', title_en: 'Moderation', desc_ar: 'الالتزام بمنهج الوسطية والاعتدال في جميع أعمالنا', desc_en: 'Adhering to the approach of moderation in all our work', icon: FaBalanceScale },
+    { title_ar: 'الالتزام الشرعي', title_en: 'Sharia Commitment', desc_ar: 'تقديم خدماتنا وفق الأحكام الشرعية الصحيحة', desc_en: 'Delivering services according to Islamic rulings', icon: FaQuran },
+    { title_ar: 'العدالة والشمولية', title_en: 'Justice & Inclusivity', desc_ar: 'ضمان شمول الخدمة لكافة فئات المجتمع بعدالة', desc_en: 'Ensuring services reach all segments of society fairly', icon: FaGavel },
+    { title_ar: 'الشفافية والمساءلة', title_en: 'Transparency & Accountability', desc_ar: 'الوضوح والمصداقية في جميع التعاملات والقرارات', desc_en: 'Clarity and credibility in all dealings and decisions', icon: FaEye },
+    { title_ar: 'التكامل والشراكة', title_en: 'Integration & Partnership', desc_ar: 'التعاون والتكامل مع الجهات الحكومية والأهلية', desc_en: 'Collaboration with governmental and civil organizations', icon: FaHandshake },
+    { title_ar: 'الاحترافية', title_en: 'Professionalism', desc_ar: 'تقديم خدمات عالية الجودة بأساليب مهنية متقدمة', desc_en: 'Delivering high-quality services with advanced methods', icon: FaChartLine },
+    { title_ar: 'العمل الجماعي', title_en: 'Teamwork', desc_ar: 'تعزيز روح الفريق والعمل المشترك لتحقيق الأهداف', desc_en: 'Fostering team spirit and collaboration to achieve goals', icon: FaUsers },
+  ]
 
   return (
     <>
-      <HeroSection 
-        title={t.title}
-        subtitle={t.subtitle}
-      />
+      {/* HERO */}
+      <div className="relative text-white py-28 md:py-36 min-h-[500px] overflow-hidden bg-black flex items-center">
+        <div className="absolute inset-0 w-full h-full">
+          <img 
+            src="/main-about.jpeg" 
+            alt={t.title} 
+            className="w-full h-full object-cover object-center md:object-top"
+          />
+        </div>
+        {/* Contrast Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10"></div>
+        
+        <Container className="relative z-10 w-full">
+          <div className="max-w-3xl animate-fadeInUp">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]" style={{ fontFamily: 'Alexandria, sans-serif' }}>
+              {t.title}
+            </h1>
+            <p className="text-xl md:text-2xl text-white font-medium mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              {t.subtitle}
+            </p>
+            <p className="text-lg text-[#C89B3C] font-bold mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              {t.license_info}
+            </p>
+            <Button variant="secondary" className="shadow-[0_10px_30px_rgba(200,155,60,0.3)] text-lg px-8 py-3 btn-glow inline-flex">
+              {t.cta}
+            </Button>
+          </div>
+        </Container>
+      </div>
 
-      <Section>
+      {/* QURAN VERSE */}
+      <div className="py-10 text-center" style={{ backgroundColor: '#0E4B33' }}>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionTitle title={t.our_story} centered={false} />
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                {t.story_desc}
-              </p>
-            </div>
-            <div className="h-96 bg-gradient-to-br from-primary to-secondary rounded-2xl opacity-80 hidden lg:block"></div>
+          <p className="text-2xl md:text-3xl font-bold text-white mb-2" style={{ fontFamily: 'Alexandria, sans-serif' }}>
+            {t.quran_verse}
+          </p>
+          <p className="text-[#C89B3C] font-medium">{t.quran_ref}</p>
+        </Container>
+      </div>
+
+      {/* WHO WE ARE */}
+      <Section id="who_we_are">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center">
+            <SectionTitle title={t.our_story} />
+            <p className="text-gray-600 text-lg leading-relaxed mt-6">
+              {t.story_desc}
+            </p>
           </div>
         </Container>
       </Section>
 
+      {/* STATS SECTION */}
       <Section bg="gray">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="h-96 bg-gradient-to-br from-secondary to-accent rounded-2xl opacity-80 hidden lg:block order-2 lg:order-1"></div>
-            <div className="order-1 lg:order-2">
-              <SectionTitle title={t.vision} centered={false} />
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                {t.vision_desc}
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {[
+              { number: '5', label: t.stats1, icon: FaUsers },
+              { number: '1447', label: t.stats2, icon: FaStarAndCrescent },
+              { number: '#1', label: t.stats3, icon: FaMosque },
+            ].map((stat, idx) => {
+              const Icon = stat.icon
+              return (
+                <div key={idx} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 card-hover-lift border border-gray-100">
+                  <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-[#0E4B33]/10">
+                    <Icon size={24} className="text-[#C89B3C]" />
+                  </div>
+                  <h3 className="text-4xl md:text-5xl font-extrabold text-[#C89B3C] mb-3">{stat.number}</h3>
+                  <p className="text-gray-600 font-bold text-lg">{stat.label}</p>
+                </div>
+              )
+            })}
           </div>
         </Container>
       </Section>
 
+      {/* VISION & MISSION */}
       <Section>
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionTitle title={t.mission} centered={false} />
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                {t.mission_desc}
-              </p>
-            </div>
-            <div className="h-96 bg-gradient-to-br from-accent to-primary rounded-2xl opacity-80 hidden lg:block"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10" id="vision">
+            <Card className="p-8 shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-primary" id="vision">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#0E4B33]/10">
+                  <FaEye size={24} className="text-[#C89B3C]" />
+                </div>
+                <SectionTitle title={t.vision} centered={false} />
+              </div>
+              <p className="text-gray-600 mt-4 leading-relaxed text-lg">{t.vision_desc}</p>
+            </Card>
+
+            <Card className="p-8 shadow-lg hover:shadow-2xl transition duration-300 border-t-4 border-secondary" id="mission">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#C89B3C]/10">
+                  <FaBullseye size={24} className="text-[#0E4B33]" />
+                </div>
+                <SectionTitle title={t.mission} centered={false} />
+              </div>
+              <p className="text-gray-600 mt-4 leading-relaxed text-lg">{t.mission_desc}</p>
+            </Card>
           </div>
         </Container>
       </Section>
 
-      <Section bg="gray">
+      {/* GOALS */}
+      <Section bg="gray" id="goals">
+        <Container>
+          <SectionTitle title={t.goals} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 max-w-4xl mx-auto">
+            {[t.goal1, t.goal2, t.goal3, t.goal4].map((goal, idx) => (
+              <div key={idx} className="flex items-start gap-4 bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full text-white font-bold text-lg" style={{ backgroundColor: '#C89B3C' }}>
+                  {idx + 1}
+                </div>
+                <p className="text-gray-700 font-medium text-lg leading-relaxed">{goal}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* ORGANIZATIONAL STRUCTURE */}
+      <Section>
+        <Container>
+          <SectionTitle
+            title={
+              language === 'ar'
+                ? 'الهيكل التنظيمي'
+                : 'Organizational Structure'
+            }
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mt-10">
+            
+            {/* LEFT SIDE - IMAGES */}
+            <div className="space-y-6">
+              <img
+                src="/sliders/organization-arabic.jpeg"
+                alt="Organizational Chart 2"
+                className="rounded-2xl shadow-lg w-full object-cover"
+              />
+              <img
+                src="/sliders/Artboard-organization.jpeg"
+                alt="Organizational Chart 1"
+                className="rounded-2xl shadow-lg w-full object-cover"
+              />
+              
+            </div>
+
+            {/* RIGHT SIDE - CONTENT */}
+            <div className={`space-y-6 ${language === 'ar' ? 'text-right' : ''}`}>
+
+              <h3 className="text-2xl font-bold text-primary">
+                {language === 'ar'
+                  ? 'الهيكل التنظيمي لجمعية "مثوى"'
+                  : 'Organizational Structure of "Mathwaa" Association'}
+              </h3>
+
+              <p className="text-gray-600 leading-relaxed">
+                {language === 'ar'
+                  ? 'يعكس هذا الهيكل التسلسل الهرمي للسلطات واللجان والأقسام بناءً على المواد المنصوص عليها في اللائحة.'
+                  : 'This structure reflects the hierarchical order of authorities, committees, and departments based on the provisions of the bylaws.'}
+              </p>
+
+              <div className="space-y-4 text-gray-700 leading-relaxed text-sm">
+
+                <p>
+                  <strong>
+                    {language === 'ar'
+                      ? '1. الجمعية العمومية (أعلى سلطة):'
+                      : '1. General Assembly (Supreme Authority):'}
+                  </strong><br/>
+                  {language === 'ar'
+                    ? 'مسؤولة عن إقرار السياسات العليا، انتخاب مجلس الإدارة، اعتماد الميزانيات والتقارير، وتعديل اللائحة.'
+                    : 'Responsible for approving high-level policies, electing the Board, approving budgets and reports, and amending bylaws.'}
+                </p>
+
+                <p>
+                  <strong>
+                    {language === 'ar'
+                      ? '2. مجلس الإدارة:'
+                      : '2. Board of Directors:'}
+                  </strong><br/>
+                  {language === 'ar'
+                    ? 'يدير الجمعية ويتخذ القرارات الاستراتيجية الكبرى ويشرف على أعمالها.'
+                    : 'Manages the organization and makes major strategic decisions while overseeing operations.'}
+                </p>
+
+                <p>
+                  <strong>
+                    {language === 'ar'
+                      ? '3. اللجان المنبثقة:'
+                      : '3. Board Committees:'}
+                  </strong><br/>
+                  {language === 'ar'
+                    ? 'تشمل لجنة المراجعة الداخلية، لجنة الترشيحات والمكافآت، ولجان أخرى حسب الحاجة.'
+                    : 'Includes Internal Audit Committee, Nominations & Remuneration Committee, and other specialized committees.'}
+                </p>
+
+                <p>
+                  <strong>
+                    {language === 'ar'
+                      ? '4. الجهاز التنفيذي:'
+                      : '4. Executive Management:'}
+                  </strong><br/>
+                  {language === 'ar'
+                    ? 'يقوده المدير التنفيذي ويشمل الإدارات المالية والموارد البشرية والبرامج والعلاقات العامة.'
+                    : 'Led by the Executive Officer and includes Finance, HR, Programs, and Public Relations departments.'}
+                </p>
+
+                <p className="italic text-gray-500">
+                  {language === 'ar'
+                    ? 'يضمن هذا الهيكل الفصل بين السلطات وتحقيق مبادئ الحوكمة الرشيدة.'
+                    : 'This structure ensures separation of powers and achieves good governance principles.'}
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* VALUES */}
+      <Section bg="gray" id="values">
         <Container>
           <SectionTitle title={t.values} />
-          <Grid cols={4}>
-            {[
-              { title: t.value1_title, desc: t.value1_desc, icon: Heart, color: 'text-red-500' },
-              { title: t.value2_title, desc: t.value2_desc, icon: Award, color: 'text-yellow-500' },
-              { title: t.value3_title, desc: t.value3_desc, icon: Target, color: 'text-blue-500' },
-              { title: t.value4_title, desc: t.value4_desc, icon: Users, color: 'text-green-500' },
-            ].map((value, idx) => {
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+            {valuesData.map((value, idx) => {
               const Icon = value.icon
               return (
-                <Card key={idx} className="text-center">
-                  <Icon size={48} className={`mx-auto mb-4 ${value.color}`} />
-                  <h3 className="text-xl font-bold text-primary mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.desc}</p>
+                <Card
+                  key={idx}
+                  className="text-center p-8 rounded-2xl shadow-md hover:shadow-2xl transition duration-300 hover:-translate-y-2"
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-[#0E4B33]/10">
+                    <Icon size={28} className="text-[#C89B3C]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-2">
+                    {language === 'ar' ? value.title_ar : value.title_en}
+                  </h3>
+                  <p className="text-gray-600">
+                    {language === 'ar' ? value.desc_ar : value.desc_en}
+                  </p>
                 </Card>
               )
             })}
-          </Grid>
+          </div>
         </Container>
       </Section>
     </>

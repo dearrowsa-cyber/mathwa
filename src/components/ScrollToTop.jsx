@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ChevronUp } from 'lucide-react'
+import { FaChevronUp } from 'react-icons/fa'
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -30,7 +30,7 @@ const ScrollToTop = () => {
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-opacity-90 transition-all z-40 animate-bounce"
       >
-        <ChevronUp size={24} />
+        <FaChevronUp size={24} />
       </button>
     )
   )

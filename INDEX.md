@@ -85,10 +85,10 @@ FrontendReact/
 
 ## 🔗 External Links
 
-- **React Docs:** https://react.dev
-- **Tailwind CSS:** https://tailwindcss.com
-- **Vite Docs:** https://vitejs.dev
-- **React Router:** https://reactrouter.com
+- **React Docs:** http://react.dev
+- **Tailwind CSS:** http://tailwindcss.com
+- **Vite Docs:** http://vitejs.dev
+- **React Router:** http://reactrouter.com
 
 ---
 

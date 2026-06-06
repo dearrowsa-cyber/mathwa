@@ -1,6 +1,6 @@
 import React from 'react'
 import { HeroSection, SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
-import { ArrowRight, Heart, Users, Award, Zap } from 'lucide-react'
+import { FaArrowRight, FaHandHoldingHeart, FaMosque, FaQuran, FaStarAndCrescent } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const Volunteering = () => {
@@ -40,10 +40,10 @@ const Volunteering = () => {
   }
 
   const benefits = [
-    { title: t.flexible, desc: t.flexible_desc, icon: Heart },
-    { title: t.impact, desc: t.impact_desc, icon: Zap },
-    { title: t.growth, desc: t.growth_desc, icon: Award },
-    { title: t.community, desc: t.community_desc, icon: Users },
+    { title: t.flexible, desc: t.flexible_desc, icon: FaHandHoldingHeart },
+    { title: t.impact, desc: t.impact_desc, icon: FaStarAndCrescent },
+    { title: t.growth, desc: t.growth_desc, icon: FaQuran },
+    { title: t.community, desc: t.community_desc, icon: FaMosque },
   ]
 
   return (
@@ -61,7 +61,7 @@ const Volunteering = () => {
               const Icon = benefit.icon
               return (
                 <Card key={idx} className="text-center">
-                  <Icon size={48} className="mx-auto mb-4 text-primary" />
+                  <Icon size={48} className="mx-auto mb-4" style={{ color: '#C89B3C' }} />
                   <h3 className="text-xl font-bold text-primary mb-2">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.desc}</p>
                 </Card>

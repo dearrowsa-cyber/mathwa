@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Section, Button } from '../components/Common'
-import { ArrowLeft } from 'lucide-react'
+import { FaArrowLeft } from 'react-icons/fa'
 
 const NotFound = () => {
   return (
@@ -16,7 +16,7 @@ const NotFound = () => {
             </p>
             <Link to="/">
               <Button size="lg" className="gap-2">
-                <ArrowLeft size={20} />
+                <FaArrowLeft size={20} />
                 Back to Home
               </Button>
             </Link>

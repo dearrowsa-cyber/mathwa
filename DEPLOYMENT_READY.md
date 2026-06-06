@@ -72,8 +72,8 @@ The `dist/` folder contains **everything needed** for shared hosting:
 - Enter credentials → Connect
 
 **Option B: Free FTP Software**
-- Download FileZilla: https://filezilla-project.org
-- Or WinSCP: https://winscp.net
+- Download FileZilla: http://filezilla-project.org
+- Or WinSCP: http://winscp.net
 - Connect with your hosting credentials
 
 ### Step 3: Upload Files
@@ -272,9 +272,9 @@ Update these files with your backend URL:
 
 ### For Frontend Issues:
 💻 Common resources:
-- React docs: https://react.dev
-- Tailwind docs: https://tailwindcss.com
-- Vite docs: https://vitejs.dev
+- React docs: http://react.dev
+- Tailwind docs: http://tailwindcss.com
+- Vite docs: http://vitejs.dev
 
 ---
 

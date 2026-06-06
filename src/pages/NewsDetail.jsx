@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { HeroSection, Container, Section, Button } from '../components/Common'
-import { Share2, ArrowLeft } from 'lucide-react'
+import { FaShareAlt, FaArrowLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const NewsDetail = () => {
@@ -48,7 +48,7 @@ const NewsDetail = () => {
           <div className="max-w-3xl mx-auto">
             {/* Back Link */}
             <Link to="/news" className="flex items-center gap-2 text-primary hover:text-secondary mb-8 font-bold">
-              <ArrowLeft size={20} />
+              <FaArrowLeft size={20} />
               {t.back}
             </Link>
 
@@ -78,7 +78,7 @@ const NewsDetail = () => {
             {/* Share Button */}
             <div className="flex gap-4">
               <Button variant="secondary" className="gap-2">
-                <Share2 size={20} />
+                <FaShareAlt size={20} />
                 {t.share}
               </Button>
             </div>

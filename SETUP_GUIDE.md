@@ -18,7 +18,7 @@ npm run dev
 ```
 
 ### Step 3: Open the UI
-- Open browser: **http://localhost:3000**
+- Open browser: **https://mathwaa.org.sa**
 - UI should be visible with Home, About, News, Donate, etc.
 
 ---
@@ -33,12 +33,12 @@ npm run dev
 ## Troubleshooting
 
 **Blank/White screen?**
-- Use `http://localhost:3000` (NOT file:// or localhost/Mathwaa/...)
+- Use `https://mathwaa.org.sa` (NOT file:// or mathwaa.org.sa/...)
 - Must run `npm run dev` - don't open index.html directly
 
 **API not loading data?**
 - Ensure XAMPP Apache is running
-- Backend should be at: http://localhost/Mathwaa/Backend/
+- Backend should be at: https://mathwaa.org.sa/Backend/
 
 **Port 3000 already in use?**
 - Vite will auto-try 3001, 3002, etc.

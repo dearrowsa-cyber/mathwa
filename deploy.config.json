@@ -1,0 +1,30 @@
+{
+  "ftp": {
+    "host": "82.25.102.209",
+    "port": 21,
+    "user": "u177513650.mathwaa.org.sa",
+    "password": "Omar@30101994",
+    "secure": false
+  },
+  "paths": {
+    "remoteRoot": "/public_html",
+    "frontendLocal": "./dist",
+    "frontendRemote": "/public_html",
+    "backendLocal": "../Backend",
+    "backendRemote": "/public_html/Backend"
+  },
+  "exclude": [
+    "node_modules",
+    ".git",
+    "src",
+    ".env",
+    ".env.local",
+    "test_*",
+    "debug_*",
+    "check_*",
+    "*.md",
+    "*.bat",
+    "*.sh",
+    "deploy.config.json"
+  ]
+}

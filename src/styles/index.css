@@ -6,20 +6,39 @@
   @apply scroll-smooth;
 }
 
-/* Official fonts: Headers & Logos = Noto Kufi Arabic; General text = Noto Naskh Arabic / Merriweather */
+/* ═══════════════════════════════════════════
+   OFFICIAL FONTS (WOW FACTOR REDESIGN)
+   Headers & Logos = Alexandria
+   General text   = Tajawal / Cairo
+   ═══════════════════════════════════════════ */
+:root {
+  --primary-color: #0E4B33;
+  --secondary-color: #C89B3C;
+}
+
 body {
-  font-family: 'Noto Naskh Arabic', 'Merriweather', Georgia, serif;
-  color: #000000;
+  font-family: 'Tajawal', 'Cairo', Arial, sans-serif;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fdfcf9; /* Extremely subtle warm tint */
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: 'Noto Kufi Arabic', 'Merriweather', Georgia, serif;
+  font-family: 'Alexandria', 'Tajawal', sans-serif;
+  letter-spacing: -0.02em;
 }
 
-/* Arabic: Noto Naskh for body when RTL */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Arabic RTL */
 html[lang="ar"] body,
 html[dir="rtl"] body {
-  font-family: 'Noto Naskh Arabic', 'Tajawal', 'Simplified Arabic', Arial, sans-serif;
+  font-family: 'Tajawal', 'Cairo', 'Simplified Arabic', Arial, sans-serif;
 }
 
 html[dir="rtl"] body {
@@ -32,46 +51,185 @@ html[dir="ltr"] body {
   text-align: left;
 }
 
-/* Custom Classes */
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — Buttons
+   ═══════════════════════════════════════════ */
 .btn-primary {
-  @apply px-6 py-3 bg-primary text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold;
+  @apply px-8 py-4 bg-primary text-white rounded-3xl hover:bg-opacity-90 transition-all duration-300 font-bold shadow-[0_10px_20px_rgba(14,75,51,0.15)] hover:shadow-[0_15px_30px_rgba(14,75,51,0.25)] hover:-translate-y-1 tracking-wide;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 bg-secondary text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold;
+  @apply px-8 py-4 bg-secondary text-white rounded-3xl hover:bg-opacity-90 transition-all duration-300 font-bold shadow-[0_10px_20px_rgba(200,155,60,0.15)] hover:shadow-[0_15px_30px_rgba(200,155,60,0.25)] hover:-translate-y-1 tracking-wide;
 }
 
 .btn-accent {
-  @apply px-6 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold;
+  @apply px-8 py-4 bg-accent text-white rounded-3xl hover:bg-opacity-90 transition-all duration-300 font-bold shadow-md hover:shadow-xl hover:-translate-y-1 tracking-wide;
 }
 
 .btn-outline {
-  @apply px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-300 font-semibold;
+  @apply px-8 py-4 border-2 border-primary text-primary rounded-3xl hover:bg-primary hover:text-white transition-all duration-300 font-bold tracking-wide;
 }
 
+/* Golden Glow Effect (for donate buttons) */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(200,155,60,0.4), rgba(200,155,60,0) 60%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-glow:hover::after {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — Cards
+   ═══════════════════════════════════════════ */
 .card {
-  @apply bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6;
+  @apply bg-white/80 backdrop-blur-md rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 p-6 sm:p-8 md:p-10;
+  border: 1px solid rgba(255,255,255,0.7);
 }
 
+.card-hover-lift {
+  @apply transition-all duration-500;
+}
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(14, 75, 51, 0.15);
+}
+
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — Glassmorphism
+   ═══════════════════════════════════════════ */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(14, 75, 51, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Navbar Glassmorphism (applied on scroll) */
+.navbar-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — Section Titles
+   ═══════════════════════════════════════════ */
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-4;
+  @apply text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 sm:mb-5 tracking-tight;
   color: #0E4B33;
-  font-family: 'Noto Kufi Arabic', 'Merriweather', Georgia, serif;
+  font-family: 'Alexandria', sans-serif;
 }
 
 .section-subtitle {
-  @apply text-lg mb-8;
-  color: #000000;
+  @apply text-sm sm:text-base md:text-lg mb-6 sm:mb-8;
+  color: #555;
 }
 
 .container-custom {
-  @apply max-w-7xl mx-auto px-4 md:px-6;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-8;
 }
 
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — Gradients
+   ═══════════════════════════════════════════ */
 .hero-gradient {
   background: linear-gradient(135deg, #0E4B33 0%, #0a3525 50%, #C89B3C 100%);
 }
 
+.gradient-gold {
+  background: linear-gradient(135deg, #C89B3C 0%, #E3B14D 50%, #C89B3C 100%);
+}
+
+.gradient-green {
+  background: linear-gradient(135deg, #0E4B33 0%, #1a6b4a 100%);
+}
+
+.gradient-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+}
+
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — Skeleton Loaders
+   ═══════════════════════════════════════════ */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite ease-in-out;
+  border-radius: 8px;
+}
+
+.skeleton-text {
+  @apply skeleton;
+  height: 14px;
+  margin-bottom: 8px;
+  width: 80%;
+}
+
+.skeleton-title {
+  @apply skeleton;
+  height: 22px;
+  margin-bottom: 12px;
+  width: 60%;
+}
+
+.skeleton-image {
+  @apply skeleton;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  border-radius: 12px;
+}
+
+.skeleton-card {
+  @apply card;
+  padding: 20px;
+}
+.skeleton-card .skeleton-image {
+  margin-bottom: 16px;
+}
+
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — Form Inputs
+   ═══════════════════════════════════════════ */
+.input-modern {
+  @apply w-full px-6 py-4 border-2 border-gray-100 rounded-2xl transition-all duration-300;
+  @apply focus:outline-none focus:border-[#C89B3C] focus:ring-4 focus:ring-[#C89B3C]/10;
+  @apply placeholder:text-gray-400;
+  background: rgba(249, 250, 251, 0.6);
+  font-family: 'Tajawal', sans-serif;
+}
+
+.input-modern:hover {
+  border-color: #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM — Truncation
+   ═══════════════════════════════════════════ */
 .truncate-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -86,7 +244,9 @@ html[dir="ltr"] body {
   overflow: hidden;
 }
 
-/* Animation */
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -109,10 +269,134 @@ html[dir="ltr"] body {
   }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 155, 60, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(200, 155, 60, 0); }
+}
+
 .animate-fadeInUp {
-  animation: fadeInUp 0.8s ease-out;
+  animation: fadeInUp 0.7s ease-out;
 }
 
 .animate-slideInRight {
-  animation: slideInRight 0.8s ease-out;
+  animation: slideInRight 0.7s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* Staggered children animation */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* ═══════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════ */
+/* Hide scrollbar for sliders */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Gold accent underline for headings */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #C89B3C, transparent);
+  border-radius: 4px;
+}
+
+/* RTL support for gold-underline */
+html[dir="rtl"] .gold-underline::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ═══════════════════════════════════════════
+   ULTRA PREMIUM UI — Custom Scrollbar
+   ═══════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #C89B3C; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0E4B33; 
+}
+
+/* ═══════════════════════════════════════════
+   ULTRA PREMIUM UI — Text Selection
+   ═══════════════════════════════════════════ */
+::selection {
+  background-color: rgba(200, 155, 60, 0.3);
+  color: #0E4B33;
+}
+::-moz-selection {
+  background-color: rgba(200, 155, 60, 0.3);
+  color: #0E4B33;
+}
+
+/* ═══════════════════════════════════════════
+   ULTRA PREMIUM UI — Mesh Gradients & Blobs
+   ═══════════════════════════════════════════ */
+.bg-mesh-light {
+  background-color: #fafafa;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(200, 155, 60, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(14, 75, 51, 0.05) 0px, transparent 50%);
+}
+
+.bg-mesh-dark {
+  background-color: #0E4B33;
+  background-image: 
+    radial-gradient(at 100% 0%, rgba(200, 155, 60, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(200, 155, 60, 0.05) 0px, transparent 50%);
+}
+
+/* ═══════════════════════════════════════════
+   ULTRA PREMIUM UI — 3D Hover & Magnetic
+   ═══════════════════════════════════════════ */
+.card-hover-tilt {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.card-hover-tilt:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(14, 75, 51, 0.25);
+  border-color: rgba(200, 155, 60, 0.3);
 }

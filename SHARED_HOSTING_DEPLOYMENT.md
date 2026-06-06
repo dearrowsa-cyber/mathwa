@@ -13,7 +13,7 @@
 ### Step 1: Upload Files to Shared Hosting
 
 1. **Connect via FTP/SFTP** using your hosting provider's credentials
-   - Host: `ftp.yourdomain.com` or provided by hosting
+   - Host: `ftp.localhost` or provided by hosting
    - Username: Your hosting panel username
    - Password: Your hosting panel password
 
@@ -33,7 +33,7 @@
 
 1. Point your domain to your hosting provider
 2. Wait for DNS propagation (24-48 hours)
-3. Access your site via `https://yourdomain.com`
+3. Access your site via `http://localhost`
 
 ### Step 3: API Configuration
 
@@ -42,17 +42,17 @@ Update API endpoints in your application:
 Edit the API base URL in components:
 ```javascript
 // src/utils/api.js or similar
-const API_BASE = 'https://yourdomain.com/api'
+const API_BASE = 'http://localhost/api'
 ```
 
 ### Step 4: Enable HTTPS (SSL)
 
 1. Get free SSL certificate from Let's Encrypt (most hosting provides this)
 2. Enable SSL in hosting control panel
-3. Update `.htaccess` to force HTTPS:
+3. Update `.htaccess` to force http:
    ```apache
    RewriteCond %{HTTPS} off
-   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+   RewriteRule ^(.*)$ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
    ```
 
 ## 📁 File Structure for Shared Hosting

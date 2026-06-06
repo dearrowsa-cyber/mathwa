@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeroSection, Section, Container, Card, Grid } from '../components/Common'
 import { Link } from 'react-router-dom'
-import { Landmark, Truck, Cross, Heart, GraduationCap, Wallet, User, FileText } from 'lucide-react'
+import { FaLandmark, FaTruck, FaMedkit, FaHeart, FaGraduationCap, FaWallet, FaUser, FaFileAlt } from 'react-icons/fa'
 
 const AvailableServices = () => {
   const lang = localStorage.getItem('language') || 'en'
@@ -123,7 +123,7 @@ const AvailableServices = () => {
                 <h3 className="text-lg font-bold mb-2" style={{ color: '#0E4B33' }}>{s.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{s.desc}</p>
                 <Link to="/service-request" className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg transition-opacity hover:opacity-90" style={{ backgroundColor: 'rgba(59,130,246,0.15)', color: '#1d4ed8' }}>
-                  <User size={16} />
+                  <FaUser size={16} />
                   {t.request_service}
                 </Link>
               </Card>
@@ -135,11 +135,11 @@ const AvailableServices = () => {
             <p className="text-center text-gray-800 mb-6">{t.need_help_sub}</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/service-request" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold border-2 transition-colors" style={{ borderColor: '#0E4B33', color: '#0E4B33' }}>
-                <FileText size={20} />
+                <FaFileAlt size={20} />
                 {t.request_service_btn}
               </Link>
               <Link to="/beneficiary-register" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-opacity hover:opacity-90" style={{ backgroundColor: '#0E4B33' }}>
-                <User size={20} />
+                <FaUser size={20} />
                 {t.register_beneficiary}
               </Link>
             </div>

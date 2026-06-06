@@ -14,7 +14,7 @@ if not exist "node_modules" (
 
 echo Starting development server...
 echo.
-echo UI will open at: http://localhost:3000
+echo UI will open at: https://mathwaa.org.sa
 echo Make sure XAMPP Apache is running for API
 echo.
 call npm run dev

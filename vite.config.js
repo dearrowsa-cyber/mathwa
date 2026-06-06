@@ -8,9 +8,10 @@ export default defineConfig({
     strictPort: false,
     proxy: {
       '/api': {
-        target: 'http://localhost/Mathwaa/Backend',
+        target: 'https://mathwaa.org.sa/Backend',
         changeOrigin: true,
-        secure: false
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '/api')
       }
     }
   },
