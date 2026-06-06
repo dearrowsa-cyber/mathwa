@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { HeroSection, Container, Card, Grid, Section } from '../components/Common'
 import { Link } from 'react-router-dom'
-import { FaCheckCircle, FaUser, FaCrown, FaCoins, FaFileAlt, FaCreditCard, FaUniversity, FaMobileAlt, FaPaperPlane } from 'react-icons/fa'
+import { FaCheckCircle, FaUser, FaCrown, FaCoins, FaFileAlt, FaCreditCard, FaUniversity, FaMobileAlt, FaPaperPlane, FaBalanceScale, FaClipboardList, FaUserFriends } from 'react-icons/fa'
 
 const Membership = () => {
   const lang = localStorage.getItem('language') || 'en'

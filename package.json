@@ -17,6 +17,7 @@
     "postbuild": "react-snap"
   },
   "reactSnap": {
+    "source": "dist",
     "include": [
       "/",
       "/about",
