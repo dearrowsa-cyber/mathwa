@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { HeroSection, SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
-import { FaMosque, FaStarAndCrescent, FaHandHoldingHeart, FaQuran, FaBalanceScale, FaEye, FaUsers, FaBullseye, FaHandshake, FaUserShield, FaGavel, FaChartLine, FaCheckCircle } from 'react-icons/fa'
+import { FaMosque, FaStarAndCrescent, FaHandHoldingHeart, FaQuran, FaBalanceScale, FaEye, FaUsers, FaBullseye, FaHandshake, FaUserShield, FaGavel, FaChartLine, FaCheckCircle, FaProjectDiagram, FaBuilding, FaArrowRight } from 'react-icons/fa'
 
 const About = () => {
   const translations = {
@@ -201,19 +202,57 @@ const About = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mt-10">
             
-            {/* LEFT SIDE - IMAGES */}
-            <div className="space-y-6">
-              <img
-                src="/sliders/organization-arabic.jpeg"
-                alt="Organizational Chart 2"
-                className="rounded-2xl shadow-lg w-full object-cover"
-              />
-              <img
-                src="/sliders/Artboard-organization.jpeg"
-                alt="Organizational Chart 1"
-                className="rounded-2xl shadow-lg w-full object-cover"
-              />
+            {/* LEFT SIDE - VISUAL STRUCTURE */}
+            <div className="relative p-6 sm:p-8 bg-[#0E4B33]/5 rounded-3xl border border-[#0E4B33]/10">
+              <div className={`absolute top-10 bottom-10 w-1 bg-[#C89B3C]/30 hidden sm:block ${language === 'ar' ? 'right-16' : 'left-16'}`}></div>
               
+              <div className="space-y-6 sm:space-y-8 relative">
+                {/* Level 1 */}
+                <div className={`flex items-center gap-4 sm:gap-6 ${language === 'ar' ? 'flex-row' : ''}`}>
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#0E4B33] text-[#C89B3C] flex items-center justify-center flex-shrink-0 shadow-lg z-10">
+                    <FaUsers size={24} className="sm:w-7 sm:h-7" />
+                  </div>
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
+                    <h4 className="font-bold text-[#0E4B33]">{language === 'ar' ? 'الجمعية العمومية' : 'General Assembly'}</h4>
+                  </div>
+                </div>
+
+                {/* Level 2 */}
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#C89B3C] text-white flex items-center justify-center flex-shrink-0 shadow-lg z-10">
+                    <FaStarAndCrescent size={20} className="sm:w-6 sm:h-6" />
+                  </div>
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
+                    <h4 className="font-bold text-[#C89B3C]">{language === 'ar' ? 'مجلس الإدارة' : 'Board of Directors'}</h4>
+                  </div>
+                </div>
+
+                {/* Level 3 */}
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-[#0E4B33] border-2 border-[#0E4B33] flex items-center justify-center flex-shrink-0 shadow-lg z-10">
+                    <FaProjectDiagram size={20} className="sm:w-6 sm:h-6" />
+                  </div>
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
+                    <h4 className="font-bold text-[#0E4B33]">{language === 'ar' ? 'اللجان المنبثقة' : 'Board Committees'}</h4>
+                  </div>
+                </div>
+
+                {/* Level 4 */}
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-100 text-gray-600 border border-gray-200 flex items-center justify-center flex-shrink-0 shadow-lg z-10">
+                    <FaBuilding size={20} className="sm:w-6 sm:h-6" />
+                  </div>
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
+                    <h4 className="font-bold text-gray-700">{language === 'ar' ? 'الجهاز التنفيذي' : 'Executive Management'}</h4>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <Link to="/organizational-structure" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border border-[#C89B3C]/30 text-[#0E4B33] font-bold rounded-full hover:bg-[#C89B3C] hover:text-white transition-all shadow-sm hover:shadow-md">
+                  {language === 'ar' ? 'عرض الهيكل التفاعلي الكامل' : 'View Full Interactive Structure'} <FaArrowRight className={language === 'ar' ? 'rotate-180' : ''} />
+                </Link>
+              </div>
             </div>
 
             {/* RIGHT SIDE - CONTENT */}
