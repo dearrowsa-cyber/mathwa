@@ -80,33 +80,8 @@ const BoardMembers = () => {
     try {
       setLoading(true)
       setError(null)
-      
-      const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://mathwaa.org.sa/Backend'
-      const apiUrl = import.meta.env.DEV 
-        ? `/api/board-members.php?lang=${language}`
-        : `${BACKEND_URL}/api/board-members.php?lang=${language}`
-      
-      const response = await fetch(apiUrl)
-      const data = await response.json()
-      
-      if (data.success && data.data) {
-        const enrichedMembers = (Array.isArray(data.data) ? data.data : [data.data]).map(member => ({
-          ...member,
-          term_start: member.term_start || '1447-06',
-          term_end: member.term_end || '1451-06',
-          committees: member.committees || (isAr ? 'لجنة الحوكمة' : 'Governance Committee'),
-          meetings_count: member.meetings_count || Math.floor(Math.random() * 5) + 5,
-          attendance: member.attendance || (Math.floor(Math.random() * 20) + 80) + '%'
-        }))
-        setMembers(enrichedMembers)
-        setUseLocalData(false)
-      } else {
-        // Fallback to local data
-        setUseLocalData(true)
-        setMembers(BOARD_MEMBERS_DATA)
-      }
-    } catch (err) {
-      console.warn('Using local board members data:', err)
+      // Force using local data to ensure real board members are displayed
+      // The backend currently contains test data, so we use the official foundation document data
       setUseLocalData(true)
       setMembers(BOARD_MEMBERS_DATA)
     } finally {
