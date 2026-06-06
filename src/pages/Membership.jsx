@@ -385,7 +385,9 @@ const Membership = () => {
 
           <div className="mt-16" ref={formRef}>
             <h2 className="text-2xl font-bold mb-6" style={{ color: '#0E4B33' }}>{t.application_form}</h2>
-            <Card className="p-8 border border-gray-200">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+              <div className="lg:col-span-2">
+                <Card className="p-8 border border-gray-200">
               {submitMessage.text && (
                 <div className={`p-4 rounded-lg mb-6 ${submitMessage.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                   {submitMessage.text}
@@ -505,6 +507,49 @@ const Membership = () => {
                 </button>
               </form>
             </Card>
+              </div>
+              
+              {/* Governance & Assembly Side Box */}
+              <div className="lg:col-span-1 space-y-6">
+                <Card className="p-6 border border-gray-200 bg-gray-50 sticky top-24">
+                  <h3 className="text-xl font-bold mb-4 text-[#0E4B33] border-b pb-3 border-gray-200 flex items-center gap-2">
+                    <FaUserFriends className="text-[#C89B3C]" />
+                    {lang === 'ar' ? 'الجمعية العمومية والحوكمة' : 'Governance & Assembly'}
+                  </h3>
+                  <ul className="space-y-2">
+                    <li>
+                      <Link to="/governance" className="flex items-center gap-3 text-gray-700 hover:text-[#C89B3C] font-medium transition-colors p-2 hover:bg-white rounded-lg">
+                        <FaBalanceScale className="text-[#C89B3C] text-lg" />
+                        {lang === 'ar' ? 'حقوق العضو' : 'Member Rights'}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/governance" className="flex items-center gap-3 text-gray-700 hover:text-[#C89B3C] font-medium transition-colors p-2 hover:bg-white rounded-lg">
+                        <FaClipboardList className="text-[#C89B3C] text-lg" />
+                        {lang === 'ar' ? 'واجبات العضو' : 'Member Duties'}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/general-assembly" className="flex items-center gap-3 text-gray-700 hover:text-[#C89B3C] font-medium transition-colors p-2 hover:bg-white rounded-lg">
+                        <FaFileAlt className="text-[#C89B3C] text-lg" />
+                        {lang === 'ar' ? 'محاضر الجمعية العمومية' : 'Assembly Minutes'}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/contact" className="flex items-center gap-3 text-gray-700 hover:text-[#C89B3C] font-medium transition-colors p-2 hover:bg-white rounded-lg">
+                        <FaCheckCircle className="text-[#C89B3C] text-lg" />
+                        {lang === 'ar' ? 'الأسئلة الشائعة' : 'FAQs'}
+                      </Link>
+                    </li>
+                  </ul>
+                  <div className="mt-6 pt-4 border-t border-gray-200 text-center bg-white p-4 rounded-xl border border-gray-100">
+                    <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                      {lang === 'ar' ? 'عضويتك تمنحك حق المشاركة في صنع القرار والاطلاع بشفافية على كافة تفاصيل الجمعية.' : 'Your membership grants you the right to participate in decision-making and transparently view all association details.'}
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
