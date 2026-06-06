@@ -1,0 +1,30 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # 1. Handle prerendered directories without forcing a trailing slash redirect
+    RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}/index.html -f
+    RewriteRule ^(.*)$ $1/index.html [L]
+
+    # 2. Handle exact prerendered .html files (if any)
+    RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+
+    # 3. Fallback for React Router (SPA)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Cache control for static assets
+<FilesMatch "\.(js|css|woff|woff2|ttf|svg|png|jpg|jpeg|gif|ico)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# No cache for html files
+<FilesMatch "\.html$">
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+</FilesMatch>

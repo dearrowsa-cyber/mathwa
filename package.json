@@ -24,8 +24,10 @@
       "/governance",
       "/board-members",
       "/annual-reports",
-      "/membership"
-    ]
+      "/membership",
+      "/contact"
+    ],
+    "inlineCss": true
   },
   "dependencies": {
     "axios": "^1.6.2",
