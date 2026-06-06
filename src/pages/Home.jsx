@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import CountUp from 'react-countup'
 import { FaShoppingCart } from 'react-icons/fa'
-import { FaArrowRight, FaArrowLeft, FaHandHoldingHeart, FaHandHoldingMedical, FaQuran, FaStar, FaHeart, FaKaaba, FaChevronLeft, FaChevronRight, FaChartBar, FaMosque, FaHandsHelping, FaHandshake, FaStarAndCrescent, FaNewspaper, FaPeopleCarry } from 'react-icons/fa'
+import { FaArrowRight, FaArrowLeft, FaHandHoldingHeart, FaHandHoldingMedical, FaQuran, FaStar, FaHeart, FaKaaba, FaChevronLeft, FaChevronRight, FaChartBar, FaMosque, FaHandsHelping, FaHandshake, FaStarAndCrescent, FaNewspaper, FaPeopleCarry, FaLandmark, FaUsers, FaChartPie, FaClipboardList, FaBullhorn } from 'react-icons/fa'
 import { SectionTitle, Container, Card, Button, Grid, Section, Badge, AnimatedSection } from '../components/Common'
 import { newsAPI, statisticsAPI, partnersAPI } from '../services/api'
 import TestimonialSection from './TestimonialSection'
@@ -425,7 +425,7 @@ const Home = () => {
             key={activeSlide}
             src={slides[activeSlide].image}
             initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 0.5, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="absolute inset-0 w-full h-full object-cover object-center z-0"
@@ -433,7 +433,7 @@ const Home = () => {
         </AnimatePresence>
         
         {/* Dark Gradient Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E4B33]/90 via-black/60 to-black/40 z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0E4B33]/80 via-black/40 to-black/10 z-10 pointer-events-none"></div>
 
         {/* Static Content Overlay */}
         <div className="relative z-20 flex flex-col items-center text-center px-4 md:px-8 w-full max-w-5xl mt-10">
@@ -525,12 +525,12 @@ const Home = () => {
         <Container>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6">
             {[
-              { label: isArabic ? 'الترخيص: 1000827300' : 'License: 1000827300', to: '/about', icon: '🏛️' },
-              { label: isArabic ? 'مجلس الإدارة' : 'Board of Directors', to: '/board-members', icon: '👥' },
-              { label: isArabic ? 'القوائم المالية' : 'Financial Statements', to: '/annual-reports', icon: '📊' },
-              { label: isArabic ? 'التقارير' : 'Reports', to: '/annual-reports', icon: '📋' },
-              { label: isArabic ? 'الشكاوى والبلاغات' : 'Complaints', to: '/complaints', icon: '📢' },
-              { label: isArabic ? 'العضوية' : 'Membership', to: '/membership', icon: '🤝' },
+              { label: isArabic ? 'الترخيص: 1000827300' : 'License: 1000827300', to: '/about', icon: <FaLandmark className="text-[#C89B3C]" /> },
+              { label: isArabic ? 'مجلس الإدارة' : 'Board of Directors', to: '/board-members', icon: <FaUsers className="text-[#C89B3C]" /> },
+              { label: isArabic ? 'القوائم المالية' : 'Financial Statements', to: '/annual-reports', icon: <FaChartPie className="text-[#C89B3C]" /> },
+              { label: isArabic ? 'التقارير' : 'Reports', to: '/annual-reports', icon: <FaClipboardList className="text-[#C89B3C]" /> },
+              { label: isArabic ? 'الشكاوى والبلاغات' : 'Complaints', to: '/complaints', icon: <FaBullhorn className="text-[#C89B3C]" /> },
+              { label: isArabic ? 'العضوية' : 'Membership', to: '/membership', icon: <FaHandshake className="text-[#C89B3C]" /> },
             ].map((item, i) => (
               <Link key={i} to={item.to} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 hover:border-[#C89B3C]/40 transition-all text-white/80 hover:text-[#C89B3C] text-xs md:text-sm font-medium">
                 <span>{item.icon}</span>

@@ -76,7 +76,7 @@
     "images/testimonials/arab_man_3_v2.png": "6e2f0d6884492aa164adc19429308434",
     "images/testimonials/arab_woman_1_v2.png": "583396bbe6100b1bd238136e03633a02",
     "images/testimonials/arab_woman_2_v2.png": "d26141e9a3952427ad9eb11ee5f765c1",
-    "index.html": "ddbc0d4c12cbc0e5b15a7d80cc7edb41",
+    "index.html": "ed2377a46e55f62a2ae69a47e345ee7f",
     "Jamiyah-2.png": "aaceb6eff703159232fe0d1389f00dc5",
     "join/beneficial.png": "e5f550c6066e028d951c073d9407cbae",
     "join/donation.png": "4ca74391c2c2621a04c20a86ec210a45",
@@ -116,7 +116,7 @@
     "assets/index-BYN_2QPR.css": "139928ce0e66c11b52e051bc85db7b38",
     "assets/index-R7t65oLm.js": "bc18270d655089952a480a320f683ef8",
     "beneficiary-services/index.html": "dab20f6a6e0096b4b80141921b78c82d",
-    "board-members/index.html": "d82db9c892152cdc268eeea83080d4d3",
+    "board-members/index.html": "bae769b6ff60702d231c8ed232c33982",
     "complaints/index.html": "463282d293b3b2e591396e33946962f5",
     "contact/index.html": "e9fe1b6aea43bca8eb08fa539bc70770",
     "donate/index.html": "0d91f030c3b0184d91ae5179698fc76e",
@@ -140,7 +140,8 @@
     "assets/index-B_6OSkOB.js": "76c0bf04b2370742761c6a7d619de892",
     "assets/index-D8s9JAju.css": "2457ceabc68cc8376991016013167ef7",
     "assets/index-CG4NXQKN.css": "d16560711e674aca6c14dc8a6fe18eb6",
-    "assets/index-DuehyLg3.js": "a128a56b710acb9314f0642e256ed156"
+    "assets/index-DuehyLg3.js": "a128a56b710acb9314f0642e256ed156",
+    ".htaccess": "95fa3754f9e6e778005baed3b7bc5b53"
   },
   "backend": {}
 }
