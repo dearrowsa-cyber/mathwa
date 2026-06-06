@@ -417,155 +417,104 @@ const Home = () => {
 
   return (
     <>
-      {/* Ultra Premium Hero Slider */}
-      <section className="relative w-full aspect-[16/9] md:aspect-auto md:h-[80vh] md:min-h-[500px] md:max-h-[850px] overflow-hidden bg-black flex flex-col justify-start">
-        <AnimatePresence mode="wait" initial={false}>
-          {slides.map((slide, index) => {
-            // Apply custom per-slide image shifting
-            let imgClass = "w-full h-full object-cover object-center md:object-top"
-            if (index === 1) imgClass = "w-full h-full object-cover origin-right scale-[1.12] lg:scale-[1.1]" // Shift right aggressively
-            if (index === 3) imgClass = "w-full h-full object-cover origin-left scale-[1.05]" // Shift opposite direction, mild scale to avoid cut-offs
-            
-            // Apply custom per-slide widget positioning
-            let widgetWrapperClass = `absolute inset-y-0 ${index % 2 === 0 ? 'left-1 sm:left-2 md:left-0 items-start' : 'right-1 sm:right-2 md:right-0 items-end'} w-[50%] md:w-[60%] lg:w-[55%] xl:w-[50%] flex flex-col justify-center md:px-12 lg:px-16 xl:px-24 z-10 pointer-events-none`
-            let widgetInnerClass = "w-full bg-[#0E4B33] border border-[#C89B3C]/30 p-2 sm:p-4 md:p-8 lg:p-12 rounded-lg md:rounded-[2.5rem] shadow-[0_5px_15px_rgba(0,0,0,0.5)] md:shadow-[0_30px_60px_rgba(0,0,0,0.8)] flex flex-col gap-1 sm:gap-2 md:gap-4 text-start pointer-events-auto relative z-20"
-            
-            if (index === 2) {
-              // "Sahem Ma'ana": User wants it towards the left
-              widgetWrapperClass = "absolute inset-y-0 left-0 w-[50%] lg:w-[50%] flex flex-col justify-center items-start pl-2 sm:pl-6 md:pl-10 lg:pl-12 z-10 pointer-events-none"
-              // Keep inner widget logic
-              widgetInnerClass = "w-[90%] md:w-[85%] lg:w-[80%] bg-[#0E4B33] border border-[#C89B3C]/30 p-2 sm:p-4 md:p-8 lg:p-12 rounded-lg md:rounded-[2.5rem] shadow-[0_5px_15px_rgba(0,0,0,0.5)] md:shadow-[0_30px_60px_rgba(0,0,0,0.8)] flex flex-col gap-1 sm:gap-2 md:gap-4 text-start pointer-events-auto relative z-20"
-            } else if (index === 3) {
-              // "Our Mission": Shift widget slightly opposite (towards the right edge)
-              widgetWrapperClass = "absolute inset-y-0 right-0 translate-x-[2%] sm:translate-x-[4%] md:translate-x-[6%] items-end w-[50%] md:w-[60%] lg:w-[55%] xl:w-[50%] flex flex-col justify-center md:px-10 lg:px-14 xl:px-20 z-10 pointer-events-none"
-            }
-
-            return index === activeSlide ? (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="absolute inset-0 z-0"
-              >
-                {/* Responsive Image Container */}
-                <div className="absolute inset-0 w-full h-full">
-                  <img 
-                    src={slide.image} 
-                    alt={slide.title || 'Mathwaa Charity'} 
-                    className={imgClass}
-                  />
-                  {/* Subtle gradient to blend text into background on mobile if needed */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:hidden opacity-80 pointer-events-none"></div>
-                </div>
-                
-                {/* Globally Absolute Overlay text box dynamically placed */}
-                <div className={widgetWrapperClass}>
-                  <motion.div 
-                    dir={isArabic ? 'rtl' : 'ltr'}
-                    initial={{ x: index % 2 === 0 ? -20 : 20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: index % 2 === 0 ? -20 : 20, opacity: 0 }}
-                    transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-                    className={widgetInnerClass}
-                  >
-                    <motion.h1 
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.4, duration: 0.8 }}
-                      className="text-[0.65rem] sm:text-xs md:text-4xl lg:text-5xl xl:text-6xl font-black text-[#C89B3C] mb-0 md:mb-1 lg:mb-2 leading-tight drop-shadow-md md:drop-shadow-xl"
-                      style={{ fontFamily: 'Alexandria, sans-serif' }}
-                    >
-                      {slide.title || (isArabic ? 'جمعية مثوى الخيرية' : 'Mathwaa Charity')}
-                    </motion.h1>
-                    <motion.p 
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.5, duration: 0.8 }}
-                      className="text-[0.45rem] sm:text-[0.6rem] md:text-base lg:text-lg xl:text-xl text-white font-bold leading-tight md:leading-relaxed max-w-lg drop-shadow-sm md:drop-shadow-md tracking-wide"
-                    >
-                      {slide.desc || (isArabic ? 'نعمل لنرتقي، ونعطي لنُسعد، معاً نحو مجتمع متكافل ومستدام.' : 'Together towards a sustainable and cooperative community.')}
-                    </motion.p>
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.7, duration: 0.8 }}
-                      className="flex flex-col xl:flex-row flex-wrap gap-1 sm:gap-2 md:gap-3 mt-0.5 md:mt-2 sm:mt-4 w-full"
-                    >
-                      <Link to="/donate" className="btn-secondary w-full xl:w-auto py-1 px-1.5 md:py-3 md:px-6 lg:py-4 lg:px-10 text-[0.45rem] sm:text-[0.55rem] md:text-base lg:text-lg font-bold shadow-sm md:shadow-[0_10px_30px_rgba(200,155,60,0.3)] text-center flex-1 rounded-sm md:rounded-full">
-                        {isArabic ? 'تبرع الآن' : 'Donate Now'}
-                      </Link>
-                      <Link to="/governance" className="w-full xl:w-auto px-1.5 py-1 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-sm md:rounded-[2rem] font-bold bg-[#0E4B33]/80 text-[#C89B3C] backdrop-blur-md border border-[#C89B3C]/50 hover:bg-[#C89B3C] hover:text-[#0E4B33] transition-all duration-300 text-center flex-1 text-[0.45rem] sm:text-[0.55rem] md:text-base lg:text-lg">
-                        {isArabic ? 'الحوكمة والإفصاح' : 'Governance & Disclosure'}
-                      </Link>
-                      <Link to="/membership" className="w-full xl:w-auto px-1.5 py-1 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-sm md:rounded-[2rem] font-bold bg-white/10 text-white backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 text-center flex-1 text-[0.45rem] sm:text-[0.55rem] md:text-base lg:text-lg">
-                        {isArabic ? 'العضوية' : 'Membership'}
-                      </Link>
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ) : null
-          })}
+      {/* Redesigned Hero Section */}
+      <section className="relative w-full h-[85vh] min-h-[600px] max-h-[900px] overflow-hidden bg-black flex flex-col justify-center items-center">
+        {/* Background Slider */}
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={activeSlide}
+            src={slides[activeSlide].image}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 0.5, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          />
         </AnimatePresence>
+        
+        {/* Dark Gradient Overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0E4B33]/90 via-black/60 to-black/40 z-10 pointer-events-none"></div>
 
-        {/* Floating Glassmorphism Badge - License Info */}
-        <div className="absolute bottom-10 left-10 md:bottom-20 md:left-20 z-20 hidden lg:flex flex-col gap-2">
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex items-center gap-4 hover:bg-white/15 transition-all"
+        {/* Static Content Overlay */}
+        <div className="relative z-20 flex flex-col items-center text-center px-4 md:px-8 w-full max-w-5xl mt-10">
+          {/* Direct Trust Indicator */}
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#C89B3C]/20 backdrop-blur-md border border-[#C89B3C]/40 mb-6"
           >
-            <div className="w-12 h-12 rounded-full bg-[#C89B3C]/20 flex items-center justify-center">
-              <FaHandHoldingHeart size={24} style={{ color: '#C89B3C' }} />
-            </div>
-            <div>
-              <p className="text-white/70 text-sm font-medium">{isArabic ? 'جمعية مرخصة رسمياً' : 'Officially Licensed'}</p>
-              <p className="text-white font-bold text-lg">{isArabic ? 'ترخيص رقم 1000827300' : 'License #1000827300'}</p>
-            </div>
+            <FaHandHoldingHeart className="text-[#C89B3C]" size={20} />
+            <span className="text-white text-sm md:text-base font-bold">
+              {isArabic ? 'جمعية مرخصة رسمياً من المركز الوطني لتنمية القطاع غير الربحي برقم 1000827300' : 'Officially Licensed by NCNP #1000827300'}
+            </span>
+          </motion.div>
+
+          {/* Title */}
+          <motion.h1
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight drop-shadow-2xl"
+            style={{ fontFamily: 'Alexandria, sans-serif' }}
+          >
+            {isArabic ? 'جمعية ' : 'Mathwa Association '}<span className="text-[#C89B3C]">{isArabic ? 'مثوى' : 'Mathwa'}</span><br/>
+            {isArabic ? 'لإكرام الموتى' : 'for Honoring the Dead'}
+          </motion.h1>
+
+          {/* Brief */}
+          <motion.p
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-base sm:text-lg md:text-2xl text-white/90 font-medium max-w-3xl mb-10 drop-shadow-lg leading-relaxed"
+          >
+            {isArabic 
+              ? 'نعمل لنرتقي، ونعطي لنُسعد، معاً نحو مجتمع متكافل ومستدام لخدمة وإكرام الموتى وفق أعلى المعايير المؤسسية.' 
+              : 'Working together towards a sustainable, cooperative community to serve and honor the deceased.'}
+          </motion.p>
+
+          {/* Clear Buttons */}
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 w-full sm:w-auto"
+          >
+            <Link to="/donate" className="w-full sm:w-auto px-8 py-4 bg-[#C89B3C] text-[#0E4B33] rounded-full font-bold text-lg hover:bg-[#b08630] hover:text-white transition-all shadow-[0_10px_30px_rgba(200,155,60,0.4)] hover:shadow-[0_15px_40px_rgba(200,155,60,0.6)] transform hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+              <FaHeart /> {isArabic ? 'تبرع الآن' : 'Donate Now'}
+            </Link>
+            <Link to="/governance" className="w-full sm:w-auto px-8 py-4 bg-[#0E4B33]/80 backdrop-blur-md border border-[#C89B3C]/50 text-[#C89B3C] rounded-full font-bold text-lg hover:bg-[#0E4B33] hover:text-white transition-all transform hover:-translate-y-1 text-center shadow-[0_10px_30px_rgba(14,75,51,0.4)]">
+              {isArabic ? 'الحوكمة والإفصاح' : 'Governance & Disclosure'}
+            </Link>
+            <Link to="/membership" className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/25 transition-all transform hover:-translate-y-1 text-center">
+              {isArabic ? 'العضوية' : 'Membership'}
+            </Link>
           </motion.div>
         </div>
 
-        {/* Line indicators - one per slide, active line fills over 2s */}
-        <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2 sm:gap-3 flex-wrap justify-center px-4">
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
           {slides.map((_, index) => (
             <button
               key={index}
-              type="button"
               onClick={() => setActiveSlide(index)}
-              className="flex flex-col items-center gap-1.5 group"
-              aria-label={`Slide ${index + 1}`}
-            >
-              <div
-                className="h-1.5 sm:h-2 w-10 sm:w-16 md:w-24 rounded-full overflow-hidden bg-white/20 flex backdrop-blur-sm"
-              >
-                {index === activeSlide ? (
-                  <motion.div
-                    key={activeSlide}
-                    className="h-full w-full rounded-full bg-[#C89B3C] flex-shrink-0"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: SLIDER_INTERVAL_MS / 1000, ease: 'linear' }}
-                    style={{ transformOrigin: isArabic ? 'right' : 'left' }}
-                  />
-                ) : null}
-              </div>
-            </button>
+              className={`h-2 rounded-full transition-all duration-500 ${index === activeSlide ? 'w-12 bg-[#C89B3C]' : 'w-4 bg-white/40 hover:bg-white/80'}`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
           ))}
         </div>
-
-        {/* Optional prev/next positioned cleanly */}
+        
+        {/* Navigation Arrows */}
         <button
           onClick={() => goToSlide((activeSlide - 1 + SLIDE_COUNT) % SLIDE_COUNT)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-all opacity-0 md:opacity-100 hover:scale-110"
+          className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-black/20 backdrop-blur-md border border-white/20 hover:bg-[#C89B3C] hover:border-[#C89B3C] text-white flex items-center justify-center transition-all opacity-0 md:opacity-100 hover:scale-110 shadow-lg"
         >
           <FaChevronLeft size={24} />
         </button>
         <button
           onClick={() => goToSlide(activeSlide + 1)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-all opacity-0 md:opacity-100 hover:scale-110"
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-black/20 backdrop-blur-md border border-white/20 hover:bg-[#C89B3C] hover:border-[#C89B3C] text-white flex items-center justify-center transition-all opacity-0 md:opacity-100 hover:scale-110 shadow-lg"
         >
           <FaChevronRight size={24} />
         </button>
