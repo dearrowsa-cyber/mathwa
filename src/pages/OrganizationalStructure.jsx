@@ -211,11 +211,7 @@ const OrganizationalStructure = () => {
             })}
           </div>
 
-          {/* Organization images */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
-            <img src="/sliders/organization-arabic.jpeg" alt="Organizational Chart" className="rounded-2xl shadow-lg w-full object-cover" />
-            <img src="/sliders/Artboard-organization.jpeg" alt="Organizational Chart" className="rounded-2xl shadow-lg w-full object-cover" />
-          </div>
+
         </Container>
       </Section>
     </>
