@@ -197,7 +197,7 @@ const Navbar = ({ language, onLanguageChange }) => {
       annual_reports: "التقارير المالية",
       financial_statements: "القوائم المالية",
       complaints_reports: "الشكاوى",
-      services: "الخدمات",
+      services: "خدماتنا",
       srv_beneficiary: "خدمات المستفيدين",
       srv_programs: "البرامج والمبادرات",
       srv_how_to: "آلية الاستفادة",

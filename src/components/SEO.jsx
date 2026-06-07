@@ -20,7 +20,6 @@ const SEO = ({ title, description, titleAr, descriptionAr, keywords }) => {
 
   return (
     <Helmet>
-      <html lang={isArabic ? 'ar' : 'en'} dir={isArabic ? 'rtl' : 'ltr'} />
       <title>{pageTitle}</title>
       <meta name="description" content={pageDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
