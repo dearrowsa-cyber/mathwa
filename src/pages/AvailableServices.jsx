@@ -1,5 +1,6 @@
 import React from 'react'
-import { HeroSection, Section, Container, Card, Grid } from '../components/Common'
+import { Section, Container, Card, Grid } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { Link } from 'react-router-dom'
 import { FaLandmark, FaTruck, FaMedkit, FaHeart, FaGraduationCap, FaWallet, FaUser, FaFileAlt } from 'react-icons/fa'
 
@@ -93,20 +94,15 @@ const AvailableServices = () => {
     { num: 4, title: t.get_service, desc: t.step4 },
   ]
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.beneficiary_services, to: '/beneficiary-services' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <Link to="/beneficiary-services" className="hover:text-[#0E4B33]">{t.beneficiary_services}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.title}</span>
-          </nav>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
           <div className="mb-10">

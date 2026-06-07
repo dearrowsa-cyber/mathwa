@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { HeroSection, Container, Section, Button } from '../components/Common'
+import { Container, Section, Button } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { FaShareAlt, FaArrowLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
@@ -36,11 +37,18 @@ const NewsDetail = () => {
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
   }
 
+  const breadcrumbs = [
+    { label: language === 'ar' ? 'الرئيسية' : 'Home', to: '/' },
+    { label: language === 'ar' ? 'الأخبار' : 'News', to: '/news' },
+    { label: "News Detail" }
+  ]
+
   return (
     <>
-      <HeroSection 
+      <PageHeader 
         title="News Detail"
-        subtitle="Read the full story"
+        description="Read the full story"
+        breadcrumbs={breadcrumbs}
       />
 
       <Section>

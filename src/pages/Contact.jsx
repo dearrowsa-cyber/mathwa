@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { HeroSection, Container, Card, Grid, Section } from '../components/Common'
+import { Container, Card, Grid, Section } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { Link } from 'react-router-dom'
 import { FaSnapchat, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaFacebook, FaInstagram, FaYoutube, FaClock, FaCommentDots, FaCheckCircle } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -69,17 +70,18 @@ const Contact = () => {
     }
   }
 
+  const breadcrumbs = [
+    { label: breadcrumb.home, to: '/' },
+    { label: breadcrumb.current }
+  ]
+
   return (
     <>
-      {/* Contact Banner */}
-      <div className="relative h-[250px] md:h-[400px] w-full overflow-hidden bg-black">
-        <img 
-          src={`${import.meta.env.BASE_URL}sliders/Artboard-contact.jpeg`} 
-          alt="Contact Us Banner" 
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/20"></div>
-      </div>
+      <PageHeader 
+        title={breadcrumb.current} 
+        description={lang === 'ar' ? 'فريق مثوى متواجد دائماً للرد على استفساراتك واقتراحاتك.' : 'Mathwaa team is always here to answer your inquiries and suggestions.'}
+        breadcrumbs={breadcrumbs} 
+      />
 
       {/* Quick Contact Cards */}
       <Section>

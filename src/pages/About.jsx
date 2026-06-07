@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { HeroSection, SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
+import { SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { FaMosque, FaStarAndCrescent, FaHandHoldingHeart, FaQuran, FaBalanceScale, FaEye, FaUsers, FaBullseye, FaHandshake, FaUserShield, FaGavel, FaChartLine, FaCheckCircle, FaProjectDiagram, FaBuilding, FaArrowRight } from 'react-icons/fa'
 
 const About = () => {
@@ -66,38 +67,14 @@ const About = () => {
     { title_ar: 'العمل الجماعي', title_en: 'Teamwork', desc_ar: 'تعزيز روح الفريق والعمل المشترك لتحقيق الأهداف', desc_en: 'Fostering team spirit and collaboration to achieve goals', icon: FaUsers },
   ]
 
+  const breadcrumbs = [
+    { label: language === 'ar' ? 'الرئيسية' : 'Home', to: '/' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      {/* HERO */}
-      <div className="relative text-white py-28 md:py-36 min-h-[500px] overflow-hidden bg-black flex items-center">
-        <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="/main-about.jpeg" 
-            alt={t.title} 
-            className="w-full h-full object-cover object-center md:object-top"
-          />
-        </div>
-        {/* Contrast Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10"></div>
-        
-        <Container className="relative z-10 w-full">
-          <div className="max-w-3xl animate-fadeInUp">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]" style={{ fontFamily: 'Alexandria, sans-serif' }}>
-              {t.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-white font-medium mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-              {t.subtitle}
-            </p>
-            <p className="text-lg text-[#C89B3C] font-bold mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-              {t.license_info}
-            </p>
-            <Button variant="secondary" className="shadow-[0_10px_30px_rgba(200,155,60,0.3)] text-lg px-8 py-3 btn-glow inline-flex">
-              {t.cta}
-            </Button>
-          </div>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
 
       {/* QURAN VERSE */}
       <div className="py-10 text-center" style={{ backgroundColor: '#0E4B33' }}>
@@ -114,7 +91,15 @@ const About = () => {
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <SectionTitle title={t.our_story} />
-            <p className="text-gray-600 text-lg leading-relaxed mt-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 mb-8">
+              <span className="bg-[#C89B3C]/10 text-[#0E4B33] px-5 py-2 rounded-full font-bold text-sm border border-[#C89B3C]/20">
+                {t.license_info}
+              </span>
+              <Button variant="secondary" className="shadow-sm px-6 py-2">
+                {t.cta}
+              </Button>
+            </div>
+            <p className="text-gray-600 text-lg leading-relaxed">
               {t.story_desc}
             </p>
           </div>

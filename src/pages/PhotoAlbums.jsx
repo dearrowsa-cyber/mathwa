@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { HeroSection, SectionTitle, Container, Grid, Section } from '../components/Common'
+import { SectionTitle, Container, Grid, Section } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { Link } from 'react-router-dom'
 import { FaImage, FaCalendarAlt, FaEye, FaArrowRight } from 'react-icons/fa'
 import { getImageUrl } from '../utils/imageUrl'
@@ -74,18 +75,14 @@ const PhotoAlbums = () => {
     }
   }
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.title}</span>
-          </nav>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section className="py-16">
         <Container>
           <SectionTitle title={t.gallery_title} centered={false} />

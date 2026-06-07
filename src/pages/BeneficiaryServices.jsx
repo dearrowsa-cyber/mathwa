@@ -1,5 +1,6 @@
 import React from 'react'
-import { HeroSection, SectionTitle, Container, Card, Grid, Section } from '../components/Common'
+import { SectionTitle, Container, Card, Grid, Section } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 
 const BeneficiaryServices = () => {
   const [language] = React.useState(() => localStorage.getItem('language') || 'en')
@@ -14,9 +15,14 @@ const BeneficiaryServices = () => {
     { title: 'Counseling Services', desc: 'Professional guidance and counseling' },
   ]
 
+  const breadcrumbs = [
+    { label: language === 'ar' ? 'الرئيسية' : 'Home', to: '/' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
           <SectionTitle title={language === 'en' ? 'Our Services' : 'خدماتنا'} />

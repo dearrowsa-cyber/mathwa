@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { HeroSection, Section, Container } from '../components/Common'
+import { Section, Container } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
 
@@ -134,9 +135,14 @@ const SponsorRegistration = () => {
     }
   }
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.title }
+  ]
+
  return (
   <>
-    <HeroSection title={t.title} subtitle={t.subtitle} />
+    <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
 
     <Section>
       <Container>

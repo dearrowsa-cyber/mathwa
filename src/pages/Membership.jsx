@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { HeroSection, Container, Card, Grid, Section } from '../components/Common'
+import { Container, Card, Grid, Section } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { Link } from 'react-router-dom'
 import { FaCheckCircle, FaUser, FaCrown, FaCoins, FaFileAlt, FaCreditCard, FaUniversity, FaMobileAlt, FaPaperPlane, FaBalanceScale, FaClipboardList, FaUserFriends } from 'react-icons/fa'
 
@@ -198,20 +199,15 @@ const Membership = () => {
     fetchPrices()
   }, [])
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.contribute, to: '/donate' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <Link to="/donate" className="hover:text-[#0E4B33]">{t.contribute}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.title}</span>
-          </nav>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
           <div className="max-w-4xl mx-auto mb-16">

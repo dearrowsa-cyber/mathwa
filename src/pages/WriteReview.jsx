@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { HeroSection, Container, Card, Section } from '../components/Common'
+import { Container, Card, Section } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { FaStar, FaUpload, FaExclamationCircle, FaCheckCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
@@ -140,21 +141,18 @@ const WriteReview = () => {
     }
   }
 
+  const breadcrumbs = [
+    { label: breadcrumb.home, to: '/' },
+    { label: breadcrumb.current }
+  ]
+
   return (
     <>
-      <HeroSection 
+      <PageHeader 
         title={lang === 'ar' ? 'اكتب تقييمك' : 'Write Your Review'}
-        subtitle={lang === 'ar' ? 'شارك تجربتك معنا' : 'Share your experience with us'}
+        description={lang === 'ar' ? 'شارك تجربتك معنا' : 'Share your experience with us'}
+        breadcrumbs={breadcrumbs}
       />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{breadcrumb.home}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{breadcrumb.current}</span>
-          </nav>
-        </Container>
-      </div>
 
       <Section>
         <Container>

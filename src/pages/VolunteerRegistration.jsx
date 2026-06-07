@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { HeroSection, Container, Section } from '../components/Common'
+import { Container, Section } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { Link } from 'react-router-dom'
 import { FaPaperPlane, FaUser, FaPhone, FaBriefcase, FaAward, FaUserPlus } from 'react-icons/fa'
 
@@ -117,21 +118,15 @@ const VolunteerRegistration = () => {
   const cardStyle =
     "bg-white/80 backdrop-blur-md rounded-2xl border border-white/40 p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.volunteering, to: '/volunteer-opportunities' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
-
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <Link to="/volunteer-opportunities" className="hover:text-[#0E4B33]">{t.volunteering}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.title}</span>
-          </nav>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
 
       <Section className="relative bg-gradient-to-br from-[#f8fafc] via-[#eef2f7] to-[#f1f5f9] py-16">
         <Container>

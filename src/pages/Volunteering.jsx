@@ -1,5 +1,6 @@
 import React from 'react'
-import { HeroSection, SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
+import { SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { FaArrowRight, FaHandHoldingHeart, FaMosque, FaQuran, FaStarAndCrescent } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
@@ -46,11 +47,17 @@ const Volunteering = () => {
     { title: t.community, desc: t.community_desc, icon: FaMosque },
   ]
 
+  const breadcrumbs = [
+    { label: language === 'ar' ? 'الرئيسية' : 'Home', to: '/' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection 
+      <PageHeader 
         title={t.title}
-        subtitle={t.subtitle}
+        description={t.subtitle}
+        breadcrumbs={breadcrumbs}
       />
 
       <Section>

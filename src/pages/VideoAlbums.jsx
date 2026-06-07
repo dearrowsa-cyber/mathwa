@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { HeroSection, SectionTitle, Container, Grid, Section } from '../components/Common'
+import { SectionTitle, Container, Grid, Section } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { getImageUrl } from '../utils/imageUrl'
 
 const VideoAlbums = () => {
@@ -73,9 +74,14 @@ const VideoAlbums = () => {
     }
   }
 
+  const breadcrumbs = [
+    { label: language === 'ar' ? 'الرئيسية' : 'Home', to: '/' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
           <SectionTitle title={t.ourVideos} />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { HeroSection, Container, Card, Section } from '../components/Common'
+import { Container, Card, Section } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { FaCalendarAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { getImageUrl } from '../utils/imageUrl'
@@ -143,18 +144,14 @@ const News = () => {
     fetchNews()
   }, [BACKEND_URL])
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.news_menu }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-xs sm:text-sm text-gray-600 px-2">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.news_menu}</span>
-          </nav>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
           {loading ? (

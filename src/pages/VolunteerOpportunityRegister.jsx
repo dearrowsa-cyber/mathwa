@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { HeroSection, Section, Container } from '../components/Common'
+import { Section, Container } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { Link } from 'react-router-dom'
 import { FaPaperPlane, FaInfoCircle, FaFileAlt, FaUsers, FaCalendarAlt, FaCheckSquare } from 'react-icons/fa'
 
@@ -186,20 +187,15 @@ const VolunteerOpportunityRegister = () => {
     }
   }
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.volunteering, to: '/volunteer-opportunities' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <Link to="/volunteer-opportunities" className="hover:text-[#0E4B33]">{t.volunteering}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.title}</span>
-          </nav>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
           <div className="max-w-3xl mx-auto">

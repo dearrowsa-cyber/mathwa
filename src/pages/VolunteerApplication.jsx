@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { HeroSection, Container, Card, Section, Button } from '../components/Common'
+import { Container, Card, Section, Button } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { FaPaperPlane } from 'react-icons/fa'
 
 const VolunteerApplication = () => {
@@ -25,9 +26,15 @@ const VolunteerApplication = () => {
     alert('Application submitted successfully!')
   }
 
+  const breadcrumbs = [
+    { label: language === 'ar' ? 'الرئيسية' : 'Home', to: '/' },
+    { label: language === 'ar' ? 'التطوع' : 'Volunteering', to: '/volunteer-opportunities' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
           <div className="max-w-2xl mx-auto">

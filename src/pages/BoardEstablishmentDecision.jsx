@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { HeroSection, Section, Container } from '../components/Common'
+import { Section, Container } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { FaFileAlt, FaCheckCircle, FaDownload, FaSpinner } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
@@ -49,20 +50,15 @@ const BoardEstablishmentDecision = () => {
     }
   }
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.about, to: '/about' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection title={t.title} subtitle={t.subtitle} />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <Link to="/about" className="hover:text-[#0E4B33]">{t.about}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.title}</span>
-          </nav>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
           {loading ? (

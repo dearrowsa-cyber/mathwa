@@ -10,6 +10,7 @@ import { CartProvider } from './context/CartContext'
 import AdminRedirect from './pages/admin/AdminRedirect'
 import AdminLoginWrapper from './pages/admin/AdminLoginWrapper'
 import AdminProtectedRoutes from './pages/admin/AdminProtectedRoutes'
+import { HelmetProvider } from 'react-helmet-async'
 
 // Pages
 
@@ -49,7 +50,22 @@ import Committees from './pages/Committees'
 import GeneralAssembly from './pages/GeneralAssembly'
 import Complaints from './pages/Complaints'
 import Regulations from './pages/Regulations'
-import ComingSoon from './pages/ComingSoon'
+
+// New Pages
+import Programs from './pages/Programs'
+import HowToBenefit from './pages/HowToBenefit'
+import FAQ from './pages/FAQ'
+import MembershipConditions from './pages/MembershipConditions'
+import MembershipApply from './pages/MembershipApply'
+import MembershipRights from './pages/MembershipRights'
+import MembershipPayment from './pages/MembershipPayment'
+import Announcements from './pages/Announcements'
+import MediaReports from './pages/MediaReports'
+import SatisfactionBeneficiaries from './pages/SatisfactionBeneficiaries'
+import SatisfactionDonors from './pages/SatisfactionDonors'
+import SatisfactionVolunteers from './pages/SatisfactionVolunteers'
+import SatisfactionResults from './pages/SatisfactionResults'
+
 function App() {
   const { i18n } = useTranslation()
   const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'ar')
@@ -73,15 +89,17 @@ function App() {
   }
 
   return (
-    <Router basename="/">
-      <AdminAuthProvider>
-        <UserAuthProvider>
-          <CartProvider>
-            <AppContent language={language} onLanguageChange={switchLanguage} />
-          </CartProvider>
-        </UserAuthProvider>
-      </AdminAuthProvider>
-    </Router>
+    <HelmetProvider>
+      <Router basename="/">
+        <AdminAuthProvider>
+          <UserAuthProvider>
+            <CartProvider>
+              <AppContent language={language} onLanguageChange={switchLanguage} />
+            </CartProvider>
+          </UserAuthProvider>
+        </AdminAuthProvider>
+      </Router>
+    </HelmetProvider>
   )
 }
 
@@ -131,19 +149,19 @@ function AppContent({ language, onLanguageChange }) {
           <Route path="/general-assembly" element={<GeneralAssembly />} />
           <Route path="/complaints" element={<Complaints />} />
           <Route path="/regulations" element={<Regulations />} />
-          <Route path="/programs" element={<ComingSoon />} />
-          <Route path="/how-to-benefit" element={<ComingSoon />} />
-          <Route path="/faq" element={<ComingSoon />} />
-          <Route path="/membership-conditions" element={<ComingSoon />} />
-          <Route path="/membership-apply" element={<ComingSoon />} />
-          <Route path="/membership-rights" element={<ComingSoon />} />
-          <Route path="/membership-payment" element={<ComingSoon />} />
-          <Route path="/announcements" element={<ComingSoon />} />
-          <Route path="/media-reports" element={<ComingSoon />} />
-          <Route path="/satisfaction-beneficiaries" element={<ComingSoon />} />
-          <Route path="/satisfaction-donors" element={<ComingSoon />} />
-          <Route path="/satisfaction-volunteers" element={<ComingSoon />} />
-          <Route path="/satisfaction-results" element={<ComingSoon />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/how-to-benefit" element={<HowToBenefit />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/membership-conditions" element={<MembershipConditions />} />
+          <Route path="/membership-apply" element={<MembershipApply />} />
+          <Route path="/membership-rights" element={<MembershipRights />} />
+          <Route path="/membership-payment" element={<MembershipPayment />} />
+          <Route path="/announcements" element={<Announcements />} />
+          <Route path="/media-reports" element={<MediaReports />} />
+          <Route path="/satisfaction-beneficiaries" element={<SatisfactionBeneficiaries />} />
+          <Route path="/satisfaction-donors" element={<SatisfactionDonors />} />
+          <Route path="/satisfaction-volunteers" element={<SatisfactionVolunteers />} />
+          <Route path="/satisfaction-results" element={<SatisfactionResults />} />
           <Route path="/photo-albums" element={<PhotoAlbums />} />
           <Route path="/video-albums" element={<VideoAlbums />} />
           <Route path="/partnership" element={<Partnership />} />

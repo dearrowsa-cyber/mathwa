@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { HeroSection, SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
+import { SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
+import PageHeader from '../components/PageHeader'
 import { FaHandHoldingHeart, FaCheckCircle, FaMoneyBillWave, FaExternalLinkAlt } from 'react-icons/fa'
 
 const Donation = () => {
@@ -164,21 +165,14 @@ const Donation = () => {
     }
   }
 
+  const breadcrumbs = [
+    { label: t.home, to: '/' },
+    { label: t.title }
+  ]
+
   return (
     <>
-      <HeroSection 
-        title={t.title}
-        subtitle={t.subtitle}
-      />
-      <div className="bg-gray-100 py-2">
-        <Container>
-          <nav className="text-sm text-gray-600">
-            <Link to="/" className="hover:text-[#0E4B33]">{t.home}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-[#0E4B33] font-medium">{t.title}</span>
-          </nav>
-        </Container>
-      </div>
+      <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
 
       <Section>
         <Container>
