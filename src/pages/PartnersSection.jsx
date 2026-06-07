@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Marquee from "react-fast-marquee";
 
 const partners = [
   { id: 1, logo: "/AlhasaMunic.png", name_ar: "أمانة الأحساء", name_en: "Al-Ahsa Municipality" },
@@ -20,9 +19,9 @@ const PartnersSection = () => {
   }, []);
 
   return (
-    <section className="w-full overflow-hidden bg-white py-16 px-4 sm:px-20">
+    <section className="w-full overflow-hidden bg-white py-16 px-4 sm:px-10">
       {/* Header */}
-      <div className="text-center mb-10">
+      <div className="text-center mb-10 px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-[#0E4B33]" style={{ fontFamily: 'Alexandria, sans-serif' }}>
           {isArabic ? 'شركاؤنا في النجاح' : 'Our Trusted Partners'}
         </h2>
@@ -32,35 +31,28 @@ const PartnersSection = () => {
         </p>
       </div>
 
-      {/* Logo Slider */}
-      <div className="relative w-full overflow-hidden">
-        <Marquee 
-          gradient={false} 
-          speed={35} 
-          pauseOnHover={true}
-          direction={isArabic ? "right" : "left"}
-        >
-          {[...partners, ...partners, ...partners, ...partners].map((item, index) => (
-            <div
-              key={`${item.id}-${index}`}
-              className="flex-shrink-0 flex flex-col items-center justify-center mx-10 sm:mx-14 group"
-            >
-              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-[#C89B3C]/30 hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
-                <img
-                  src={item.logo}
-                  alt={isArabic ? item.name_ar : item.name_en}
-                  className="h-[70px] sm:h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
-              </div>
-              <span className="text-xs text-gray-400 mt-2 font-medium">
-                {isArabic ? item.name_ar : item.name_en}
-              </span>
+      {/* Grid instead of Marquee to ensure rendering on all devices and SSR */}
+      <div className="max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+        {partners.map((item) => (
+          <div
+            key={item.id}
+            className="flex flex-col items-center justify-center group w-[140px] sm:w-[180px]"
+          >
+            <div className="w-full bg-gray-50 rounded-2xl p-4 sm:p-6 border border-gray-100 hover:border-[#C89B3C]/30 hover:shadow-lg transition-all duration-300 group-hover:-translate-y-2 flex items-center justify-center aspect-[4/3]">
+              <img
+                src={item.logo}
+                alt={isArabic ? item.name_ar : item.name_en}
+                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105 filter grayscale hover:grayscale-0"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
             </div>
-          ))}
-        </Marquee>
+            <span className="text-xs sm:text-sm text-gray-500 mt-3 font-medium text-center">
+              {isArabic ? item.name_ar : item.name_en}
+            </span>
+          </div>
+        ))}
       </div>
     </section>
   );
