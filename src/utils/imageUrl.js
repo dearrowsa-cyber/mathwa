@@ -22,24 +22,26 @@ export const getImageUrl = (imagePath) => {
   // Determine base URL - check if it already starts with uploads/
   let baseUrl = '';
   
+  const backendBase = 'https://mathwaa.org.sa/Backend';
+
   if (cleanPath.startsWith('uploads/')) {
     // Already has uploads prefix - use as is
-    baseUrl = `https://mathwaa.org.sa//${cleanPath}`;
+    baseUrl = `${backendBase}/${cleanPath}`;
   } else if (cleanPath.startsWith('Mathwaa/uploads/')) {
     // Has Mathwaa prefix - remove it since we'll add our own
-    baseUrl = `https://mathwaa.org.sa//${cleanPath.replace('Mathwaa/', '')}`;
+    baseUrl = `${backendBase}/${cleanPath.replace('Mathwaa/', '')}`;
   } else if (cleanPath.startsWith('Backend/')) {
     // Backend path - convert to uploads format
-    baseUrl = `https://mathwaa.org.sa//uploads/${cleanPath.replace('Backend/', '')}`;
+    baseUrl = `${backendBase}/${cleanPath.replace('Backend/', '')}`;
   } else if (cleanPath.startsWith('Frontend/')) {
     // Frontend path - convert to uploads format
-    baseUrl = `https://mathwaa.org.sa//uploads/${cleanPath.replace('Frontend/', '')}`;
+    baseUrl = `${backendBase}/uploads/${cleanPath.replace('Frontend/', '')}`;
   } else if (cleanPath.includes('/')) {
     // Has directory structure but no prefix - add uploads
-    baseUrl = `https://mathwaa.org.sa//uploads/${cleanPath}`;
+    baseUrl = `${backendBase}/uploads/${cleanPath}`;
   } else {
     // Simple filename - add uploads/news directory
-    baseUrl = `https://mathwaa.org.sa//uploads/news/${cleanPath}`;
+    baseUrl = `${backendBase}/uploads/news/${cleanPath}`;
   }
 
   return baseUrl;
