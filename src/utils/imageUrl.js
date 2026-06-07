@@ -8,43 +8,41 @@ export const getImageUrl = (imagePath) => {
     return '/images/placeholder.jpg'; // Fallback image
   }
 
-  // If already a full URL, return as is
-  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
-    return imagePath;
+  // Define the base domain where uploads are actually served
+  const domain = 'https://mathwaa.org.sa';
+
+  // Normalize path by stripping the domain if it exists
+  let cleanPath = imagePath;
+  if (cleanPath.startsWith('http://') || cleanPath.startsWith('https://')) {
+    try {
+      const urlObj = new URL(cleanPath);
+      cleanPath = urlObj.pathname; // Gets everything after the domain (e.g., /Mathwaa/uploads/...)
+    } catch (e) {
+      // If parsing fails, just leave it as is
+    }
   }
 
-  // Normalize path - remove leading slashes
-  let cleanPath = imagePath;
+  // Remove leading slash
   if (cleanPath.startsWith('/')) {
     cleanPath = cleanPath.substring(1);
   }
 
-  // Determine base URL - check if it already starts with uploads/
-  let baseUrl = '';
-  
-  const backendBase = 'https://mathwaa.org.sa/Backend';
+  // Remove invalid prefixes from the database (e.g., 'Mathwaa/', 'Backend/', 'Frontend/')
+  cleanPath = cleanPath
+    .replace(/^Mathwaa\//i, '')
+    .replace(/^Backend\//i, '')
+    .replace(/^Frontend\//i, '');
 
+  // Now, determine the final URL
   if (cleanPath.startsWith('uploads/')) {
-    // Already has uploads prefix - use as is
-    baseUrl = `${backendBase}/${cleanPath}`;
-  } else if (cleanPath.startsWith('Mathwaa/uploads/')) {
-    // Has Mathwaa prefix - remove it since we'll add our own
-    baseUrl = `${backendBase}/${cleanPath.replace('Mathwaa/', '')}`;
-  } else if (cleanPath.startsWith('Backend/')) {
-    // Backend path - convert to uploads format
-    baseUrl = `${backendBase}/${cleanPath.replace('Backend/', '')}`;
-  } else if (cleanPath.startsWith('Frontend/')) {
-    // Frontend path - convert to uploads format
-    baseUrl = `${backendBase}/uploads/${cleanPath.replace('Frontend/', '')}`;
+    return `${domain}/${cleanPath}`;
   } else if (cleanPath.includes('/')) {
-    // Has directory structure but no prefix - add uploads
-    baseUrl = `${backendBase}/uploads/${cleanPath}`;
+    // Has a directory structure but no prefix, add 'uploads/'
+    return `${domain}/uploads/${cleanPath}`;
   } else {
-    // Simple filename - add uploads/news directory
-    baseUrl = `${backendBase}/uploads/news/${cleanPath}`;
+    // Just a filename, default to news
+    return `${domain}/uploads/news/${cleanPath}`;
   }
-
-  return baseUrl;
 };
 
 export default getImageUrl;
