@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaMosque, FaUsers, FaHandHoldingHeart, FaQuran, FaBalanceScale, FaEye, FaBullseye, FaHandshake, FaUserShield, FaGavel, FaChartLine, FaCheckCircle, FaProjectDiagram, FaBuilding, FaArrowRight } from 'react-icons/fa'
+import { FaMosque, FaUsers, FaHandHoldingHeart, FaQuran, FaBalanceScale, FaEye, FaBullseye, FaHandshake, FaUserShield, FaGavel, FaChartLine, FaCheckCircle, FaProjectDiagram, FaBuilding, FaArrowRight, FaUserTie, FaAward } from 'react-icons/fa'
 
 const About = () => {
   const translations = {
