@@ -45,7 +45,7 @@ const Regulations = () => {
         'المادة 4: حقوق الأعضاء وواجباتهم',
         'المادة 5: الجمعية العمومية واختصاصاتها',
         'المادة 6: مجلس الإدارة وصلاحياته',
-        'المادة 7: اللجان المنبثقة عن مجلس الإدارة',
+
         'المادة 8: الموارد المالية للجمعية',
         'المادة 9: الحل والدمج والتصفية',
       ],
@@ -56,7 +56,7 @@ const Regulations = () => {
         'Article 4: Members\' rights and duties',
         'Article 5: General Assembly and its responsibilities',
         'Article 6: Board of Directors and its powers',
-        'Article 7: Board committees',
+
         'Article 8: Financial resources',
         'Article 9: Dissolution, merger, and liquidation',
       ],

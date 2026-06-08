@@ -19,8 +19,7 @@ const Governance = () => {
       general_assembly_desc: 'Highest authority, 4 meetings annually',
       board: 'Board of Directors',
       board_desc: '4 members, 4-year term',
-      committees: 'Committees',
-      committees_desc: 'Formed per internal regulations',
+
       executive: 'Executive Body',
       executive_desc: 'Day-to-day management and operations',
       powers: 'Powers of the Board of Directors',
@@ -28,11 +27,7 @@ const Governance = () => {
       policies: 'Policies and Planning',
       governance_oversight: 'Governance and Oversight',
       financial: 'Financial Affairs',
-      specialized: 'Specialized Committees',
-      specialized_sub: 'Permanent committees to support the Board',
-      audit: 'Internal Audit Committee',
-      nominations: 'Nominations Committee',
-      elections: 'Elections Committee',
+
       financial_resources: 'Financial Resources',
       financial_sub: 'Sources of income and financial oversight',
       fiscal_year: 'Fiscal Year',
@@ -63,8 +58,7 @@ const Governance = () => {
       general_assembly_desc: 'أعلى سلطة، 4 اجتماعات سنوياً',
       board: 'مجلس الإدارة',
       board_desc: '4 أعضاء، فترة 4 سنوات',
-      committees: 'اللجان',
-      committees_desc: 'تُشكل وفق اللوائح الداخلية',
+
       executive: 'الجهاز التنفيذي',
       executive_desc: 'الإدارة والعمليات اليومية',
       powers: 'صلاحيات مجلس الإدارة',
@@ -72,11 +66,7 @@ const Governance = () => {
       policies: 'السياسات والتخطيط',
       governance_oversight: 'الحوكمة والرقابة',
       financial: 'الشؤون المالية',
-      specialized: 'اللجان المتخصصة',
-      specialized_sub: 'لجان دائمة لدعم مجلس الإدارة',
-      audit: 'لجنة المراجعة الداخلية',
-      nominations: 'لجنة الترشيحات',
-      elections: 'لجنة الانتخابات',
+
       financial_resources: 'الموارد المالية',
       financial_sub: 'مصادر الدخل والرقابة المالية',
       fiscal_year: 'السنة المالية',
@@ -114,11 +104,11 @@ const Governance = () => {
             <p className="text-gray-600">{t.structure_sub}</p>
             <div className="h-1 w-20 mt-2 rounded-full" style={{ backgroundColor: '#C89B3C' }} />
           </div>
-          <Grid cols={4}>
+          <Grid cols={3}>
             {[
               { icon: FaUsers, title: t.general_assembly, desc: t.general_assembly_desc },
               { icon: FaUsers, title: t.board, desc: t.board_desc },
-              { icon: FaUsers, title: t.committees, desc: t.committees_desc },
+
               { icon: FaUniversity, title: t.executive, desc: t.executive_desc },
             ].map((item, idx) => (
               <Card key={idx} className="text-center">
@@ -146,18 +136,7 @@ const Governance = () => {
             </Grid>
           </div>
 
-          <div className="mt-16 mb-12">
-            <h2 className="text-2xl font-bold mb-1" style={{ color: '#0E4B33' }}>{t.specialized}</h2>
-            <p className="text-gray-600 mb-6">{t.specialized_sub}</p>
-            <Grid cols={3}>
-              {[t.audit, t.nominations, t.elections].map((title, idx) => (
-                <Card key={idx} className="text-center">
-                  <FaFileAlt size={36} className="mx-auto mb-2" style={{ color: '#C89B3C' }} />
-                  <h3 className="font-bold" style={{ color: '#0E4B33' }}>{title}</h3>
-                </Card>
-              ))}
-            </Grid>
-          </div>
+
 
           <div className="mt-16 mb-12">
             <h2 className="text-2xl font-bold mb-1" style={{ color: '#0E4B33' }}>{t.transparency}</h2>

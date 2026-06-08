@@ -43,7 +43,7 @@ const Policies = () => {
         'الامتناع عن التصويت في حالة وجود تعارض',
         'حظر استغلال المنصب لتحقيق مكاسب شخصية',
         'تسجيل حالات التعارض في سجل خاص',
-        'إبلاغ لجنة المراجعة الداخلية عن أي حالات تعارض',
+        'الإبلاغ عن أي حالات تعارض',
         'المراجعة الدورية لسجلات تعارض المصالح',
       ],
       provisions_en: [
@@ -51,7 +51,7 @@ const Policies = () => {
         'Abstaining from voting in cases of conflict',
         'Prohibition of using position for personal gain',
         'Recording conflict cases in a dedicated register',
-        'Reporting any conflict cases to the Internal Audit Committee',
+        'Reporting any conflict situations',
         'Periodic review of conflict of interest records',
       ],
     },

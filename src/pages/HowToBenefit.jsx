@@ -19,7 +19,7 @@ const HowToBenefit = () => {
       step2Title: 'Submit Request',
       step2Desc: 'Choose the appropriate service and submit a request with supporting documents.',
       step3Title: 'Review & Approval',
-      step3Desc: 'Our committee will review your request and you will be notified of the decision.',
+      step3Desc: 'Our management will review your request and notify you of the decision.',
     },
     ar: {
       title: 'آلية الاستفادة',
@@ -31,7 +31,7 @@ const HowToBenefit = () => {
       step2Title: 'تقديم الطلب',
       step2Desc: 'اختر الخدمة المناسبة وقدم طلباً مع إرفاق المستندات الداعمة.',
       step3Title: 'المراجعة والاعتماد',
-      step3Desc: 'ستقوم لجنتنا بمراجعة طلبك وسيتم إشعارك بالقرار.',
+      step3Desc: 'ستقوم الإدارة بمراجعة طلبك وسيتم إشعارك بالقرار.',
     }
   }[language];
 

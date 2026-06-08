@@ -46,7 +46,7 @@ import AvailableServices from './pages/AvailableServices'
 import Governance from './pages/Governance'
 import Policies from './pages/Policies'
 import OrganizationalStructure from './pages/OrganizationalStructure'
-import Committees from './pages/Committees'
+
 import GeneralAssembly from './pages/GeneralAssembly'
 import Complaints from './pages/Complaints'
 import Regulations from './pages/Regulations'
@@ -145,7 +145,7 @@ function AppContent({ language, onLanguageChange }) {
           <Route path="/governance" element={<Governance />} />
           <Route path="/policies" element={<Policies />} />
           <Route path="/organizational-structure" element={<OrganizationalStructure />} />
-          <Route path="/committees" element={<Committees />} />
+
           <Route path="/general-assembly" element={<GeneralAssembly />} />
           <Route path="/complaints" element={<Complaints />} />
           <Route path="/regulations" element={<Regulations />} />

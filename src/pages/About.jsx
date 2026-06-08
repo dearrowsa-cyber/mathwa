@@ -212,15 +212,7 @@ const About = () => {
                   </div>
                 </div>
 
-                {/* Level 3 */}
-                <div className="flex items-center gap-4 sm:gap-6">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-[#0E4B33] border-2 border-[#0E4B33] flex items-center justify-center flex-shrink-0 shadow-lg z-10">
-                    <FaProjectDiagram size={20} className="sm:w-6 sm:h-6" />
-                  </div>
-                  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
-                    <h4 className="font-bold text-[#0E4B33]">{language === 'ar' ? 'اللجان المنبثقة' : 'Board Committees'}</h4>
-                  </div>
-                </div>
+
 
                 {/* Level 4 */}
                 <div className="flex items-center gap-4 sm:gap-6">
@@ -251,8 +243,8 @@ const About = () => {
 
               <p className="text-gray-600 leading-relaxed">
                 {language === 'ar'
-                  ? 'يعكس هذا الهيكل التسلسل الهرمي للسلطات واللجان والأقسام بناءً على المواد المنصوص عليها في اللائحة.'
-                  : 'This structure reflects the hierarchical order of authorities, committees, and departments based on the provisions of the bylaws.'}
+                  ? 'يعكس هذا الهيكل التسلسل الهرمي للسلطات والأقسام بناءً على المواد المنصوص عليها في اللائحة.'
+                  : 'This structure reflects the hierarchical order of authorities and departments based on the provisions of the bylaws.'}
               </p>
 
               <div className="space-y-4 text-gray-700 leading-relaxed text-sm">
@@ -279,22 +271,13 @@ const About = () => {
                     : 'Manages the organization and makes major strategic decisions while overseeing operations.'}
                 </p>
 
-                <p>
-                  <strong>
-                    {language === 'ar'
-                      ? '3. اللجان المنبثقة:'
-                      : '3. Board Committees:'}
-                  </strong><br/>
-                  {language === 'ar'
-                    ? 'تشمل لجنة المراجعة الداخلية، لجنة الترشيحات والمكافآت، ولجان أخرى حسب الحاجة.'
-                    : 'Includes Internal Audit Committee, Nominations & Remuneration Committee, and other specialized committees.'}
-                </p>
+
 
                 <p>
                   <strong>
                     {language === 'ar'
-                      ? '4. الجهاز التنفيذي:'
-                      : '4. Executive Management:'}
+                      ? '3. الجهاز التنفيذي:'
+                      : '3. Executive Management:'}
                   </strong><br/>
                   {language === 'ar'
                     ? 'يقوده المدير التنفيذي ويشمل الإدارات المالية والموارد البشرية والبرامج والعلاقات العامة.'

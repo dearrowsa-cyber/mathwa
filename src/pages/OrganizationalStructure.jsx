@@ -11,11 +11,11 @@ const OrganizationalStructure = () => {
   const t = {
     en: {
       title: 'Organizational Structure',
-      subtitle: 'The hierarchical structure of Mathwaa Charitable Association reflecting authorities, committees, and departments.',
+      subtitle: 'The hierarchical structure of Mathwaa Charitable Association reflecting authorities and departments.',
       home: 'Home',
       governance: 'Governance & Disclosure',
       structure_title: 'Organizational Structure of Mathwaa Association',
-      structure_desc: 'This structure reflects the hierarchical order of authorities, committees, and departments based on the provisions of the bylaws, ensuring separation of powers and achieving good governance principles.',
+      structure_desc: 'This structure reflects the hierarchical order of authorities and departments based on the provisions of the bylaws, ensuring separation of powers and achieving good governance principles.',
       license: 'License No. 1000827300 - Dated 6/1447H',
       assembly: 'General Assembly',
       assembly_desc: 'The supreme authority responsible for approving policies, electing the Board of Directors, approving budgets and reports, and amending the bylaws.',
@@ -42,11 +42,11 @@ const OrganizationalStructure = () => {
     },
     ar: {
       title: 'الهيكل التنظيمي',
-      subtitle: 'الهيكل التنظيمي لجمعية مثوى الأهلية يعكس التسلسل الهرمي للسلطات واللجان والأقسام.',
+      subtitle: 'الهيكل التنظيمي لجمعية مثوى الأهلية يعكس التسلسل الهرمي للسلطات والأقسام.',
       home: 'الرئيسية',
       governance: 'الحوكمة والإفصاح',
       structure_title: 'الهيكل التنظيمي لجمعية مثوى الأهلية',
-      structure_desc: 'يعكس هذا الهيكل التسلسل الهرمي للسلطات واللجان والأقسام بناءً على المواد المنصوص عليها في اللائحة، ويضمن الفصل بين السلطات وتحقيق مبادئ الحوكمة الرشيدة.',
+      structure_desc: 'يعكس هذا الهيكل التسلسل الهرمي للسلطات والأقسام بناءً على المواد المنصوص عليها في اللائحة، ويضمن الفصل بين السلطات وتحقيق مبادئ الحوكمة الرشيدة.',
       license: 'رقم الترخيص 1000827300 - بتاريخ 6-1447هـ',
       assembly: 'الجمعية العمومية',
       assembly_desc: 'أعلى سلطة في الجمعية، مسؤولة عن إقرار السياسات العليا، انتخاب مجلس الإدارة، اعتماد الميزانيات والتقارير، وتعديل اللائحة.',

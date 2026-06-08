@@ -14,8 +14,7 @@ const BOARD_MEMBERS_DATA = [
     title_ar: 'السيد',
     title_en: 'Mr.',
     is_chairman: true,
-    committees_ar: 'اللجنة التنفيذية',
-    committees_en: 'Executive Committee',
+
   },
   {
     id: 2,
@@ -26,8 +25,7 @@ const BOARD_MEMBERS_DATA = [
     title_ar: 'الأستاذ',
     title_en: 'Mr.',
     is_vice: true,
-    committees_ar: 'لجنة المراجعة الداخلية',
-    committees_en: 'Internal Audit Committee',
+
   },
   {
     id: 3,
@@ -37,8 +35,7 @@ const BOARD_MEMBERS_DATA = [
     role_en: 'Board Member',
     title_ar: 'الأستاذ',
     title_en: 'Mr.',
-    committees_ar: 'لجنة الترشيحات والمكافآت',
-    committees_en: 'Nominations & Remuneration Committee',
+
   },
   {
     id: 4,
@@ -48,8 +45,7 @@ const BOARD_MEMBERS_DATA = [
     role_en: 'Board Member',
     title_ar: 'الأستاذ',
     title_en: 'Mr.',
-    committees_ar: 'اللجنة المالية',
-    committees_en: 'Financial Committee',
+
   },
   {
     id: 5,
@@ -59,8 +55,7 @@ const BOARD_MEMBERS_DATA = [
     role_en: 'Board Member',
     title_ar: 'الأستاذة',
     title_en: 'Ms.',
-    committees_ar: 'لجنة البرامج والمشاريع',
-    committees_en: 'Programs & Projects Committee',
+
   },
 ]
 
@@ -102,7 +97,7 @@ const BoardMembers = () => {
       name: 'Name',
       position: 'Position',
       term: 'Term',
-      committees: 'Committees',
+
       meetings: 'Meetings',
       attendance: 'Attendance',
       founders_title: 'Founders & Board Members',
@@ -120,7 +115,7 @@ const BoardMembers = () => {
       name: 'الاسم',
       position: 'المنصب',
       term: 'الدورة',
-      committees: 'اللجان',
+
       meetings: 'الاجتماعات',
       attendance: 'الحضور',
       founders_title: 'المؤسسون وأعضاء مجلس الإدارة',
@@ -138,7 +133,7 @@ const BoardMembers = () => {
     const name = isAr ? member.name_ar : (member.name_en || member.name)
     const role = isAr ? (member.role_ar || member.role) : (member.role_en || member.role)
     const title = isAr ? member.title_ar : member.title_en
-    const committees = isAr ? member.committees_ar : member.committees_en
+
     const isChairman = member.is_chairman
     const isVice = member.is_vice
 
@@ -180,14 +175,6 @@ const BoardMembers = () => {
           }`}>
             {role}
           </span>
-
-          {/* Committees */}
-          {committees && (
-            <p className="text-sm text-gray-500 mt-2">
-              <span className="font-medium text-gray-600">{t.committees}: </span>
-              {committees}
-            </p>
-          )}
         </div>
       </div>
     )
@@ -247,7 +234,7 @@ const BoardMembers = () => {
                       <th className="py-4 px-6 font-bold">{t.name}</th>
                       <th className="py-4 px-6 font-bold">{t.position}</th>
                       <th className="py-4 px-6 font-bold">{t.term}</th>
-                      <th className="py-4 px-6 font-bold">{t.committees}</th>
+
                       <th className="py-4 px-6 font-bold text-center">{t.meetings}</th>
                       <th className="py-4 px-6 font-bold text-center">{t.attendance}</th>
                     </tr>
@@ -276,9 +263,6 @@ const BoardMembers = () => {
                           <span className="inline-block bg-gray-100 rounded px-2 py-1">{member.term_start}</span>
                           <span className="mx-2">-</span>
                           <span className="inline-block bg-gray-100 rounded px-2 py-1">{member.term_end}</span>
-                        </td>
-                        <td className="py-4 px-6 text-gray-700">
-                          {member.committees}
                         </td>
                         <td className="py-4 px-6 text-center font-bold text-[#C89B3C]">
                           {member.meetings_count}
