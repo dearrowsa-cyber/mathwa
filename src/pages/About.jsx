@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaMosque, FaStarAndCrescent, FaHandHoldingHeart, FaQuran, FaBalanceScale, FaEye, FaUsers, FaBullseye, FaHandshake, FaUserShield, FaGavel, FaChartLine, FaCheckCircle, FaProjectDiagram, FaBuilding, FaArrowRight } from 'react-icons/fa'
+import { FaMosque, FaUsers, FaHandHoldingHeart, FaQuran, FaBalanceScale, FaEye, FaBullseye, FaHandshake, FaUserShield, FaGavel, FaChartLine, FaCheckCircle, FaProjectDiagram, FaBuilding, FaArrowRight } from 'react-icons/fa'
 
 const About = () => {
   const translations = {
@@ -112,7 +112,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
               { number: '5', label: t.stats1, icon: FaUsers },
-              { number: '1447', label: t.stats2, icon: FaStarAndCrescent },
+              { number: '1447', label: t.stats2, icon: FaUsers },
               { number: '#1', label: t.stats3, icon: FaMosque },
             ].map((stat, idx) => {
               const Icon = stat.icon
@@ -205,7 +205,7 @@ const About = () => {
                 {/* Level 2 */}
                 <div className="flex items-center gap-4 sm:gap-6">
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#C89B3C] text-white flex items-center justify-center flex-shrink-0 shadow-lg z-10">
-                    <FaStarAndCrescent size={20} className="sm:w-6 sm:h-6" />
+                    <FaUsers size={20} className="sm:w-6 sm:h-6" />
                   </div>
                   <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
                     <h4 className="font-bold text-[#C89B3C]">{language === 'ar' ? 'مجلس الإدارة' : 'Board of Directors'}</h4>

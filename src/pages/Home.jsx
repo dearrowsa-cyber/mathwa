@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import CountUp from 'react-countup'
 import { FaShoppingCart } from 'react-icons/fa'
-import { FaArrowRight, FaArrowLeft, FaHandHoldingHeart, FaHandHoldingMedical, FaQuran, FaStar, FaHeart, FaKaaba, FaChevronLeft, FaChevronRight, FaChartBar, FaMosque, FaHandsHelping, FaHandshake, FaStarAndCrescent, FaNewspaper, FaPeopleCarry, FaLandmark, FaUsers, FaChartPie, FaClipboardList, FaBullhorn } from 'react-icons/fa'
+import { FaArrowRight, FaArrowLeft, FaHandHoldingHeart, FaHandHoldingMedical, FaQuran, FaStar, FaHeart, FaShieldAlt, FaChevronLeft, FaChevronRight, FaChartBar, FaMosque, FaHandsHelping, FaHandshake, FaUsersCog, FaNewspaper, FaPeopleCarry, FaLandmark, FaUsers, FaChartPie, FaClipboardList, FaBullhorn, FaAward } from 'react-icons/fa'
 import { SectionTitle, Container, Card, Button, Grid, Section, Badge, AnimatedSection } from '../components/Common'
 import { newsAPI, statisticsAPI, partnersAPI } from '../services/api'
 import TestimonialSection from './TestimonialSection'
@@ -398,7 +398,7 @@ const Home = () => {
     {
       title: t('common:membership'),
       desc: t('home:service_3_desc', 'Join our community'),
-      icon: FaStarAndCrescent,
+      icon: FaUsersCog,
       link: '/membership'
     },
     {
@@ -410,7 +410,7 @@ const Home = () => {
   ]
 
   const whyChoose = [
-    { title: t('home:transparency', 'Transparency'), desc: 'Full transparency in operations', icon: FaKaaba },
+    { title: t('home:transparency', 'Transparency'), desc: 'Full transparency in operations', icon: FaShieldAlt },
     { title: t('home:impact', 'Real Impact'), desc: 'Measurable results and outcomes', icon: FaHandHoldingHeart },
     { title: t('home:community', 'Community'), desc: 'Built by passionate volunteers', icon: FaPeopleCarry }
   ]
@@ -574,7 +574,7 @@ const Home = () => {
               { label: t('home:beneficiaries'), value: stats.beneficiaries, isNumber: true, icon: <FaMosque className="mx-auto text-[#C89B3C] drop-shadow-lg" size={42} /> },
               { label: t('home:volunteers'), value: stats.volunteers, isNumber: true, icon: <FaHandsHelping className="mx-auto text-[#C89B3C] drop-shadow-lg" size={42} /> },
               { label: t('home:partnerships'), value: stats.projects, isNumber: true, icon: <FaHandshake className="mx-auto text-[#C89B3C] drop-shadow-lg" size={42} /> },
-              { label: isArabic ? 'أعضاء مجلس الإدارة' : 'Board Members', value: 5, isNumber: true, icon: <FaStarAndCrescent className="mx-auto text-[#C89B3C] drop-shadow-lg" size={40} /> }
+              { label: isArabic ? 'أعضاء مجلس الإدارة' : 'Board Members', value: 5, isNumber: true, icon: <FaUsersCog className="mx-auto text-[#C89B3C] drop-shadow-lg" size={40} /> }
             ].map((stat, idx) => (
               <motion.div 
                 key={idx}
@@ -648,7 +648,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#0E4B33]/5 text-[#0E4B33] font-bold text-sm border border-[#0E4B33]/10 mb-6"
             >
-              <FaKaaba className="inline text-[#0E4B33] text-lg" /> {isArabic ? 'خدماتنا' : 'Our Services'}
+              <FaAward className="inline text-[#0E4B33] text-lg" /> {isArabic ? 'خدماتنا' : 'Our Services'}
             </motion.span>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}

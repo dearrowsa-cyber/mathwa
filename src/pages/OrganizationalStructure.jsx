@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaUsers, FaSitemap, FaUserTie, FaBuilding, FaProjectDiagram, FaCrown, FaChevronDown, FaChevronUp } from 'react-icons/fa'
+import { FaUsers, FaSitemap, FaUserTie, FaBuilding, FaProjectDiagram, FaAward, FaChevronDown, FaChevronUp } from 'react-icons/fa'
 
 const OrganizationalStructure = () => {
   const [language] = useState(() => localStorage.getItem('language') || 'ar')
@@ -92,7 +92,7 @@ const OrganizationalStructure = () => {
     },
     {
       id: 'board',
-      icon: FaCrown,
+      icon: FaAward,
       title: t.board,
       desc: t.board_desc,
       color: '#0E4B33',

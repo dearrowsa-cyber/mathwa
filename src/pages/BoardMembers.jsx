@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaUser, FaSpinner, FaCheckCircle, FaTimesCircle, FaUserCircle, FaCrown, FaUserTie } from 'react-icons/fa'
+import { FaUser, FaSpinner, FaCheckCircle, FaTimesCircle, FaUserCircle, FaAward, FaUserTie } from 'react-icons/fa'
 
 // Real board members data from the Mathwaa Foundation Document
 const BOARD_MEMBERS_DATA = [
@@ -158,7 +158,7 @@ const BoardMembers = () => {
             isChairman ? 'bg-[#C89B3C]/10 ring-4 ring-[#C89B3C]/30' : isVice ? 'bg-[#0E4B33]/10 ring-4 ring-[#0E4B33]/20' : 'bg-gray-100'
           }`}>
             {isChairman ? (
-              <FaCrown size={40} className="text-[#C89B3C]" />
+              <FaAward size={40} className="text-[#C89B3C]" />
             ) : (
               <FaUserTie size={36} className={isVice ? 'text-[#0E4B33]' : 'text-gray-400'} />
             )}

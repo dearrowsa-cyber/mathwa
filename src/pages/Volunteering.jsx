@@ -1,7 +1,7 @@
 import React from 'react'
 import { SectionTitle, Container, Card, Grid, Section, Button } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaArrowRight, FaHandHoldingHeart, FaMosque, FaQuran, FaStarAndCrescent } from 'react-icons/fa'
+import { FaArrowRight, FaHandHoldingHeart, FaMosque, FaQuran, FaUsers } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const Volunteering = () => {
@@ -42,7 +42,7 @@ const Volunteering = () => {
 
   const benefits = [
     { title: t.flexible, desc: t.flexible_desc, icon: FaHandHoldingHeart },
-    { title: t.impact, desc: t.impact_desc, icon: FaStarAndCrescent },
+    { title: t.impact, desc: t.impact_desc, icon: FaHandHoldingHeart },
     { title: t.growth, desc: t.growth_desc, icon: FaQuran },
     { title: t.community, desc: t.community_desc, icon: FaMosque },
   ]

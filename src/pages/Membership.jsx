@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Container, Card, Grid, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
 import { Link } from 'react-router-dom'
-import { FaCheckCircle, FaUser, FaCrown, FaCoins, FaFileAlt, FaCreditCard, FaUniversity, FaMobileAlt, FaPaperPlane, FaBalanceScale, FaClipboardList, FaUserFriends } from 'react-icons/fa'
+import { FaCheckCircle, FaUser, FaAward, FaCoins, FaFileAlt, FaCreditCard, FaUniversity, FaMobileAlt, FaPaperPlane, FaBalanceScale, FaClipboardList, FaUserFriends } from 'react-icons/fa'
 
 const Membership = () => {
   const lang = localStorage.getItem('language') || 'en'
@@ -233,7 +233,7 @@ const Membership = () => {
             {/* Honorary Membership */}
             <Card className="p-8 border-2 border-gray-200 hover:shadow-lg transition-all">
               <div className="text-center mb-6">
-                <FaCrown size={48} className="mx-auto mb-4 text-gray-600" />
+                <FaAward size={48} className="mx-auto mb-4 text-gray-600" />
                 <h3 className="text-xl font-bold mb-2" style={{ color: '#0E4B33' }}>
                   {lang === 'ar' ? 'العضوية الفخرية' : 'Honorary Membership'}
                 </h3>

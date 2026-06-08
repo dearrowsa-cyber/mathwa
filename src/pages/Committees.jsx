@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaSearch, FaAward, FaClipboardCheck, FaProjectDiagram, FaUserTie, FaCrown, FaUsers, FaCheckCircle, FaBullseye } from 'react-icons/fa'
+import { FaSearch, FaAward, FaClipboardCheck, FaProjectDiagram, FaUserTie, FaUsers, FaCheckCircle, FaBullseye } from 'react-icons/fa'
 
 const Committees = () => {
   const [language] = useState(() => localStorage.getItem('language') || 'ar')
@@ -197,7 +197,7 @@ const Committees = () => {
                       <div className="bg-gray-50 rounded-xl p-4">
                         <p className="text-xs font-bold text-gray-500 mb-2">{t.chair}</p>
                         <div className="flex items-center gap-3">
-                          <FaCrown size={20} style={{ color: committee.color }} />
+                          <FaAward size={20} style={{ color: committee.color }} />
                           <p className="font-bold text-[#0E4B33]">{isAr ? committee.chair_ar : committee.chair_en}</p>
                         </div>
                       </div>

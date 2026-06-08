@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaUsers, FaUserCircle, FaCrown, FaUserTie, FaClipboardList, FaVoteYea, FaCalendarAlt, FaFileAlt } from 'react-icons/fa'
+import { FaUsers, FaUserCircle, FaAward, FaUserTie, FaClipboardList, FaVoteYea, FaCalendarAlt, FaFileAlt } from 'react-icons/fa'
 
 const GeneralAssembly = () => {
   const [language] = useState(() => localStorage.getItem('language') || 'ar')
@@ -83,7 +83,7 @@ const GeneralAssembly = () => {
   ]
 
   const membershipTypes = [
-    { title: t.type_founding, desc: t.type_founding_desc, icon: FaCrown, color: '#C89B3C' },
+    { title: t.type_founding, desc: t.type_founding_desc, icon: FaAward, color: '#C89B3C' },
     { title: t.type_regular, desc: t.type_regular_desc, icon: FaUserCircle, color: '#0E4B33' },
     { title: t.type_honorary, desc: t.type_honorary_desc, icon: FaUserTie, color: '#7c3aed' },
   ]
@@ -129,7 +129,7 @@ const GeneralAssembly = () => {
             {assemblyMembers.map((member, i) => (
               <div key={i} className={`bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition-all ${i === 0 ? 'border-2 border-[#C89B3C] sm:col-span-2 lg:col-span-1' : 'border border-gray-100'}`}>
                 <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${i === 0 ? 'bg-[#C89B3C]/10' : 'bg-gray-100'}`}>
-                  {i === 0 ? <FaCrown size={28} className="text-[#C89B3C]" /> : <FaUserTie size={24} className="text-[#0E4B33]" />}
+                  {i === 0 ? <FaAward size={28} className="text-[#C89B3C]" /> : <FaUserTie size={24} className="text-[#0E4B33]" />}
                 </div>
                 <h3 className="font-bold text-[#0E4B33] mb-1">{isAr ? member.name_ar : member.name_en}</h3>
                 <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${i === 0 ? 'bg-[#C89B3C]/10 text-[#C89B3C]' : 'bg-gray-100 text-gray-600'}`}>
