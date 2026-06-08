@@ -43,7 +43,11 @@ const Governance = () => {
       basic_regulations: 'Basic Regulations',
       internal_regulations: 'Internal Regulations',
       governance_rules: 'Governance Rules',
+      board_creation: 'Board Creation Decision',
+      registration_decision: 'Registration Decision',
+      registration_cert: 'Registration Certificate',
       download: 'Download',
+      view_cert: 'View Certificate',
       contact_cta: 'Do you have an inquiry?',
       contact_cta_sub: 'We are here to answer all your questions',
       contact_us: 'Contact Us',
@@ -82,12 +86,23 @@ const Governance = () => {
       basic_regulations: 'اللائحة الأساسية',
       internal_regulations: 'اللوائح الداخلية',
       governance_rules: 'قواعد الحوكمة',
+      board_creation: 'قرار تشكيل مجلس الإدارة',
+      registration_decision: 'قرار التسجيل',
+      registration_cert: 'شهادة التسجيل',
       download: 'تحميل',
+      view_cert: 'عرض الشهادة',
       contact_cta: 'هل لديك استفسار؟',
       contact_cta_sub: 'نحن هنا للإجابة على جميع أسئلتكم واستفساراتكم',
       contact_us: 'تواصل معنا',
     },
   }[lang]
+
+  const officialDocs = [
+    { title: t.basic_regulations, file: '/docs/Basic-Standards.pdf', icon: FaGavel },
+    { title: t.board_creation, file: '/docs/Board-Creation-Decision.pdf', icon: FaFileAlt },
+    { title: t.registration_decision, file: '/docs/Registration-Decision.pdf', icon: FaFileAlt },
+    { title: t.registration_cert, file: '/docs/Certificate-1000827300.jpeg', icon: FaFileAlt, isCert: true },
+  ]
 
   const breadcrumbs = [
     { label: t.home, to: '/' },
@@ -155,18 +170,21 @@ const Governance = () => {
             <h2 className="text-2xl font-bold mb-1" style={{ color: '#0E4B33' }}>{t.official_docs}</h2>
             <p className="text-gray-600 mb-6">{t.official_docs_sub}</p>
             <div className="space-y-3">
-              {[t.basic_regulations, t.internal_regulations, t.governance_rules].map((title, idx) => (
-                <Card key={idx} className="flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center gap-3">
-                    <FaFileAlt size={28} style={{ color: '#C89B3C' }} />
-                    <span className="font-semibold" style={{ color: '#0E4B33' }}>{title}</span>
-                  </div>
-                  <a href="#" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: '#C89B3C' }}>
-                    <FaDownload size={18} />
-                    {t.download}
-                  </a>
-                </Card>
-              ))}
+              {officialDocs.map((doc, idx) => {
+                const Icon = doc.icon
+                return (
+                  <Card key={idx} className="flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex items-center gap-3">
+                      <Icon size={28} style={{ color: '#C89B3C' }} />
+                      <span className="font-semibold" style={{ color: '#0E4B33' }}>{doc.title}</span>
+                    </div>
+                    <a href={doc.file} target="_blank" rel="noopener noreferrer" download={!doc.isCert} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-white" style={{ backgroundColor: '#C89B3C' }}>
+                      <FaDownload size={18} />
+                      {doc.isCert ? t.view_cert : t.download}
+                    </a>
+                  </Card>
+                )
+              })}
             </div>
           </div>
 

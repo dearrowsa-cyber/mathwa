@@ -38,6 +38,7 @@ const Regulations = () => {
       title_en: 'Basic Regulation (Bylaws)',
       desc_ar: 'اللائحة الأساسية لجمعية مثوى الأهلية المعتمدة من وزارة الموارد البشرية والتنمية الاجتماعية. تحدد أهداف الجمعية وشروط العضوية وهيكلها التنظيمي.',
       desc_en: 'The basic regulation of Mathwaa Charitable Association approved by the Ministry of Human Resources and Social Development. Defines the association\'s objectives, membership conditions, and organizational structure.',
+      pdf: '/docs/Basic-Standards.pdf',
       articles_ar: [
         'المادة 1: اسم الجمعية ومقرها ونطاق خدماتها',
         'المادة 2: أهداف الجمعية ووسائل تحقيقها',
@@ -222,6 +223,14 @@ const Regulations = () => {
                           </div>
                         ))}
                       </div>
+                      {reg.pdf && (
+                        <div className="mt-6 pt-4 border-t border-gray-100">
+                          <a href={reg.pdf} target="_blank" rel="noopener noreferrer" download className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white transition-all hover:opacity-90 hover:shadow-lg" style={{ backgroundColor: reg.color }}>
+                            <FaDownload size={18} />
+                            {t.download}
+                          </a>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
