@@ -99,15 +99,7 @@ const OrganizationalStructure = () => {
       level: 2,
       hasMembers: true,
     },
-    {
-      id: 'committees',
-      icon: FaProjectDiagram,
-      title: t.committees_title,
-      desc: t.committees_desc,
-      color: '#2563eb',
-      level: 3,
-      items: [t.committee_audit, t.committee_nominations, t.committee_programs],
-    },
+
     {
       id: 'executive',
       icon: FaUserTie,
