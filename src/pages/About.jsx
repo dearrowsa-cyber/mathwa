@@ -195,10 +195,10 @@ const About = () => {
                 {/* Level 1 */}
                 <div className={`flex items-center gap-4 sm:gap-6 ${language === 'ar' ? 'flex-row' : ''}`}>
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#0E4B33] text-[#C89B3C] flex items-center justify-center flex-shrink-0 shadow-lg z-10">
-                    <FaUsers size={24} className="sm:w-7 sm:h-7" />
+                    <FaUserTie size={24} className="sm:w-7 sm:h-7" />
                   </div>
                   <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
-                    <h4 className="font-bold text-[#0E4B33]">{language === 'ar' ? 'الجمعية العمومية' : 'General Assembly'}</h4>
+                    <h4 className="font-bold text-[#0E4B33]">{language === 'ar' ? 'مؤسس' : 'Founder'}</h4>
                   </div>
                 </div>
 
@@ -208,7 +208,17 @@ const About = () => {
                     <FaUsers size={20} className="sm:w-6 sm:h-6" />
                   </div>
                   <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
-                    <h4 className="font-bold text-[#C89B3C]">{language === 'ar' ? 'مجلس الإدارة' : 'Board of Directors'}</h4>
+                    <h4 className="font-bold text-[#C89B3C]">{language === 'ar' ? 'عضو مجلس عموم' : 'General Assembly Member'}</h4>
+                  </div>
+                </div>
+
+                {/* Level 3 */}
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-[#0E4B33] border-2 border-[#0E4B33] flex items-center justify-center flex-shrink-0 shadow-lg z-10">
+                    <FaAward size={20} className="sm:w-6 sm:h-6" />
+                  </div>
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex-1">
+                    <h4 className="font-bold text-[#0E4B33]">{language === 'ar' ? 'مجلس الإدارة' : 'Board of Directors'}</h4>
                   </div>
                 </div>
 
@@ -252,19 +262,30 @@ const About = () => {
                 <p>
                   <strong>
                     {language === 'ar'
-                      ? '1. الجمعية العمومية (أعلى سلطة):'
-                      : '1. General Assembly (Supreme Authority):'}
+                      ? '1. مؤسس:'
+                      : '1. Founder:'}
                   </strong><br/>
                   {language === 'ar'
-                    ? 'مسؤولة عن إقرار السياسات العليا، انتخاب مجلس الإدارة، اعتماد الميزانيات والتقارير، وتعديل اللائحة.'
-                    : 'Responsible for approving high-level policies, electing the Board, approving budgets and reports, and amending bylaws.'}
+                    ? 'المؤسس للجمعية وواضع رؤيتها الأولى.'
+                    : 'The founder of the association who established its initial vision.'}
                 </p>
 
                 <p>
                   <strong>
                     {language === 'ar'
-                      ? '2. مجلس الإدارة:'
-                      : '2. Board of Directors:'}
+                      ? '2. عضو مجلس عموم:'
+                      : '2. General Assembly Member:'}
+                  </strong><br/>
+                  {language === 'ar'
+                    ? 'يمثلون أعلى سلطة، مسؤولون عن إقرار السياسات العليا، انتخاب مجلس الإدارة، واعتماد الميزانيات والتقارير.'
+                    : 'Representing the supreme authority, responsible for approving high-level policies, electing the Board, and approving budgets.'}
+                </p>
+
+                <p>
+                  <strong>
+                    {language === 'ar'
+                      ? '3. مجلس الإدارة:'
+                      : '3. Board of Directors:'}
                   </strong><br/>
                   {language === 'ar'
                     ? 'يدير الجمعية ويتخذ القرارات الاستراتيجية الكبرى ويشرف على أعمالها.'
@@ -276,8 +297,8 @@ const About = () => {
                 <p>
                   <strong>
                     {language === 'ar'
-                      ? '3. الجهاز التنفيذي:'
-                      : '3. Executive Management:'}
+                      ? '4. الجهاز التنفيذي:'
+                      : '4. Executive Management:'}
                   </strong><br/>
                   {language === 'ar'
                     ? 'يقوده المدير التنفيذي ويشمل الإدارات المالية والموارد البشرية والبرامج والعلاقات العامة.'
