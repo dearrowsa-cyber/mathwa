@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaBalanceScale, FaBullhorn, FaUserShield, FaHandHoldingHeart, FaExclamationTriangle, FaArchive, FaUsers, FaChevronDown, FaChevronUp, FaCheckCircle, FaShieldAlt } from 'react-icons/fa'
+import { FaBalanceScale, FaBullhorn, FaUserShield, FaHandHoldingHeart, FaExclamationTriangle, FaArchive, FaUsers, FaChevronDown, FaChevronUp, FaCheckCircle, FaShieldAlt, FaMoneyBillWave, FaIdCard, FaHandsHelping, FaUndo, FaExchangeAlt, FaChartLine, FaSitemap, FaSearchDollar } from 'react-icons/fa'
 
 const Policies = () => {
   const [language] = useState(() => localStorage.getItem('language') || 'ar')
@@ -38,6 +38,7 @@ const Policies = () => {
       title_en: 'Conflict of Interest Policy',
       desc_ar: 'تهدف إلى منع أي تعارض بين المصالح الشخصية لأعضاء مجلس الإدارة والعاملين وبين مصالح الجمعية، وضمان اتخاذ القرارات بنزاهة وشفافية.',
       desc_en: 'Aims to prevent any conflict between personal interests of board members and employees and the interests of the association, ensuring decisions are made with integrity and transparency.',
+      pdf: '/docs/Conflict-of-Interest-Policy.pdf',
       provisions_ar: [
         'الإفصاح عن أي مصلحة شخصية مباشرة أو غير مباشرة',
         'الامتناع عن التصويت في حالة وجود تعارض',
@@ -63,6 +64,7 @@ const Policies = () => {
       title_en: 'Whistleblowing Policy',
       desc_ar: 'توفر آلية آمنة وسرية للإبلاغ عن أي مخالفات أو سلوكيات غير أخلاقية داخل الجمعية، مع حماية المبلغين من أي انتقام.',
       desc_en: 'Provides a safe and confidential mechanism for reporting violations or unethical behavior within the association, with protection for whistleblowers from retaliation.',
+      pdf: '/docs/Whistleblowing-Policy.pdf',
       provisions_ar: [
         'قنوات إبلاغ سرية ومتعددة',
         'حماية المُبلّغ من أي شكل من أشكال الانتقام',
@@ -86,8 +88,9 @@ const Policies = () => {
       color: '#0E4B33',
       title_ar: 'سياسة الخصوصية وحماية البيانات',
       title_en: 'Privacy & Data Protection Policy',
-      desc_ar: 'تحمي خصوصية البيانات الشخصية للمستفيدين والمتبرعين والعاملين والمتطوعين وفقاً لنظام حماية البيانات الشخصية في المملكة العربية السعودية.',
+      desc_ar: 'تحمي خصوصية البيانات الشخصية لطالبي الخدمة والمتبرعين والعاملين والمتطوعين وفقاً لنظام حماية البيانات الشخصية في المملكة العربية السعودية.',
       desc_en: 'Protects the privacy of personal data of beneficiaries, donors, employees, and volunteers in accordance with the Saudi Personal Data Protection Law.',
+      pdf: '/docs/Privacy-Policy.pdf',
       provisions_ar: [
         'جمع البيانات الشخصية بموافقة صريحة من أصحابها',
         'تخزين البيانات بشكل آمن ومشفّر',
@@ -113,6 +116,7 @@ const Policies = () => {
       title_en: 'Fundraising Policy',
       desc_ar: 'تنظم عمليات جمع التبرعات والهبات والأوقاف لضمان الشفافية والامتثال للأنظمة واللوائح المعمول بها.',
       desc_en: 'Regulates donation collection, grants, and endowments to ensure transparency and compliance with applicable laws and regulations.',
+      pdf: '/docs/Fundraising-Policy.pdf',
       provisions_ar: [
         'الحصول على التراخيص اللازمة لجمع التبرعات',
         'الشفافية في عرض أوجه الصرف للمتبرعين',
@@ -138,6 +142,7 @@ const Policies = () => {
       title_en: 'Risk Management Policy',
       desc_ar: 'تحدد إطار العمل لتحديد وتقييم وإدارة المخاطر التي قد تواجه الجمعية لضمان استمرارية العمل وحماية الأصول.',
       desc_en: 'Defines the framework for identifying, assessing, and managing risks that may face the association to ensure business continuity and asset protection.',
+      pdf: '/docs/Risk-Management-Policy.pdf',
       provisions_ar: [
         'تصنيف المخاطر (مالية، تشغيلية، قانونية، سمعة)',
         'تقييم المخاطر حسب الاحتمالية والأثر',
@@ -163,6 +168,7 @@ const Policies = () => {
       title_en: 'Document Retention Policy',
       desc_ar: 'تنظم آليات حفظ وأرشفة وإتلاف الوثائق والسجلات الرسمية للجمعية وفقاً للمتطلبات النظامية.',
       desc_en: 'Regulates mechanisms for preserving, archiving, and disposing of official documents and records according to regulatory requirements.',
+      pdf: '/docs/Document-Retention-Policy.pdf',
       provisions_ar: [
         'تصنيف الوثائق حسب مستوى السرية والأهمية',
         'فترات الاحتفاظ المحددة لكل نوع من الوثائق',
@@ -184,15 +190,16 @@ const Policies = () => {
       id: 'beneficiaries',
       icon: FaUsers,
       color: '#059669',
-      title_ar: 'سياسة العلاقة مع المستفيدين',
-      title_en: 'Beneficiary Relations Policy',
-      desc_ar: 'تحدد إطار التعامل مع المستفيدين من خدمات الجمعية بما يضمن الكرامة والعدالة والشمولية في تقديم الخدمات.',
+      title_ar: 'سياسة العلاقة مع طالبي الخدمة',
+      title_en: 'Service Seekers Relations Policy',
+      desc_ar: 'تحدد إطار التعامل مع طالبي خدمات الجمعية بما يضمن الكرامة والعدالة والشمولية في تقديم الخدمات.',
       desc_en: 'Defines the framework for dealing with beneficiaries ensuring dignity, fairness, and inclusivity in service delivery.',
+      pdf: '/docs/Beneficiary-Relations-Policy.pdf',
       provisions_ar: [
         'معايير واضحة وعادلة لأهلية الاستفادة',
-        'احترام كرامة المستفيدين وخصوصيتهم',
-        'آلية تلقي الشكاوى والاقتراحات من المستفيدين',
-        'قياس رضا المستفيدين بشكل دوري',
+        'احترام كرامة طالبي الخدمة وخصوصيتهم',
+        'آلية تلقي الشكاوى والاقتراحات من طالبي الخدمة',
+        'قياس رضا طالبي الخدمة بشكل دوري',
         'التحسين المستمر للخدمات بناءً على التغذية الراجعة',
         'ضمان عدم التمييز في تقديم الخدمات',
       ],
@@ -203,6 +210,214 @@ const Policies = () => {
         'Periodic beneficiary satisfaction measurement',
         'Continuous service improvement based on feedback',
         'Ensuring non-discrimination in service delivery',
+      ],
+    },
+    {
+      id: 'aml',
+      icon: FaSearchDollar,
+      color: '#b91c1c',
+      title_ar: 'سياسة مكافحة غسل الأموال وتمويل الإرهاب',
+      title_en: 'AML/CFT Policy',
+      desc_ar: 'تهدف إلى حماية الجمعية من الاستغلال في عمليات غسل الأموال أو تمويل الإرهاب، وضمان الالتزام بالأنظمة المحلية والدولية.',
+      desc_en: 'Aims to protect the association from being exploited in money laundering or terrorist financing, ensuring compliance with local and international regulations.',
+      pdf: '/docs/AML-CFT-Policy.pdf',
+      provisions_ar: [
+        'التحقق من هوية المتبرعين والمستفيدين والجهات المانحة',
+        'الإبلاغ الفوري عن العمليات المشتبه بها',
+        'تطبيق إجراءات العناية الواجبة والرقابة المستمرة',
+        'تدريب العاملين على رصد ومكافحة غسل الأموال',
+        'الاحتفاظ بسجلات العمليات المالية لمدة لا تقل عن 10 سنوات',
+        'تعيين مسؤول التزام للإشراف على تطبيق السياسة',
+      ],
+      provisions_en: [
+        'Verifying the identity of donors, beneficiaries, and granting entities',
+        'Immediate reporting of suspicious transactions',
+        'Implementing due diligence and continuous monitoring procedures',
+        'Training employees on detecting and combating money laundering',
+        'Retaining financial transaction records for at least 10 years',
+        'Appointing a Compliance Officer to oversee policy implementation',
+      ],
+    },
+    {
+      id: 'financial',
+      icon: FaMoneyBillWave,
+      color: '#059669',
+      title_ar: 'اللائحة المالية',
+      title_en: 'Financial Regulations',
+      desc_ar: 'تحدد القواعد والأسس التي تحكم العمليات المالية والمحاسبية في الجمعية لضمان كفاءة الإنفاق والشفافية التامة.',
+      desc_en: 'Defines the rules and principles governing financial and accounting operations in the association to ensure spending efficiency and absolute transparency.',
+      pdf: '/docs/Financial-Regulations.pdf',
+      provisions_ar: [
+        'إعداد الموازنات التقديرية السنوية واعتمادها',
+        'تحديد إجراءات الصرف المالي ومستويات الاعتماد',
+        'ضوابط المشتريات وإدارة العقود والمنافسات',
+        'إجراءات القبض وإيداع الإيرادات والتبرعات',
+        'سياسات الرقابة الداخلية وإدارة الأصول',
+        'إصدار التقارير المالية الدورية والقوائم المدققة',
+      ],
+      provisions_en: [
+        'Preparing and approving annual estimated budgets',
+        'Defining financial disbursement procedures and approval levels',
+        'Procurement controls, contract, and bidding management',
+        'Collection and deposit procedures for revenues and donations',
+        'Internal control policies and asset management',
+        'Issuing periodic financial reports and audited statements',
+      ],
+    },
+    {
+      id: 'hr',
+      icon: FaIdCard,
+      color: '#2563eb',
+      title_ar: 'لائحة الموارد البشرية',
+      title_en: 'Human Resources Regulations',
+      desc_ar: 'تنظم العلاقة التعاقدية والوظيفية بين الجمعية وموظفيها لضمان بيئة عمل عادلة ومحفزة تتوافق مع نظام العمل السعودي.',
+      desc_en: 'Regulates the contractual and employment relationship between the association and its employees to ensure a fair and motivating work environment compliant with the Saudi Labor Law.',
+      pdf: '/docs/HR-Regulations.pdf',
+      provisions_ar: [
+        'إجراءات التوظيف والاختيار والمفاضلة بعدالة',
+        'سلم الرواتب والمكافآت والبدلات',
+        'ضوابط تقييم الأداء والترقيات والتدريب',
+        'تحديد الإجازات وساعات العمل والراحة',
+        'الجزاءات التأديبية وآلية التظلم',
+        'إنهاء الخدمة وحقوق ما بعد الانتهاء',
+      ],
+      provisions_en: [
+        'Fair recruitment, selection, and preference procedures',
+        'Salary scale, bonuses, and allowances',
+        'Performance evaluation, promotion, and training controls',
+        'Determining leaves, working hours, and rest periods',
+        'Disciplinary actions and grievance mechanism',
+        'Termination of service and post-employment rights',
+      ],
+    },
+    {
+      id: 'volunteering',
+      icon: FaHandsHelping,
+      color: '#d97706',
+      title_ar: 'سياسة التطوع وإدارة المتطوعين',
+      title_en: 'Volunteering Policy',
+      desc_ar: 'تؤطر العمل التطوعي في الجمعية وتحمي حقوق المتطوعين وتنظم مهامهم ومسؤولياتهم وفق المعيار الوطني للتطوع.',
+      desc_en: 'Frames volunteer work in the association, protects volunteers\' rights, and organizes their tasks and responsibilities according to the National Volunteer Standard.',
+      pdf: '/docs/Volunteering-Policy.pdf',
+      provisions_ar: [
+        'تحديد مجالات التطوع وتصميم الفرص التطوعية',
+        'إجراءات استقطاب واختيار المتطوعين',
+        'توضيح حقوق وواجبات المتطوع تجاه الجمعية',
+        'التأهيل والتدريب لضمان جودة الأداء',
+        'ميثاق شرف العمل التطوعي وإقرارات الالتزام',
+        'توثيق الساعات التطوعية وتقديم خطابات الشكر',
+      ],
+      provisions_en: [
+        'Identifying volunteer areas and designing volunteer opportunities',
+        'Procedures for attracting and selecting volunteers',
+        'Clarifying volunteers\' rights and duties towards the association',
+        'Qualification and training to ensure performance quality',
+        'Volunteer code of conduct and commitment declarations',
+        'Documenting volunteer hours and providing letters of appreciation',
+      ],
+    },
+    {
+      id: 'refund',
+      icon: FaUndo,
+      color: '#4f46e5',
+      title_ar: 'سياسة استرداد التبرعات',
+      title_en: 'Donation Refund Policy',
+      desc_ar: 'تحدد الحالات والشروط التي يحق فيها للمتبرع استرداد مبلغ التبرع، لضمان حماية المتبرعين والشفافية.',
+      desc_en: 'Determines the conditions and cases under which a donor is entitled to a donation refund, ensuring donor protection and transparency.',
+      pdf: '/docs/Donation-Refund-Policy.pdf',
+      provisions_ar: [
+        'استرداد التبرع في حال التحويل بالخطأ المبرر',
+        'تحديد المدة الزمنية المسموحة لطلب الاسترداد',
+        'عدم جواز الاسترداد للتبرعات العينية المستخدمة',
+        'إجراءات تقديم الطلب ومراجعته من الإدارة المالية',
+        'عدم استرداد التبرعات بعد صرفها على المستفيدين',
+        'إرجاع المبالغ بنفس طريقة الدفع الأصلية إن أمكن',
+      ],
+      provisions_en: [
+        'Refund for justified accidental transfers',
+        'Determining the allowed timeframe for refund requests',
+        'No refunds for used in-kind donations',
+        'Procedures for submitting the request and financial review',
+        'No refunds after funds are disbursed to beneficiaries',
+        'Refunding amounts using the original payment method when possible',
+      ],
+    },
+    {
+      id: 'redirect',
+      icon: FaExchangeAlt,
+      color: '#0891b2',
+      title_ar: 'سياسة توجيه التبرع لمشروع آخر',
+      title_en: 'Redirecting Donations Policy',
+      desc_ar: 'تنظم آلية تحويل ونقل التبرعات من مشروع إلى آخر في حال اكتمال تمويل المشروع الأول أو تعثره، بما يحفظ حق المتبرع.',
+      desc_en: 'Regulates the mechanism for transferring donations from one project to another if the first project is fully funded or stalls, protecting the donor\'s rights.',
+      pdf: '/docs/Redirecting-Donations-Policy.pdf',
+      provisions_ar: [
+        'جواز نقل فائض التبرعات لمشروع مشابه بنفس النطاق',
+        'أخذ موافقة المتبرع في حال التبرع المشروط أو المقيد',
+        'توجيه التبرعات العامة وغير المقيدة حسب احتياج الجمعية',
+        'الإعلان بشفافية عن اكتمال التمويل للمشاريع المحددة',
+        'قرار نقل التبرعات يمر عبر موافقة مجلس الإدارة',
+        'إعلام المتبرعين بمسار توجيه تبرعاتهم إن لزم الأمر',
+      ],
+      provisions_en: [
+        'Permissibility of transferring surplus donations to a similar project',
+        'Obtaining donor consent for conditional or restricted donations',
+        'Directing general, unrestricted donations based on association needs',
+        'Transparently announcing the completion of specific project funding',
+        'Donation transfer decisions require Board approval',
+        'Informing donors about the redirection path of their donations if necessary',
+      ],
+    },
+    {
+      id: 'investment',
+      icon: FaChartLine,
+      color: '#7e22ce',
+      title_ar: 'سياسة الاستثمار',
+      title_en: 'Investment Policy',
+      desc_ar: 'تحدد المعايير والضوابط الخاصة باستثمار أموال وفائض إيرادات الجمعية بما يحقق الاستدامة المالية وتنمية الموارد بأمان.',
+      desc_en: 'Defines the criteria and controls for investing the association\'s funds and surplus revenues to achieve financial sustainability and secure resource development.',
+      pdf: '/docs/Investment-Policy.pdf',
+      provisions_ar: [
+        'الالتزام بأحكام الشريعة الإسلامية في كافة الاستثمارات',
+        'تجنب الاستثمارات عالية المخاطر أو المضاربة',
+        'تنويع المحفظة الاستثمارية لتقليل المخاطر',
+        'اعتماد خطط الاستثمار من مجلس الإدارة والجمعية العمومية',
+        'تعيين جهات مرخصة ومعتمدة لإدارة الاستثمارات',
+        'المراجعة الدورية وتقييم أداء المحفظة الاستثمارية',
+      ],
+      provisions_en: [
+        'Compliance with Islamic Sharia principles in all investments',
+        'Avoiding high-risk investments or speculations',
+        'Diversifying the investment portfolio to minimize risks',
+        'Approval of investment plans by the Board and General Assembly',
+        'Appointing licensed and accredited entities for investment management',
+        'Periodic review and performance evaluation of the investment portfolio',
+      ],
+    },
+    {
+      id: 'authorities',
+      icon: FaSitemap,
+      color: '#1f2937',
+      title_ar: 'مصفوفة الصلاحيات',
+      title_en: 'Authorities Matrix',
+      desc_ar: 'توضح توزيع الصلاحيات الإدارية والمالية والتشغيلية بين الجمعية العمومية، مجلس الإدارة، والمدير التنفيذي لضمان الحوكمة وتجنب تداخل المهام.',
+      desc_en: 'Clarifies the distribution of administrative, financial, and operational authorities among the General Assembly, Board of Directors, and Executive Director to ensure governance and prevent task overlap.',
+      pdf: '/docs/Authorities-Matrix.pdf',
+      provisions_ar: [
+        'تحديد صلاحيات الاعتماد المالي وفق مستويات متدرجة',
+        'فصل السلطات وتجنب مركزية القرار',
+        'توضيح المهام التشغيلية للمدير التنفيذي',
+        'حصر القرارات الاستراتيجية بمجلس الإدارة',
+        'تفويض الصلاحيات بشكل رسمي ومكتوب',
+        'تحديث المصفوفة بشكل دوري يتناسب مع حجم الجمعية',
+      ],
+      provisions_en: [
+        'Defining financial approval authorities according to graded levels',
+        'Separation of powers and avoiding decision centralization',
+        'Clarifying operational tasks for the Executive Director',
+        'Restricting strategic decisions to the Board of Directors',
+        'Formal and written delegation of authorities',
+        'Periodically updating the matrix to suit the association\'s size',
       ],
     },
   ]
@@ -255,7 +470,21 @@ const Policies = () => {
 
                   {isExpanded && (
                     <div className="px-6 pb-6 border-t border-gray-100 pt-4">
-                      <h4 className="font-bold text-[#0E4B33] mb-4 text-sm">{t.key_provisions}</h4>
+                      <div className="flex justify-between items-center mb-4">
+                        <h4 className="font-bold text-[#0E4B33] text-sm">{t.key_provisions}</h4>
+                        {policy.pdf && (
+                          <a 
+                            href={policy.pdf} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            download 
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-[#0E4B33] text-white text-sm font-semibold rounded-lg hover:bg-[#0a3826] transition-colors"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            {isAr ? 'تحميل الوثيقة الرسمية' : 'Download Official Document'}
+                          </a>
+                        )}
+                      </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {provisions.map((item, i) => (
                           <div key={i} className="flex items-start gap-2 bg-gray-50 rounded-xl p-3">
