@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaFileContract, FaMoneyBillWave, FaUsersCog, FaShoppingCart, FaUserTie, FaDownload, FaChevronDown, FaChevronUp, FaCheckCircle, FaGavel } from 'react-icons/fa'
+import { FaFileContract, FaMoneyBillWave, FaUsersCog, FaShoppingCart, FaUserTie, FaDownload, FaChevronDown, FaChevronUp, FaCheckCircle, FaGavel, FaSitemap } from 'react-icons/fa'
 
 const Regulations = () => {
   const [language] = useState(() => localStorage.getItem('language') || 'ar')
@@ -42,7 +42,7 @@ const Regulations = () => {
       articles_ar: [
         'المادة 1: اسم الجمعية ومقرها ونطاق خدماتها',
         'المادة 2: أهداف الجمعية ووسائل تحقيقها',
-        'المادة 3: شروط العضوية وأنواعها (مؤسس، عادي، فخري)',
+        'المادة 3: شروط العضوية وأنواعها (مؤسس، عادي، فخري، داعم)',
         'المادة 4: حقوق الأعضاء وواجباتهم',
         'المادة 5: الجمعية العمومية واختصاصاتها',
         'المادة 6: مجلس الإدارة وصلاحياته',
@@ -70,6 +70,7 @@ const Regulations = () => {
       title_en: 'Financial Regulation',
       desc_ar: 'تنظم الشؤون المالية للجمعية بما يشمل إعداد الميزانيات والمصروفات والإيرادات والرقابة المالية وإجراءات الصرف والتحصيل.',
       desc_en: 'Regulates the financial affairs including budget preparation, expenditures, revenues, financial oversight, and disbursement procedures.',
+      pdf: '/docs/Financial-Regulation.pdf',
       articles_ar: [
         'إعداد واعتماد الميزانية السنوية',
         'إجراءات الصرف والتحصيل والتوقيع',
@@ -95,6 +96,7 @@ const Regulations = () => {
       title_en: 'Human Resources Regulation',
       desc_ar: 'تنظم شؤون الموظفين والمتطوعين بما يشمل التوظيف والتدريب والتقييم والحقوق والواجبات وفقاً لنظام العمل السعودي.',
       desc_en: 'Regulates employee and volunteer affairs including recruitment, training, evaluation, rights, and duties according to Saudi labor law.',
+      pdf: '/docs/HR-Regulation.pdf',
       articles_ar: [
         'إجراءات التوظيف والاختيار',
         'الرواتب والبدلات والمكافآت',
@@ -122,6 +124,7 @@ const Regulations = () => {
       title_en: 'Procurement Regulation',
       desc_ar: 'تنظم عمليات الشراء والتعاقد والمناقصات لضمان الشفافية والكفاءة في استخدام موارد الجمعية.',
       desc_en: 'Regulates purchasing, contracting, and tendering processes to ensure transparency and efficiency in resource utilization.',
+      pdf: '/docs/Procurement-Regulation.pdf',
       articles_ar: [
         'صلاحيات الشراء والاعتماد',
         'إجراءات طلب العروض والمناقصات',
@@ -147,6 +150,7 @@ const Regulations = () => {
       title_en: 'Executive Management Regulation',
       desc_ar: 'تحدد صلاحيات ومسؤوليات المدير التنفيذي والجهاز التنفيذي وآليات التنسيق مع مجلس الإدارة.',
       desc_en: 'Defines the powers and responsibilities of the Executive Director and executive team, and coordination mechanisms with the Board.',
+      pdf: '/docs/Executive-Management-Regulation.pdf',
       articles_ar: [
         'صلاحيات ومهام المدير التنفيذي',
         'العلاقة بين الجهاز التنفيذي ومجلس الإدارة',
@@ -162,6 +166,32 @@ const Regulations = () => {
         'Delegation of authority',
         'Operational risk management',
         'Performance standards and KPIs',
+      ],
+    },
+    {
+      id: 'authorities',
+      icon: FaSitemap,
+      color: '#1f2937',
+      title_ar: 'مصفوفة الصلاحيات',
+      title_en: 'Authorities Matrix',
+      desc_ar: 'توضح توزيع الصلاحيات الإدارية والمالية والتشغيلية بين الجمعية العمومية، مجلس الإدارة، والمدير التنفيذي لضمان الحوكمة وتجنب تداخل المهام.',
+      desc_en: 'Clarifies the distribution of administrative, financial, and operational authorities among the General Assembly, Board of Directors, and Executive Director to ensure governance and prevent task overlap.',
+      pdf: '/docs/Authorities-Matrix.pdf',
+      articles_ar: [
+        'تحديد صلاحيات الاعتماد المالي وفق مستويات متدرجة',
+        'فصل السلطات وتجنب مركزية القرار',
+        'توضيح المهام التشغيلية للمدير التنفيذي',
+        'حصر القرارات الاستراتيجية بمجلس الإدارة',
+        'تفويض الصلاحيات بشكل رسمي ومكتوب',
+        'تحديث المصفوفة بشكل دوري يتناسب مع حجم الجمعية',
+      ],
+      articles_en: [
+        'Defining financial approval authorities according to graded levels',
+        'Separation of powers and avoiding decision centralization',
+        'Clarifying operational tasks for the Executive Director',
+        'Restricting strategic decisions to the Board of Directors',
+        'Formal and written delegation of authorities',
+        'Periodically updating the matrix to suit the association\'s size',
       ],
     },
   ]
