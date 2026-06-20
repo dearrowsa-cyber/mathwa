@@ -38,7 +38,7 @@ const Regulations = () => {
       title_en: 'Basic Regulation (Bylaws)',
       desc_ar: 'اللائحة الأساسية لجمعية مثوى الأهلية المعتمدة من وزارة الموارد البشرية والتنمية الاجتماعية. تحدد أهداف الجمعية وشروط العضوية وهيكلها التنظيمي.',
       desc_en: 'The basic regulation of Mathwaa Charitable Association approved by the Ministry of Human Resources and Social Development. Defines the association\'s objectives, membership conditions, and organizational structure.',
-      pdf: '/docs/Basic-Standards.pdf',
+      pdf: '/docs/All-Regulations.pdf',
       articles_ar: [
         'المادة 1: اسم الجمعية ومقرها ونطاق خدماتها',
         'المادة 2: أهداف الجمعية ووسائل تحقيقها',
@@ -70,7 +70,7 @@ const Regulations = () => {
       title_en: 'Financial Regulation',
       desc_ar: 'تنظم الشؤون المالية للجمعية بما يشمل إعداد الميزانيات والمصروفات والإيرادات والرقابة المالية وإجراءات الصرف والتحصيل.',
       desc_en: 'Regulates the financial affairs including budget preparation, expenditures, revenues, financial oversight, and disbursement procedures.',
-      pdf: '/docs/Financial-Regulation.pdf',
+      pdf: '/docs/All-Regulations.pdf',
       articles_ar: [
         'إعداد واعتماد الميزانية السنوية',
         'إجراءات الصرف والتحصيل والتوقيع',
@@ -96,7 +96,7 @@ const Regulations = () => {
       title_en: 'Human Resources Regulation',
       desc_ar: 'تنظم شؤون الموظفين والمتطوعين بما يشمل التوظيف والتدريب والتقييم والحقوق والواجبات وفقاً لنظام العمل السعودي.',
       desc_en: 'Regulates employee and volunteer affairs including recruitment, training, evaluation, rights, and duties according to Saudi labor law.',
-      pdf: '/docs/HR-Regulation.pdf',
+      pdf: '/docs/All-Regulations.pdf',
       articles_ar: [
         'إجراءات التوظيف والاختيار',
         'الرواتب والبدلات والمكافآت',
@@ -124,7 +124,7 @@ const Regulations = () => {
       title_en: 'Procurement Regulation',
       desc_ar: 'تنظم عمليات الشراء والتعاقد والمناقصات لضمان الشفافية والكفاءة في استخدام موارد الجمعية.',
       desc_en: 'Regulates purchasing, contracting, and tendering processes to ensure transparency and efficiency in resource utilization.',
-      pdf: '/docs/Procurement-Regulation.pdf',
+      pdf: '/docs/All-Regulations.pdf',
       articles_ar: [
         'صلاحيات الشراء والاعتماد',
         'إجراءات طلب العروض والمناقصات',
@@ -150,7 +150,7 @@ const Regulations = () => {
       title_en: 'Executive Management Regulation',
       desc_ar: 'تحدد صلاحيات ومسؤوليات المدير التنفيذي والجهاز التنفيذي وآليات التنسيق مع مجلس الإدارة.',
       desc_en: 'Defines the powers and responsibilities of the Executive Director and executive team, and coordination mechanisms with the Board.',
-      pdf: '/docs/Executive-Management-Regulation.pdf',
+      pdf: '/docs/All-Regulations.pdf',
       articles_ar: [
         'صلاحيات ومهام المدير التنفيذي',
         'العلاقة بين الجهاز التنفيذي ومجلس الإدارة',
@@ -176,7 +176,7 @@ const Regulations = () => {
       title_en: 'Authorities Matrix',
       desc_ar: 'توضح توزيع الصلاحيات الإدارية والمالية والتشغيلية بين الجمعية العمومية، مجلس الإدارة، والمدير التنفيذي لضمان الحوكمة وتجنب تداخل المهام.',
       desc_en: 'Clarifies the distribution of administrative, financial, and operational authorities among the General Assembly, Board of Directors, and Executive Director to ensure governance and prevent task overlap.',
-      pdf: '/docs/Authorities-Matrix.pdf',
+      pdf: '/docs/All-Regulations.pdf',
       articles_ar: [
         'تحديد صلاحيات الاعتماد المالي وفق مستويات متدرجة',
         'فصل السلطات وتجنب مركزية القرار',
