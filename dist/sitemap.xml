@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mathwaa.org.sa/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/about</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/governance</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/board-members</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/organizational-structure</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/general-assembly</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/policies</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/regulations</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/committees</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/annual-reports</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/complaints</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/membership</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/donate</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/news</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/volunteering</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/contact</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/partnership</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/available-services</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/photo-albums</loc><priority>0.5</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://mathwaa.org.sa/video-albums</loc><priority>0.5</priority><changefreq>weekly</changefreq></url>
+</urlset>
