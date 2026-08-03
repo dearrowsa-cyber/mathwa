@@ -59,9 +59,6 @@ const GOVERNANCE_ITEMS = [
   { to: "/board-members", key: "gov_board", icon: FaUserCircle },
   { to: "/organizational-structure", key: "gov_structure", icon: FaUsers },
   { to: "/governance", key: "gov_regulations_policies", icon: FaClipboardList },
-  { to: "/annual-reports", key: "gov_reports", icon: FaBookOpen },
-  { to: "/annual-reports", key: "gov_financials", icon: FaChartBar },
-  { to: "/general-assembly", key: "gov_assembly", icon: FaUserFriends },
   { to: "/complaints", key: "gov_complaints", icon: FaEnvelope },
 ];
 
