@@ -24,7 +24,7 @@ const SatisfactionResults = () => {
       home: 'الرئيسية',
       satisfaction: 'قياس الرضا',
       overall: 'الرضا العام',
-      beneficiaries: 'المستفيدين',
+      beneficiaries: 'طالبي الخدمة',
       donors: 'المتبرعين',
       volunteers: 'المتطوعين',
     }

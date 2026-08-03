@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Section, Container, Card, Grid } from '../components/Common';
 import PageHeader from '../components/PageHeader';
 import SEO from '../components/SEO';
-import { FaBoxOpen, FaHandHoldingHeart, FaUsers } from 'react-icons/fa';
+import { FaUmbrella, FaBookOpen, FaHeart, FaGlobe } from 'react-icons/fa';
 
 const Programs = () => {
   const [language] = useState(() => localStorage.getItem('language') || 'en');
@@ -14,31 +14,36 @@ const Programs = () => {
       subtitle: 'Discover our ongoing programs and initiatives',
       home: 'Home',
       services: 'Services',
-      program1Title: 'Food Basket Program',
-      program1Desc: 'Distributing food baskets to families in need on a monthly basis.',
-      program2Title: 'Orphan Sponsorship',
-      program2Desc: 'Providing comprehensive care and financial support for orphans.',
-      program3Title: 'Medical Assistance',
-      program3Desc: 'Covering medical expenses and treatments for those who cannot afford them.',
+      program1Title: 'Shade & Water Initiative',
+      program1Desc: 'Providing umbrellas to protect mourners from the sun, along with cold drinking water at cemeteries.',
+      program2Title: 'Training & Certification',
+      program2Desc: 'Training courses for volunteers on the sunnah of washing and shrouding, granting certified licenses.',
+      program3Title: 'Mowasat (Consolation)',
+      program3Desc: 'A team of specialists providing moral and psychological support to families of the deceased.',
+      program4Title: 'Expat Assistance',
+      program4Desc: 'Handling procedures for preparing deceased expats or repatriating them to their home countries.',
     },
     ar: {
       title: 'البرامج والمبادرات',
       subtitle: 'اكتشف برامجنا ومبادراتنا المستمرة',
       home: 'الرئيسية',
       services: 'الخدمات',
-      program1Title: 'برنامج السلة الغذائية',
-      program1Desc: 'توزيع سلال غذائية على الأسر المحتاجة بشكل شهري.',
-      program2Title: 'كفالة الأيتام',
-      program2Desc: 'تقديم الرعاية الشاملة والدعم المالي للأيتام.',
-      program3Title: 'المساعدات الطبية',
-      program3Desc: 'تغطية النفقات الطبية والعلاجات لمن لا يستطيعون تحمل تكلفتها.',
+      program1Title: 'مبادرة "سُقيا وظلال"',
+      program1Desc: 'تجهيز المقابر وتوفير مظلات تقي المشيعين حر الشمس وقت الدفن، بالإضافة لتوفير ثلاجات مياه الشرب الباردة.',
+      program2Title: 'برنامج "تأهيل وتوريث"',
+      program2Desc: 'دورات تدريبية لتأهيل المتطوعين على أحكام وسنن الغسل والتكفين لمنحهم إجازات معتمدة.',
+      program3Title: 'مبادرة "مواساة"',
+      program3Desc: 'فريق من الأخصائيين لتقديم الدعم المعنوي والنفسي لأسر المتوفين ومساعدتهم في تجاوز صدمة الفقد.',
+      program4Title: 'برنامج "دليل المغترب"',
+      program4Desc: 'التكفل بإجراءات تجهيز وفيات العمالة الوافدة أو ترحيل جثامينهم لبلدانهم بناءً على رغبة ذويهم.',
     }
   }[language];
 
   const programs = [
-    { icon: FaBoxOpen, title: t.program1Title, desc: t.program1Desc },
-    { icon: FaUsers, title: t.program2Title, desc: t.program2Desc },
-    { icon: FaHandHoldingHeart, title: t.program3Title, desc: t.program3Desc },
+    { icon: FaUmbrella, title: t.program1Title, desc: t.program1Desc },
+    { icon: FaBookOpen, title: t.program2Title, desc: t.program2Desc },
+    { icon: FaHeart, title: t.program3Title, desc: t.program3Desc },
+    { icon: FaGlobe, title: t.program4Title, desc: t.program4Desc },
   ];
 
   return (

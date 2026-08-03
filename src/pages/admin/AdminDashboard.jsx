@@ -46,7 +46,7 @@ const translations = {
     board_members_link: 'أعضاء مجلس الإدارة',
     news_articles_link: 'الأخبار والمقالات',
     donations_link: 'التبرعات',
-    beneficiary_registrations_link: 'تسجيل المستفيدين',
+    beneficiary_registrations_link: 'طلبات الخدمات',
     annual_reports_link: 'التقارير السنوية',
     contact_messages_link: 'رسائل الاتصال',
     note: 'ملاحظة',

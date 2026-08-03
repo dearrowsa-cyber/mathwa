@@ -104,7 +104,7 @@ const Contact = () => {
               </div>
               <h3 className="text-xl font-bold mb-2" style={{ color: '#0E4B33' }}>{t('phone')}</h3>
               <p className="text-gray-600 text-sm mb-4">{lang === 'ar' ? 'اتصل بنا مباشرة' : 'Call us directly'}</p>
-              <a href={`tel:${t('phone_value')}`} className="text-lg font-bold" style={{ color: '#C89B3C' }}>{t('phone_value')}</a>
+              <a href={`tel:${t('phone_value')}`} dir="ltr" className="text-lg font-bold inline-block" style={{ color: '#C89B3C' }}>{t('phone_value')}</a>
             </Card>
 
             {/* Location Card */}
@@ -283,68 +283,7 @@ const Contact = () => {
       {/* Map Section */}
      
 
-      {/* FAQ Section */}
-    
-        <Container>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: '#0E4B33' }}>
-              {t('faq_title')}
-            </h2>
-            <p className="text-gray-600 text-lg">{t('faq_subtitle')}</p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* FAQ Item 1 */}
-            <Card className="p-6 border-l-4" style={{ borderColor: '#C89B3C' }}>
-              <h4 className="font-bold text-gray-800 mb-2" style={{ color: '#0E4B33' }}>
-                {lang === 'ar' ? 'كيف يمكنني التواصل معكم؟' : 'How can I contact you?'}
-              </h4>
-              <p className="text-gray-600 text-sm">
-                {lang === 'ar' ? 'يمكنك التواصل معنا عبر البريد الإلكتروني أو الهاتف أو ملء النموذج أعلاه.' : 'You can contact us via email, phone, or by filling out the form above.'}
-              </p>
-            </Card>
-
-            {/* FAQ Item 2 */}
-            <Card className="p-6 border-l-4" style={{ borderColor: '#C89B3C' }}>
-              <h4 className="font-bold text-gray-800 mb-2" style={{ color: '#0E4B33' }}>
-                {lang === 'ar' ? 'ما وقت الرد على الرسائل؟' : 'How long does it take to respond?'}
-              </h4>
-              <p className="text-gray-600 text-sm">
-                {lang === 'ar' ? 'نحاول الرد على جميع الرسائل خلال 24 ساعة خلال ساعات العمل.' : 'We try to respond to all messages within 24 hours during business hours.'}
-              </p>
-            </Card>
-
-            {/* FAQ Item 3 */}
-            <Card className="p-6 border-l-4" style={{ borderColor: '#C89B3C' }}>
-              <h4 className="font-bold text-gray-800 mb-2" style={{ color: '#0E4B33' }}>
-                {lang === 'ar' ? 'هل يمكنني الاستفسار عن الخدمات؟' : 'Can I inquire about services?'}
-              </h4>
-              <p className="text-gray-600 text-sm">
-                {lang === 'ar' ? 'بالتأكيد! نرحب باستفسارات الخدمات والشراكات والتطوع.' : 'Absolutely! We welcome inquiries about services, partnerships, and volunteering.'}
-              </p>
-            </Card>
-
-            {/* FAQ Item 4 */}
-            <Card className="p-6 border-l-4" style={{ borderColor: '#C89B3C' }}>
-              <h4 className="font-bold text-gray-800 mb-2" style={{ color: '#0E4B33' }}>
-                {lang === 'ar' ? 'هل تقبلون الشكاوى والاقتراحات؟' : 'Do you accept complaints and suggestions?'}
-              </h4>
-              <p className="text-gray-600 text-sm">
-                {lang === 'ar' ? 'نعم، آراءك مهمة لنا جداً ونرحب باقتراحاتك وملاحظاتك.' : 'Yes! Your feedback is important to us. We welcome all suggestions.'}
-              </p>
-            </Card>
-          </div>
-
-          <div className="text-center mt-10">
-            <a 
-              href="#faq"
-              className="inline-block px-8 py-3 rounded-lg font-bold text-white transition-all hover:shadow-lg hover:scale-105"
-              style={{ backgroundColor: '#0E4B33' }}
-            >
-              {t('view_all_faq')}
-            </a>
-          </div>
-        </Container>
     
     </>
   )

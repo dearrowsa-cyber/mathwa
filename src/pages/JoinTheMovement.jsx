@@ -30,8 +30,8 @@ const JoinTheMovement = () => {
     },
     {
       id: 2,
-      title_ar: 'اكفل مستفيدًا',
-      title_en: 'Sponsor a Beneficiary',
+      title_ar: 'ادعم خدماتنا',
+      title_en: 'Support Our Services',
       desc_ar: 'ادعم أسرة محتاجة فقدت عائلها بشكل مباشر وامنحها يد العون',
       desc_en: 'Directly support a family in need who lost their provider',
       icon: FaHeart,

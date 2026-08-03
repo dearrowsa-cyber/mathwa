@@ -22,6 +22,8 @@ const GeneralAssembly = () => {
       type_regular_desc: 'Members who joined after establishment and paid the membership subscription.',
       type_honorary: 'Honorary Member',
       type_honorary_desc: 'Granted by Board decision to individuals who provided distinguished services.',
+      type_supporting: 'Supporting Member',
+      type_supporting_desc: 'Members who support the association financially or morally.',
       responsibilities: 'Responsibilities of the General Assembly',
       resp1: 'Approving the internal regulations and bylaws of the association',
       resp2: 'Electing and dismissing Board of Directors members',
@@ -54,6 +56,8 @@ const GeneralAssembly = () => {
       type_regular_desc: 'الأعضاء الذين انضموا بعد التأسيس وسددوا اشتراك العضوية.',
       type_honorary: 'عضو فخري',
       type_honorary_desc: 'تُمنح بقرار من مجلس الإدارة لأشخاص قدموا خدمات متميزة.',
+      type_supporting: 'عضو داعم',
+      type_supporting_desc: 'الأعضاء الذين يدعمون الجمعية مادياً أو معنوياً.',
       responsibilities: 'اختصاصات الجمعية العمومية',
       resp1: 'إقرار اللوائح الداخلية والأنظمة الأساسية للجمعية',
       resp2: 'انتخاب وعزل أعضاء مجلس الإدارة',
@@ -85,6 +89,7 @@ const GeneralAssembly = () => {
   const membershipTypes = [
     { title: t.type_founding, desc: t.type_founding_desc, icon: FaAward, color: '#C89B3C' },
     { title: t.type_regular, desc: t.type_regular_desc, icon: FaUserCircle, color: '#0E4B33' },
+    { title: t.type_supporting, desc: t.type_supporting_desc, icon: FaUsers, color: '#3b82f6' },
     { title: t.type_honorary, desc: t.type_honorary_desc, icon: FaUserTie, color: '#7c3aed' },
   ]
 

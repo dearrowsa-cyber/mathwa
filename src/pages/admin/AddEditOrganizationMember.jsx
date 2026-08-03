@@ -103,7 +103,7 @@ const AddEditOrganizationMember = () => {
     { en: 'Finance', ar: 'المالية' },
     { en: 'Human Resources', ar: 'الموارد البشرية' },
     { en: 'Programs', ar: 'البرامج' },
-    { en: 'Beneficiaries', ar: 'المستفيدون' },
+    { en: 'Services', ar: 'الخدمات' },
     { en: 'Volunteers', ar: 'المتطوعون' },
   ]
 

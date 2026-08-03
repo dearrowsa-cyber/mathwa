@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { SectionTitle, Container, Card, Grid, Section } from '../components/Common'
+import { SectionTitle, Container, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
 import SEO from '../components/SEO'
-import { FaWater, FaAmbulance, FaMosque, FaHandsHelping, FaDonate, FaChalkboardTeacher } from 'react-icons/fa'
 
 const BeneficiaryServices = () => {
   const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'ar')
@@ -14,40 +13,21 @@ const BeneficiaryServices = () => {
   }, [])
 
   const t = language === 'en' 
-    ? { title: 'Beneficiary Services', subtitle: 'Explore our specialized services to honor the deceased and support their families', sectionTitle: 'Our Services' }
-    : { title: 'خدمات المستفيدين', subtitle: 'تعرف على خدماتنا المتخصصة في إكرام الموتى ومساندة ذويهم', sectionTitle: 'خدماتنا' }
+    ? { title: 'Services', subtitle: 'Explore our specialized services to honor the deceased and support their families', sectionTitle: 'Our Services' }
+    : { title: 'الخدمات', subtitle: 'تعرف على خدماتنا المتخصصة في إكرام الموتى ومساندة ذويهم', sectionTitle: 'خدماتنا' }
 
   const services = [
-    { 
-      title_ar: 'تجهيز المتوفى', title_en: 'Deceased Preparation',
-      desc_ar: 'غسل الميت وتكفينه وفق السنة النبوية المطهرة بأيدي مؤهلة وأمينة.', desc_en: 'Washing and shrouding the deceased according to the Islamic Sunnah by qualified and trustworthy hands.',
-      icon: <FaWater size={36} className="text-[#C89B3C] mx-auto mb-4" />
-    },
-    { 
-      title_ar: 'نقل الجثامين', title_en: 'Transport of Deceased',
-      desc_ar: 'نقل جثامين الموتى من وإلى المقابر والمستشفيات بسيارات مجهزة وعناية تامة.', desc_en: 'Transporting deceased to and from cemeteries and hospitals in fully equipped vehicles.',
-      icon: <FaAmbulance size={36} className="text-[#0E4B33] mx-auto mb-4" />
-    },
-    { 
-      title_ar: 'خدمات الدفن', title_en: 'Burial Services',
-      desc_ar: 'تجهيز القبور وتوفير كافة مستلزمات الدفن بما يحقق إكرام الميت.', desc_en: 'Grave preparation and providing all burial necessities to properly honor the deceased.',
-      icon: <FaMosque size={36} className="text-[#C89B3C] mx-auto mb-4" />
-    },
-    { 
-      title_ar: 'الدعم النفسي والإرشاد', title_en: 'Psychological Support',
-      desc_ar: 'مساندة أسر المتوفين وتقديم الدعم المعنوي والنفسي لهم لتخفيف المصاب.', desc_en: 'Supporting families of the deceased morally and psychologically to ease their grief.',
-      icon: <FaHandsHelping size={36} className="text-[#0E4B33] mx-auto mb-4" />
-    },
-    { 
-      title_ar: 'المساعدات المالية', title_en: 'Financial Assistance',
-      desc_ar: 'تقديم المعونات المالية العاجلة للأسر المحتاجة بعد فقدان عائلهم.', desc_en: 'Providing urgent financial aid to families in need after the loss of their provider.',
-      icon: <FaDonate size={36} className="text-[#C89B3C] mx-auto mb-4" />
-    },
-    { 
-      title_ar: 'التدريب والتأهيل', title_en: 'Training & Rehabilitation',
-      desc_ar: 'إقامة دورات لتدريب المتطوعين على أحكام الجنائز والتغسيل الصحيح.', desc_en: 'Conducting courses to train volunteers on funeral regulations and proper washing.',
-      icon: <FaChalkboardTeacher size={36} className="text-[#0E4B33] mx-auto mb-4" />
-    },
+    { id: '1', title_ar: 'كفالة أيتام', title_en: 'Orphan Sponsorship' },
+    { id: '2', title_ar: 'أكفان', title_en: 'Shrouds' },
+    { id: '3', title_ar: 'تبرعات بناء وتطوير المقبرة', title_en: 'Cemetery Development' },
+    { id: '4', title_ar: 'صدقات', title_en: 'Charities' },
+    { id: '5', title_ar: 'أدوات حفر القبور', title_en: 'Grave Digging Tools' },
+    { id: '6', title_ar: 'أدوات تغسيل المتوفى', title_en: 'Deceased Washing Tools' },
+    { id: '7', title_ar: 'تبرع لعمليات نقل الجنازات', title_en: 'Funeral Transportation' },
+    { id: '8', title_ar: 'تبرع لشراء إسعاف نقل', title_en: 'Transport Ambulance' },
+    { id: '9', title_ar: 'تبرع لماء الشرب بالمقابر', title_en: 'Drinking Water in Cemeteries' },
+    { id: '10', title_ar: 'دعم لموظفين الجمعية', title_en: 'Association Employee Support' },
+    { id: '11', title_ar: 'كفارة حلف', title_en: 'Oath Expiation' }
   ]
 
   const breadcrumbs = [
@@ -64,22 +44,36 @@ const BeneficiaryServices = () => {
         descriptionAr={t.subtitle} 
       />
       <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
-      <Section className="bg-gray-50/50">
+      
+      <Section className="bg-gray-50/50 py-16">
         <Container>
           <SectionTitle title={t.sectionTitle} />
-          <Grid cols={3}>
-            {services.map((service, idx) => (
-              <Card key={idx} className="text-center hover:shadow-xl transition-shadow duration-300 border-t-4 border-t-[#0E4B33]">
-                {service.icon}
-                <h3 className="text-xl font-bold text-[#0E4B33] mb-3">
-                  {language === 'ar' ? service.title_ar : service.title_en}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {language === 'ar' ? service.desc_ar : service.desc_en}
-                </p>
-              </Card>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-7xl mx-auto">
+            {services.map((service) => (
+              <div key={service.id} className="group relative overflow-hidden rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] bg-white flex flex-col border-t-4 border-[#0E4B33]">
+                
+                <div className="relative h-64 overflow-hidden bg-[#0E4B33]/10">
+                  <img 
+                    src={`/services/service_${service.id}.png`} 
+                    alt={language === 'ar' ? service.title_ar : service.title_en}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+
+                <div className="p-6 flex flex-col flex-grow items-center justify-between bg-white relative z-20">
+                  <h3 className="text-xl font-bold text-[#0E4B33] mb-3 text-center">
+                    {language === 'ar' ? service.title_ar : service.title_en}
+                  </h3>
+                  <div className="w-12 h-1 bg-[#C89B3C] rounded-full mx-auto transition-all duration-300 group-hover:w-24"></div>
+                </div>
+
+              </div>
             ))}
-          </Grid>
+          </div>
+
         </Container>
       </Section>
     </>

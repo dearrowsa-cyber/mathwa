@@ -30,9 +30,9 @@ const Announcements = () => {
       desc: isAr ? 'يسر مجلس الإدارة دعوة الأعضاء الكرام لحضور اجتماع الجمعية العمومية غير العادي لمناقشة الخطة الاستراتيجية.' : 'The Board of Directors is pleased to invite the honorable members to attend the Extraordinary General Assembly meeting to discuss the strategic plan.'
     },
     {
-      title: isAr ? 'تحديث بيانات المستفيدين' : 'Beneficiary Data Update',
+      title: isAr ? 'تحديث بيانات طالبي الخدمة' : 'Service Seekers Data Update',
       date: '2026-02-28',
-      desc: isAr ? 'نرجو من جميع المستفيدين تحديث بياناتهم عبر البوابة الإلكترونية لضمان استمرار الدعم.' : 'We kindly request all beneficiaries to update their data via the electronic portal to ensure continued support.'
+      desc: isAr ? 'نرجو من جميع المسجلين تحديث بياناتهم عبر البوابة الإلكترونية لضمان استمرار الدعم.' : 'We kindly request all registered individuals to update their data via the electronic portal to ensure continued support.'
     }
   ];
 

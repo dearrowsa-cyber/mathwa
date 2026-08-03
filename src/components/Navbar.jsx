@@ -58,9 +58,8 @@ const ABOUT_ITEMS = [
 const GOVERNANCE_ITEMS = [
   { to: "/board-members", key: "gov_board", icon: FaUserCircle },
   { to: "/organizational-structure", key: "gov_structure", icon: FaUsers },
-  { to: "/regulations", key: "gov_basic_reg", icon: FaClipboardList },
-  { to: "/policies", key: "gov_policies", icon: FaFileSignature },
-  { to: "/regulations", key: "gov_regulations", icon: FaClipboardList },
+  { to: "/governance", key: "gov_basic_reg", icon: FaClipboardList },
+  { to: "/governance", key: "gov_policies", icon: FaFileSignature },
   { to: "/annual-reports", key: "gov_reports", icon: FaBookOpen },
   { to: "/annual-reports", key: "gov_financials", icon: FaChartBar },
   { to: "/general-assembly", key: "gov_assembly", icon: FaUserFriends },
@@ -70,8 +69,6 @@ const GOVERNANCE_ITEMS = [
 const SERVICES_ITEMS = [
   { to: "/beneficiary-services", key: "srv_beneficiary", icon: FaHandsHelping },
   { to: "/programs", key: "srv_programs", icon: FaBoxOpen },
-  { to: "/how-to-benefit", key: "srv_how_to", icon: FaListAlt },
-  { to: "/faq", key: "srv_faq", icon: FaComments },
 ];
 
 const MEMBERSHIP_ITEMS = [
@@ -79,7 +76,6 @@ const MEMBERSHIP_ITEMS = [
   { to: "/membership-conditions", key: "mem_conditions", icon: FaListAlt },
   { to: "/membership-apply", key: "mem_apply", icon: FaUserPlus },
   { to: "/membership-rights", key: "mem_rights", icon: FaBalanceScale },
-  { to: "/membership-payment", key: "mem_payment", icon: FaDonate },
 ];
 
 const MEDIA_CENTER_ITEMS = [
@@ -147,7 +143,7 @@ const Navbar = ({ language, onLanguageChange }) => {
       financial_statements: "Financial Statements",
       complaints_reports: "Complaints",
       services: "Services",
-      srv_beneficiary: "Beneficiary Services",
+      srv_beneficiary: "Services",
       srv_programs: "Programs",
       srv_how_to: "How to Benefit",
       srv_faq: "FAQs",
@@ -164,7 +160,7 @@ const Navbar = ({ language, onLanguageChange }) => {
       med_photos: "Photos",
       med_videos: "Videos",
       satisfaction: "Satisfaction",
-      sat_beneficiaries: "Beneficiaries",
+      sat_beneficiaries: "Services Satisfaction",
       sat_donors: "Donors",
       sat_volunteers: "Volunteers",
       sat_results: "Results",
@@ -198,7 +194,7 @@ const Navbar = ({ language, onLanguageChange }) => {
       financial_statements: "القوائم المالية",
       complaints_reports: "الشكاوى",
       services: "خدماتنا",
-      srv_beneficiary: "خدمات المستفيدين",
+      srv_beneficiary: "الخدمات",
       srv_programs: "البرامج والمبادرات",
       srv_how_to: "آلية الاستفادة",
       srv_faq: "الأسئلة الشائعة",
@@ -215,7 +211,7 @@ const Navbar = ({ language, onLanguageChange }) => {
       med_photos: "الصور",
       med_videos: "الفيديو",
       satisfaction: "قياس الرضا",
-      sat_beneficiaries: "رضا المستفيدين",
+      sat_beneficiaries: "تقييم الخدمات",
       sat_donors: "رضا المتبرعين",
       sat_volunteers: "رضا المتطوعين",
       sat_results: "نتائج مؤشرات الرضا",
@@ -356,8 +352,8 @@ const Navbar = ({ language, onLanguageChange }) => {
               title="Call us"
             >
               <FaPhoneAlt size={16} style={{ color: "#C89B3C" }} />
-              <span className="hidden md:inline">+966 53 962 6662</span>
-              <span className="hidden group-hover:inline md:hidden text-xs absolute bg-gray-800 px-2 py-1 rounded whitespace-nowrap">+966 53 962 6662</span>
+              <span className="hidden md:inline-block" dir="ltr">+966 53 962 6662</span>
+              <span className="hidden group-hover:inline-block md:hidden text-xs absolute bg-gray-800 px-2 py-1 rounded whitespace-nowrap" dir="ltr">+966 53 962 6662</span>
             </a>
             
             {/* Social Media */}

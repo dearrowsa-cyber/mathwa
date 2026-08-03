@@ -11,7 +11,7 @@ const About = () => {
       subtitle: 'Mathwaa Charitable Association - Honoring the Deceased with Dignity',
       our_story: 'Who We Are',
       story_desc: 'Mathwaa Charitable Association is a trusted civic organization that operates with calmness and respect, providing its services with fairness and professionalism, treating people with dignity in the most delicate moments of their lives. It is the first association specialized in supporting the affairs of the deceased in the northern sector of Al-Ahsa, headquartered in Al-Mubarraz city, Al-Ahsa Governorate.',
-      license_info: 'Licensed under No. 1000827300 dated 6/1447H',
+      license_info: 'Licensed under No. 1000827300 dated 6/1444H',
       vision: 'Our Vision',
       vision_desc: 'Institutional leadership in honoring the deceased and serving their families, through an integrated and fair system that achieves a sustainable humanitarian impact in Al-Ahsa Governorate.',
       mission: 'Our Mission',
@@ -34,7 +34,7 @@ const About = () => {
       subtitle: 'جمعية مثوى الأهلية - إكرام الموتى بكرامة واحترافية',
       our_story: 'من نحن',
       story_desc: 'جمعية مثوى الأهلية هي جهة أهلية موثوقة، تعمل بهدوء واحترام، وتقدّم خدماتها بعدالة واحتراف، وتُعامل الإنسان بكرامة في أدق لحظات حياته. وهي أول جمعية متخصصة في خدمة مساندة شؤون الموتى في القطاع الشمالي من الأحساء، مقرها مدينة المبرز - محافظة الأحساء.',
-      license_info: 'برقم ترخيص 1000827300 بتاريخ 6-1447هـ',
+      license_info: 'برقم ترخيص 1000827300 بتاريخ 6-1444هـ',
       vision: 'رؤيتنا',
       vision_desc: 'الريادة المؤسسية في إكرام الموتى وخدمة ذويهم، بمنظومة تكاملية عادلة تحقق أثراً إنسانياً مستداماً في محافظة الأحساء.',
       mission: 'رسالتنا',
@@ -44,7 +44,7 @@ const About = () => {
       goal1: 'التوعية بأحكام الجنائز وفق الشريعة الإسلامية',
       goal2: 'تأهيل كفاءات للعمل في مراكز إكرام الموتى',
       goal3: 'تقديم العناية اللازمة بالموتى إلى دفنهم',
-      goal4: 'مساعدة أهالي الموتى في نقل وتجهيز ودفن موتاهم',
+      goal4: 'مساعدة أهالي الموتى في دفن موتاهم',
       stats1: 'أعضاء مجلس الإدارة',
       stats2: 'سنة التأسيس',
       stats3: 'الأولى في شمال الأحساء',
@@ -112,7 +112,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
               { number: '5', label: t.stats1, icon: FaUsers },
-              { number: '1447', label: t.stats2, icon: FaUsers },
+              { number: '1444', label: t.stats2, icon: FaUsers },
               { number: '#1', label: t.stats3, icon: FaMosque },
             ].map((stat, idx) => {
               const Icon = stat.icon

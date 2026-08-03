@@ -85,24 +85,13 @@ const BasicStandards = () => {
   }, [lang])
 
   const handleDownload = () => {
-    if (standard && standard.pdf_file) {
-      // Construct proper file path
-      const pdfPath = standard.pdf_file.startsWith('/')
-        ? standard.pdf_file
-        : `/${standard.pdf_file}`
-      
-      // In dev mode, use full localhost URL; in prod, use VITE_BACKEND_URL
-      const fileUrl = import.meta.env.DEV
-        ? `https://mathwaa.org.sa/${pdfPath}`
-        : `${import.meta.env.VITE_BACKEND_URL}${pdfPath}`
-      
-      const link = document.createElement('a')
-      link.href = fileUrl
-      link.download = 'basic-standards.pdf'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    }
+    const pdfPath = (standard && standard.pdf_file) ? standard.pdf_file : '/docs/Basic-Standards-Current.pdf'
+    const link = document.createElement('a')
+    link.href = pdfPath
+    link.download = 'Basic-Standards-Current.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   const breadcrumbs = [
@@ -164,8 +153,7 @@ const BasicStandards = () => {
 
               <button
                 onClick={handleDownload}
-                disabled={!standard || !standard.pdf_file}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-opacity hover:opacity-90 cursor-pointer"
                 style={{ backgroundColor: '#0E4B33' }}
               >
                 <FaDownload size={20} />

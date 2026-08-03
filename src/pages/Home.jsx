@@ -23,12 +23,12 @@ const ACCENT_COLOR = '#C89B3C'
 const PRIMARY_COLOR = '#0E4B33'
 
 const SLIDER_INTERVAL_MS = 7000
-const SLIDE_COUNT = 4
+const SLIDE_COUNT = 2
 
 const placeholderNews = [
   { id: 'p1', title_en: 'Community service and financial sustainability', title_ar: 'الجمع بين خدمة المجتمع والاستدامة المالية', excerpt_en: 'Latest updates from the association.', excerpt_ar: 'آخر تحديثات الجمعية.', date: '2026-02-05', image: null },
   { id: 'p2', title_en: 'Arabic language competition for children', title_ar: 'مسابقة اللغة العربية للأطفال', excerpt_en: 'Enhancing Arabic language skills.', excerpt_ar: 'تعزيز مهارات اللغة العربية.', date: '2026-02-08', image: null },
-  { id: 'p3', title_en: 'Thanks to medical complex for saving beneficiary sight', title_ar: 'شكراً للمجمع الطبي لإنقاذ بصر مستفيد', excerpt_en: 'Delicate operation success.', excerpt_ar: 'نجاح عملية دقيقة.', date: '2026-02-08', image: null },
+  { id: 'p3', title_en: 'Thanks to medical complex for saving a patient sight', title_ar: 'شكراً للمجمع الطبي لإنقاذ بصر مريض', excerpt_en: 'Delicate operation success.', excerpt_ar: 'نجاح عملية دقيقة.', date: '2026-02-08', image: null },
   { id: 'p4', title_en: 'New app for transportation services', title_ar: 'تطبيق جديد لخدمات النقل', excerpt_en: 'For people with disabilities and elderly.', excerpt_ar: 'لذوي الإعاقة وكبار السن.', date: '2026-02-09', image: null },
   { id: 'p5', title_en: 'Community partnership meeting', title_ar: 'اجتماع شراكة مجتمعية', excerpt_en: 'Building stronger community ties.', excerpt_ar: 'بناء روابط مجتمعية أقوى.', date: '2026-02-10', image: null },
 ]
@@ -305,7 +305,7 @@ const Home = () => {
     title: t(`home:slider_title_${n}`),
     subtitle: t(`home:slider_subtitle_${n}`),
     desc: t(`home:slider_desc_${n}`),
-    image: `/sliders/new sliders/Artboard ${n}.jpg.png`,
+    image: `/sliders/new sliders/spiritual_${n}.png`,
   }))
 
   const [stats, setStats] = useState({
@@ -402,7 +402,7 @@ const Home = () => {
       link: '/membership'
     },
     {
-      title: t('common:beneficiary_services'),
+      title: t('common:services', 'Services'),
       desc: t('home:service_4_desc', 'Get support'),
       icon: FaQuran,
       link: '/beneficiary-services'
@@ -542,6 +542,7 @@ const Home = () => {
       </section>
 
       {/* Statistics Section — Full-Width Dark Gradient */}
+      {false && (
       <section className="relative py-20 sm:py-28 md:py-32 px-6 sm:px-10 bg-mesh-dark overflow-hidden">
         {/* Decorative floating circles */}
         <div className="absolute top-10 right-10 w-64 h-64 rounded-full bg-[#C89B3C]/5 blur-3xl pointer-events-none"></div>
@@ -600,6 +601,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* News Section */}
       <section className="py-20 sm:py-28 bg-mesh-light">

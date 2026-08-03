@@ -11,7 +11,7 @@ const SatisfactionBeneficiaries = () => {
 
   const t = {
     en: {
-      title: 'Beneficiaries Satisfaction Survey',
+      title: 'Service Seekers Satisfaction Survey',
       subtitle: 'Your opinion matters to improve our services',
       home: 'Home',
       satisfaction: 'Satisfaction',
@@ -22,7 +22,7 @@ const SatisfactionBeneficiaries = () => {
       success: 'Thank you for your feedback!',
     },
     ar: {
-      title: 'قياس رضا المستفيدين',
+      title: 'قياس رضا طالبي الخدمة',
       subtitle: 'رأيك يهمنا لتحسين خدماتنا',
       home: 'الرئيسية',
       satisfaction: 'قياس الرضا',

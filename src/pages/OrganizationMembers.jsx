@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Card, Grid, Section } from '../components/Common'
 import PageHeader from '../components/PageHeader'
-import { FaUser } from 'react-icons/fa'
+import { FaUser, FaFileAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const OrganizationMembers = () => {
@@ -54,10 +54,22 @@ const OrganizationMembers = () => {
       <PageHeader title={t.title} description={t.subtitle} breadcrumbs={breadcrumbs} />
       <Section>
         <Container>
-          <div className="mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold mb-1" style={{ color: '#0E4B33' }}>{t.section_title}</h2>
-            <p className="text-gray-600">{t.section_subtitle}</p>
-            <div className="h-1 w-20 mt-2 rounded-full" style={{ backgroundColor: '#C89B3C' }} />
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-1" style={{ color: '#0E4B33' }}>{t.section_title}</h2>
+              <p className="text-gray-600">{t.section_subtitle}</p>
+              <div className="h-1 w-20 mt-2 rounded-full" style={{ backgroundColor: '#C89B3C' }} />
+            </div>
+            <a 
+              href="/docs/Board-Creation-Decision.pdf" 
+              target="_blank" 
+              download="Board-Creation-Decision.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-opacity hover:opacity-90 shadow-sm"
+              style={{ backgroundColor: '#0E4B33' }}
+            >
+              <FaFileAlt size={20} />
+              {isAr ? 'قرار تشكيل المجلس' : 'Board Creation Decision'}
+            </a>
           </div>
           <Grid cols={3}>
             {members.map((m, idx) => (

@@ -87,16 +87,13 @@ const MembershipPayment = () => {
             </div>
 
             <div className="text-center">
-              <a 
-                href="https://mathwaa.online/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full py-4 text-lg font-bold text-white rounded-lg transition-all hover:-translate-y-1 hover:shadow-lg"
+              <Link 
+                to={`/membership-apply?type=${membershipType}`}
+                className="inline-flex items-center justify-center gap-2 w-full py-4 text-lg font-bold text-white rounded-xl transition-all hover:-translate-y-1 hover:shadow-lg"
                 style={{ backgroundColor: '#0E4B33' }}
               >
-                {t.proceedToPayment}
-                <FaExternalLinkAlt size={18} className={isAr ? 'mr-2' : 'ml-2'} />
-              </a>
+                {isAr ? 'الانتقال لاستمارة طلب العضوية' : 'Proceed to Application Form'}
+              </Link>
             </div>
             
           </div>

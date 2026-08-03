@@ -43,18 +43,16 @@ const ServiceRequest = () => {
       priority_high: 'High',
       priority_low: 'Low',
       submit: 'Submit Request',
-      register_here: 'Register here',
       home: 'Home',
       beneficiary_services: 'Beneficiary Services',
     },
     ar: {
       title: 'طلب خدمة',
       subtitle: 'قدم طلبك وسنتواصل معك في أقرب وقت',
-      note: 'يجب أن تكون مسجلاً كمستفيد أولاً. إذا لم تكن مسجلاً، سجل هنا',
       national_id: 'رقم الهوية الوطنية / الإقامة *',
       beneficiary_number: 'الرقم المسجل في نظام المستفيدين',
       request_title: 'عنوان الطلب *',
-      request_title_placeholder: 'مثال: طلب تجهيز متوفى',
+      request_title_placeholder: 'مثال: طلب خدمة الدفن',
       service_type: 'نوع الخدمة المطلوبة *',
       service_type_placeholder: 'اختر نوع الخدمة...',
       request_description: 'وصف الطلب بالتفصيل *',
@@ -64,9 +62,8 @@ const ServiceRequest = () => {
       priority_high: 'عالية',
       priority_low: 'منخفضة',
       submit: 'إرسال الطلب',
-      register_here: 'سجل هنا',
       home: 'الرئيسية',
-      beneficiary_services: 'خدمات المستفيدين',
+      beneficiary_services: 'الخدمات',
     },
   }[lang]
 
@@ -141,12 +138,6 @@ const ServiceRequest = () => {
       <Section>
         <Container>
           <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
-            <div className="flex items-start gap-3 p-4 rounded-lg mb-6" style={{ backgroundColor: 'rgba(59,130,246,0.1)' }}>
-              <FaInfoCircle size={22} style={{ color: '#2563eb', flexShrink: 0 }} />
-              <p className="text-gray-700 text-sm">
-                {t.note} <Link to="/beneficiary-register" className="font-semibold hover:underline" style={{ color: '#0E4B33' }}>{t.register_here}</Link>
-              </p>
-            </div>
             {submitMessage.text && (
               <div className={`p-4 rounded-lg mb-6 ${submitMessage.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                 {submitMessage.text}

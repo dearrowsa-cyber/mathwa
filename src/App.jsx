@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import WhatsAppButton from './components/WhatsAppButton'
 import { AdminAuthProvider } from './context/AdminAuthContext'
 import { UserAuthProvider } from './context/UserAuthContext'
 import { CartProvider } from './context/CartContext'
@@ -53,8 +54,6 @@ import Regulations from './pages/Regulations'
 
 // New Pages
 import Programs from './pages/Programs'
-import HowToBenefit from './pages/HowToBenefit'
-import FAQ from './pages/FAQ'
 import MembershipConditions from './pages/MembershipConditions'
 import MembershipApply from './pages/MembershipApply'
 import MembershipRights from './pages/MembershipRights'
@@ -150,8 +149,6 @@ function AppContent({ language, onLanguageChange }) {
           <Route path="/complaints" element={<Complaints />} />
           <Route path="/regulations" element={<Regulations />} />
           <Route path="/programs" element={<Programs />} />
-          <Route path="/how-to-benefit" element={<HowToBenefit />} />
-          <Route path="/faq" element={<FAQ />} />
           <Route path="/membership-conditions" element={<MembershipConditions />} />
           <Route path="/membership-apply" element={<MembershipApply />} />
           <Route path="/membership-rights" element={<MembershipRights />} />
@@ -173,6 +170,7 @@ function AppContent({ language, onLanguageChange }) {
         </Routes>
       </main>
       {!isAdmin && <Footer />}
+      {!isAdmin && <WhatsAppButton />}
     </div>
   )
 }

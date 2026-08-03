@@ -58,14 +58,8 @@ const AnnualReports = () => {
     { label: t.title }
   ];
 
-  const documents = [
-    { id: 1, name_en: 'Foundation Report - First Year 1447H', name_ar: 'تقرير مرحلة التأسيس - السنة الأولى 1447هـ', year: '1447', type: 'annual', date: '1447-06', size: '4.5 MB', url: '#' },
-    { id: 2, name_en: 'Board of Directors Report - Founding Phase', name_ar: 'تقرير مجلس الإدارة - مرحلة التأسيس', year: '1447', type: 'board', date: '1447-06', size: '2.1 MB', url: '#' },
-    { id: 3, name_en: 'Financial Statements - First Year 1447H', name_ar: 'القوائم المالية - السنة الأولى 1447هـ', year: '1447', type: 'financial', date: '1447-06', size: '1.5 MB', url: '#' },
-    { id: 4, name_en: 'Approved Annual Budget 1447H', name_ar: 'الميزانية السنوية المعتمدة 1447هـ', year: '1447', type: 'financial', date: '1447-01', size: '0.9 MB', url: '#' },
-    { id: 5, name_en: 'External Auditor Report 1447H', name_ar: 'تقرير المراجع الخارجي المستقل 1447هـ', year: '1447', type: 'auditor', date: '1447-06', size: '1.2 MB', url: '#' },
-    { id: 6, name_en: 'Programs & Activities Report - Founding Year', name_ar: 'تقرير البرامج والأنشطة - سنة التأسيس', year: '1447', type: 'annual', date: '1447-06', size: '3.2 MB', url: '#' },
-  ];
+  const documents = [];
+
 
   const [activeFilter, setActiveFilter] = useState('all');
 

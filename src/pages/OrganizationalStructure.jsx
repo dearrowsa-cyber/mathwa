@@ -19,8 +19,6 @@ const OrganizationalStructure = () => {
       license: 'License No. 1000827300 - Dated 6/1447H',
       assembly: 'General Assembly',
       assembly_desc: 'The supreme authority responsible for approving policies, electing the Board of Directors, approving budgets and reports, and amending the bylaws.',
-      founder: 'Founder',
-      founder_desc: 'The visionary founder of Mathwaa Charitable Association.',
       board: 'Board of Directors',
       board_desc: 'Manages the association and makes major strategic decisions while overseeing operations. Consists of 5 founding members.',
       board_members_list: 'Board Members',
@@ -41,6 +39,7 @@ const OrganizationalStructure = () => {
       chairman: 'Chairman',
       vice_chairman: 'Vice Chairman',
       member: 'Member',
+      financial_manager: 'Financial Manager',
     },
     ar: {
       title: 'الهيكل التنظيمي',
@@ -52,8 +51,6 @@ const OrganizationalStructure = () => {
       license: 'رقم الترخيص 1000827300 - بتاريخ 6-1447هـ',
       assembly: 'الجمعية العمومية',
       assembly_desc: 'أعلى سلطة في الجمعية، مسؤولة عن إقرار السياسات العليا، انتخاب مجلس الإدارة، اعتماد الميزانيات والتقارير، وتعديل اللائحة.',
-      founder: 'مؤسس',
-      founder_desc: 'مؤسس جمعية مثوى الأهلية.',
       board: 'مجلس الإدارة',
       board_desc: 'يدير الجمعية ويتخذ القرارات الاستراتيجية الكبرى ويشرف على أعمالها. يتكون من 5 أعضاء مؤسسين.',
       board_members_list: 'أعضاء المجلس',
@@ -74,6 +71,7 @@ const OrganizationalStructure = () => {
       chairman: 'رئيس مجلس الإدارة',
       vice_chairman: 'نائب رئيس مجلس الإدارة',
       member: 'عضو',
+      financial_manager: 'المدير المالي',
     },
   }[language]
 
@@ -81,26 +79,18 @@ const OrganizationalStructure = () => {
     { name_ar: 'هادي بن ناصر بن هاشم السلمان', name_en: 'Hadi Al-Salman', role: 'chairman' },
     { name_ar: 'عباس بن حمزة بن ناصر البراهيم', name_en: 'Abbas Al-Brahim', role: 'vice_chairman' },
     { name_ar: 'وليد بن علي بن حسين الفايز', name_en: 'Waleed Al-Fayez', role: 'member' },
-    { name_ar: 'عبدالله بن حمزة بن ناصر البراهيم', name_en: 'Abdullah Al-Brahim', role: 'member' },
+    { name_ar: 'عبدالله بن عباس بن حمزه البراهيم', name_en: 'Abdullah Al-Brahim', role: 'financial_manager' },
     { name_ar: 'شعاع بنت عبدالله بن أحمد الحربي', name_en: 'Shuaa Al-Harbi', role: 'member' },
   ]
 
   const orgLevels = [
-    {
-      id: 'founder',
-      icon: FaUserTie,
-      title: t.founder,
-      desc: t.founder_desc,
-      color: '#C89B3C',
-      level: 1,
-    },
     {
       id: 'board',
       icon: FaAward,
       title: t.board,
       desc: t.board_desc,
       color: '#2563eb',
-      level: 2,
+      level: 1,
       hasMembers: true,
     },
     {
@@ -109,7 +99,7 @@ const OrganizationalStructure = () => {
       title: t.executive,
       desc: t.executive_desc,
       color: '#7c3aed',
-      level: 3,
+      level: 2,
     },
     {
       id: 'departments',
@@ -117,7 +107,7 @@ const OrganizationalStructure = () => {
       title: t.departments,
       desc: t.departments_desc,
       color: '#059669',
-      level: 4,
+      level: 3,
       items: [t.dept_finance, t.dept_hr, t.dept_programs, t.dept_pr, t.dept_volunteers],
     },
   ]

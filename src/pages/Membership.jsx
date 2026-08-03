@@ -164,15 +164,13 @@ const Membership = () => {
                 </div>
               </div>
               
-              <a 
-                href="https://mathwaa.online/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link 
+                to="/membership-apply?type=supporting"
                 className="w-full py-3 rounded-lg font-semibold text-white hover:opacity-90 transition-opacity flex items-center justify-center gap-2 mt-auto"
                 style={{ backgroundColor: '#C89B3C' }}
               >
-                {t.join} <FaExternalLinkAlt size={14} />
-              </a>
+                {t.join}
+              </Link>
             </Card>
 
             {/* Regular Membership */}
@@ -200,15 +198,13 @@ const Membership = () => {
                 </div>
               </div>
               
-              <a 
-                href="https://mathwaa.online/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link 
+                to="/membership-apply?type=regular"
                 className="w-full py-3 rounded-lg font-semibold text-white hover:opacity-90 transition-opacity flex items-center justify-center gap-2 mt-auto"
                 style={{ backgroundColor: '#2563eb' }}
               >
-                {t.join} <FaExternalLinkAlt size={14} />
-              </a>
+                {t.join}
+              </Link>
             </Card>
           </Grid>
 

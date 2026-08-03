@@ -39,10 +39,10 @@ const BOARD_MEMBERS_DATA = [
   },
   {
     id: 4,
-    name_ar: 'عبدالله بن حمزة بن ناصر البراهيم',
-    name_en: 'Abdullah bin Hamza bin Nasser Al-Brahim',
-    role_ar: 'عضو مجلس الإدارة',
-    role_en: 'Board Member',
+    name_ar: 'عبدالله بن عباس بن حمزه البراهيم',
+    name_en: 'Abdullah bin Abbas bin Hamza Al-Brahim',
+    role_ar: 'المدير المالي',
+    role_en: 'Financial Manager',
     title_ar: 'الأستاذ',
     title_en: 'Mr.',
 
